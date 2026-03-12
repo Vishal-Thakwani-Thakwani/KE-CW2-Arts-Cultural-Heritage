@@ -1,85 +1,70 @@
-# Data Sources for Arts and Cultural Heritage Ontology
+# Data Source Recommendations — Domain Expert
 
 **Module:** 5CCSAKNE Knowledge Engineering — Coursework 2  
 **Author:** Vishal Thakwani (Domain Expert)  
 **Date:** 12 March 2026
 
+The coursework requires **at least 1 textual data source** and **at least 1 structured data source**. Below are my recommendations from a domain perspective. The **pipeline team** will evaluate feasibility and build the extraction/processing code.
+
 ---
 
-## 1. Open APIs (No Authentication Required)
+## Structured Data Sources (JSON/XML/SQL/API)
 
-### Metropolitan Museum of Art (The Met)
+### Metropolitan Museum of Art (The Met) — RECOMMENDED
 - **URL:** https://metmuseum.github.io/
 - **Format:** JSON REST API
-- **Coverage:** 470,000+ artworks with high-resolution public domain images
-- **Key fields:** title, artistDisplayName, objectDate, medium, department, culture, period, dynasty, classification, dimensions, country, city
+- **Coverage:** 470,000+ artworks
+- **Auth:** None required
+- **Key fields:** title, artistDisplayName, objectDate, medium, department, culture, period, classification, dimensions, country, city
 - **Licence:** CC0 (public domain)
-- **Why useful:** Massive dataset covering 5,000 years of art. Can populate Artwork, Artist, Medium, Period, and Place instances.
+- **Domain relevance:** Covers 5,000 years of art. Ideal for populating Artwork, Artist, Medium, Period, and Place instances.
 
 ### Rijksmuseum
 - **URL:** https://data.rijksmuseum.nl/
 - **Format:** JSON API + Linked Data (RDF/Turtle)
-- **Coverage:** 800,000+ objects, 320,000 bibliographic records, 70,000 thesaurus terms
-- **Linked Data model:** Europeana Data Model + Linked Art
+- **Coverage:** 800,000+ objects
+- **Auth:** API key (free)
 - **Licence:** CC0
-- **Why useful:** Already uses CIDOC-CRM-aligned models. Can serve as a direct data source for our ontology population.
+- **Domain relevance:** Already uses CIDOC-CRM-aligned models. Good alternative or complement to Met.
 
 ### Europeana
 - **URL:** https://www.europeana.eu/en
 - **Format:** REST API (JSON-LD)
-- **Coverage:** 50+ million cultural heritage items from 3,000+ institutions across Europe
-- **Licence:** Varies per item (CC0, CC-BY, etc.)
-- **Why useful:** Aggregates metadata from thousands of GLAMs. Good for cross-institutional queries.
+- **Coverage:** 50+ million items from 3,000+ institutions
+- **Domain relevance:** Cross-institutional metadata. Good for breadth.
 
-## 2. SPARQL Endpoints
+## Textual Data Sources
 
-### British Museum
-- **Endpoint:** https://collection.britishmuseum.org/sparql
-- **Model:** CIDOC-CRM
-- **Coverage:** 2+ million objects
-- **Why useful:** Uses CIDOC-CRM natively — excellent for validating our ontology alignment.
+### Wikipedia Articles on Major Artworks/Artists — RECOMMENDED
+- **Access:** Wikipedia API or scraped HTML
+- **Format:** Unstructured text
+- **Domain relevance:** Rich biographical, historical, and provenance information. Good for NLP/information extraction pipeline.
 
-### Nomisma.org
-- **Endpoint:** https://nomisma.org/sparql
-- **Focus:** Numismatic heritage (coins, medals)
-- **Model:** CIDOC-CRM extensions
-- **Why useful:** Demonstrates domain-specific CIDOC-CRM extension patterns.
+### Museum Exhibition Descriptions
+- **Sources:** Tate, British Museum, National Gallery websites
+- **Format:** HTML text
+- **Domain relevance:** Exhibition metadata, artwork descriptions, curatorial notes.
 
-### Getty Vocabularies (LOD)
-- **AAT:** http://vocab.getty.edu/aat/
-- **ULAN:** http://vocab.getty.edu/ulan/
-- **TGN:** http://vocab.getty.edu/tgn/
-- **Format:** RDF/SPARQL
-- **Why useful:** Standard reference vocabularies for art concepts, artist names, and geographic names.
+### Art News / Reviews
+- **Sources:** The Art Newspaper, Artnet News
+- **Format:** Unstructured text
+- **Domain relevance:** Current events, awards, exhibitions. Could feed into "Current news" aspect.
 
-## 3. Existing Ontologies to Reuse/Reference
+## SPARQL Endpoints (Existing KGs)
 
-| Ontology | URI | Description |
-|----------|-----|-------------|
-| CIDOC-CRM v7.1.3 | https://cidoc-crm.org/ | Core cultural heritage reference model (ISO 21127) |
-| Europeana Data Model | https://pro.europeana.eu/page/edm-documentation | Metadata aggregation framework |
-| Linked Art | https://linked.art/ | JSON-LD profile of CIDOC-CRM for art museums |
-| Dublin Core | https://www.dublincore.org/specifications/dublin-core/ | Generic metadata standard |
-| FOAF | http://xmlns.com/foaf/0.1/ | People and social connections |
-| Schema.org | https://schema.org/ | General-purpose structured data vocabulary |
+These can be accessed via API for data integration:
 
-## 4. Recommended Sample Data for Ontology Population
+| Endpoint | Model | URL |
+|----------|-------|-----|
+| British Museum | CIDOC-CRM | https://collection.britishmuseum.org/sparql |
+| Getty AAT | Custom | http://vocab.getty.edu/aat/ |
+| Getty ULAN | Custom | http://vocab.getty.edu/ulan/ |
+| Nomisma.org | CIDOC-CRM ext. | https://nomisma.org/sparql |
 
-For the coursework, I recommend populating the ontology with ~30-50 instances covering:
+## Recommendation
 
-### Artists (10-15)
-- Leonardo da Vinci, Michelangelo, Rembrandt, Monet, Van Gogh, Picasso, Frida Kahlo, Banksy, Yayoi Kusama, Damien Hirst, J.M.W. Turner, Tracey Emin, Grayson Perry
+For minimum viable effort, I recommend:
+1. **Structured:** Met Museum JSON API (free, no auth, massive coverage)
+2. **Textual:** Wikipedia articles on our sample artworks/artists
 
-### Artworks (15-20)
-- Mona Lisa, David (Michelangelo), The Night Watch, Water Lilies series, Starry Night, Guernica, Girl with a Pearl Earring, The Great Wave, The Physical Impossibility of Death in the Mind of Someone Living, My Bed
-
-### Institutions (5-10)
-- The Louvre, British Museum, Tate Modern, Metropolitan Museum of Art, Rijksmuseum, Uffizi Gallery, MoMA, National Gallery London, Guggenheim
-
-### Art Periods / Movements (5-8)
-- Renaissance (1400-1600), Baroque (1600-1750), Impressionism (1860-1900), Cubism (1907-1920s), Surrealism (1920s-1960s), Pop Art (1950s-1970s), Contemporary Art (1970-present)
-
-### Media / Techniques (5-8)
-- Oil on canvas, Marble, Bronze, Watercolour, Fresco, Mixed media, Photography, Installation
-
-This gives enough variety to demonstrate all competency questions and defined classes.
+The pipeline team should confirm these work for their extraction approach.

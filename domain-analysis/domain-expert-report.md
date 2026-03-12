@@ -1,171 +1,110 @@
 # Domain Expert Report: Arts and Cultural Heritage
 
-**Author:** Vishal Thakwani (Domain Expert)  
+**Author:** Vishal Thakwani (Domain Expert / Client)  
 **Module:** 5CCSAKNE Knowledge Engineering — Coursework 2  
 **Date:** 12 March 2026
 
 ---
 
-## 1. Domain Overview
+## 1. Domain Choice and Justification
 
-The **Arts and Cultural Heritage** domain encompasses the creation, preservation, exhibition, and scholarly study of artworks and cultural artefacts. It spans galleries, libraries, archives, and museums (collectively known as **GLAMs**) and covers a timeline from antiquity to contemporary art.
+We have chosen **Arts and Cultural Heritage** from the approved list. This domain is well-suited to this coursework because:
 
-This domain is rich in structured relationships — artworks are created by artists during specific periods, using specific materials and techniques, housed in institutions, exhibited in shows, subject to conservation, and passed through chains of ownership (provenance). These characteristics make it an ideal candidate for ontological modelling.
+- **Rich existing ontologies:** CIDOC-CRM (ISO 21127:2023) is the international standard, plus Europeana Data Model, Linked Art, etc. — we need to extend at least 2 existing ontologies, and this domain has many to choose from.
+- **Abundant data sources:** Both textual (Wikipedia articles, museum descriptions, exhibition reviews) and structured (Met Museum JSON API, Rijksmuseum API, British Museum SPARQL). The spec requires at least 1 of each.
+- **Real-world relevance:** GLAMs (Galleries, Libraries, Archives, Museums) are actively building knowledge graphs. Our KG mirrors real industry practice.
+- **Interesting competency questions:** The domain naturally supports varied query types (temporal, geographic, categorical, aggregation).
 
-## 2. Scope and Boundaries
+## 2. Project Objectives
 
-For this coursework, the ontology focuses on:
+As the domain expert, I am setting the following objectives for our KG:
 
-- **Artworks** (paintings, sculptures, prints, drawings, photographs, installations)
-- **Artists and creators** (individuals and groups)
-- **Cultural institutions** (museums, galleries, archives)
-- **Exhibitions** (temporary and permanent displays)
-- **Conservation and restoration** events
-- **Historical and art periods** (Renaissance, Baroque, Impressionism, etc.)
-- **Materials and techniques** used in creation
-- **Provenance** (ownership history)
-- **Geographic locations** (where art was created, where it is held)
-- **Awards and recognition** (Turner Prize, Venice Biennale, etc.)
+1. **Represent artworks and their creators** — including metadata like medium, technique, dimensions, creation date
+2. **Model cultural institutions** — museums and galleries, where they are located, what they hold
+3. **Capture art historical context** — periods, movements, and their temporal boundaries
+4. **Track conservation history** — restoration events on significant artworks
+5. **Enable provenance reasoning** — ownership chains and acquisition events
+6. **Support geographic reasoning** — transitive location relationships (city → country → continent)
 
-**Out of scope:** performing arts (music, theatre, dance), digital-only NFTs, literary works.
+## 3. Domain Scope and Boundaries
 
-## 3. Key Concepts (Classes)
+**In scope:**
+- Visual arts: paintings, sculptures, prints, drawings, photographs, installations
+- Artists and creators (individuals and groups)
+- Cultural institutions (museums, galleries)
+- Exhibitions
+- Conservation/restoration events
+- Art periods and movements
+- Materials and techniques
+- Provenance (ownership history)
+- Geographic locations
+- Awards and recognition
 
-The following core concepts form the backbone of the ontology:
+**Out of scope:**
+- Performing arts (music, theatre, dance)
+- Digital-only works / NFTs
+- Literary works
+- Detailed financial valuations
 
-### 3.1 Physical and Conceptual Objects
-| Class | Description | CIDOC-CRM Mapping |
-|-------|-------------|-------------------|
-| `Artwork` | A physical or conceptual work of art | E22 Human-Made Object / E28 Conceptual Object |
-| `Painting` | Subclass of Artwork — a painted work | E22 Human-Made Object |
-| `Sculpture` | Subclass of Artwork — a three-dimensional work | E22 Human-Made Object |
-| `Photograph` | Subclass of Artwork — a photographic work | E22 Human-Made Object |
-| `Print` | Subclass of Artwork — a printed work (etching, lithograph) | E22 Human-Made Object |
-| `Drawing` | Subclass of Artwork — a drawn work | E22 Human-Made Object |
-| `Installation` | Subclass of Artwork — a site-specific or spatial work | E22 Human-Made Object |
-| `Collection` | A curated group of artworks | E78 Curated Holding |
+## 4. High-Level Domain Concepts
 
-### 3.2 Actors
-| Class | Description | CIDOC-CRM Mapping |
-|-------|-------------|-------------------|
-| `Person` | A human individual | E21 Person |
-| `Artist` | A person who creates artworks (subclass of Person) | E21 Person (via P14 carried out by) |
-| `Curator` | A person who organises exhibitions | E21 Person |
-| `Conservator` | A person who preserves/restores artworks | E21 Person |
-| `Collector` | A person who owns/collects artworks | E21 Person |
-| `ArtistGroup` | A collective or movement of artists | E74 Group |
+These are the key concepts I've identified from the domain that the **modelling experts** should consider when designing the ontology. This is not a prescriptive class hierarchy — the modelling team decides the final OWL structure.
 
-### 3.3 Institutions and Places
-| Class | Description | CIDOC-CRM Mapping |
-|-------|-------------|-------------------|
-| `CulturalInstitution` | A museum, gallery, archive, or library | E40 Legal Body |
-| `Museum` | Subclass — dedicated to collecting and exhibiting | E40 Legal Body |
-| `Gallery` | Subclass — focused on art display/sales | E40 Legal Body |
-| `Place` | A geographic location | E53 Place |
-| `City` | Subclass of Place | E53 Place |
-| `Country` | Subclass of Place | E53 Place |
+### Core Entities
+- **Artwork** — the central concept; subtypes include Painting, Sculpture, Photograph, Print, Drawing, Installation
+- **Person** — human individuals; subtypes include Artist, Curator, Conservator, Collector
+- **Cultural Institution** — subtypes include Museum, Gallery
+- **Place** — subtypes include City, Country, Continent
 
-### 3.4 Events
-| Class | Description | CIDOC-CRM Mapping |
-|-------|-------------|-------------------|
-| `CreationEvent` | The act of creating an artwork | E12 Production |
-| `Exhibition` | A public display of artworks | E7 Activity |
-| `ConservationEvent` | Restoration or preservation work | E11 Modification |
-| `AcquisitionEvent` | Transfer of ownership | E8 Acquisition |
-| `AuctionSale` | Sale of artwork at auction | E96 Purchase |
+### Events
+- **Exhibition** — a public display of artworks at a venue
+- **Conservation Event** — restoration or preservation work
+- **Acquisition Event** — transfer of ownership
 
-### 3.5 Temporal and Classificatory
-| Class | Description | CIDOC-CRM Mapping |
-|-------|-------------|-------------------|
-| `ArtPeriod` | A historical/stylistic era (Renaissance, etc.) | E4 Period |
-| `ArtMovement` | A specific art movement (Cubism, Surrealism) | E4 Period |
-| `Medium` | Material used (oil on canvas, bronze, marble) | E57 Material |
-| `Technique` | Method of creation (fresco, etching, casting) | E55 Type |
-| `Genre` | Subject category (portrait, landscape, still life) | E55 Type |
-| `Award` | Recognition given (Turner Prize, etc.) | E55 Type |
+### Classificatory
+- **Art Period / Movement** — Renaissance, Baroque, Impressionism, Cubism, etc.
+- **Medium** — oil on canvas, marble, bronze, etc.
+- **Technique** — fresco, etching, casting, etc.
+- **Genre** — portrait, landscape, still life, historical, religious, abstract
+- **Award** — Turner Prize, Venice Biennale Golden Lion, etc.
 
-## 4. Key Relationships (Object Properties)
+### Key Relationships to Consider
+- Artwork → created by → Artist
+- Artwork → held by → Institution
+- Artwork → created during → Art Period
+- Artwork → used medium/technique → Medium/Technique
+- Institution → located in → Place (transitive: city → country → continent)
+- Artwork → exhibited in → Exhibition
+- Conservation Event → on artwork / by conservator
+- Artist → born in → Place
+- Artist → influenced by → Artist
 
-| Property | Domain | Range | Description |
-|----------|--------|-------|-------------|
-| `createdBy` | Artwork | Artist | Links artwork to its creator |
-| `createdDuring` | Artwork | ArtPeriod | The period in which the work was made |
-| `usedMedium` | Artwork | Medium | Material(s) used |
-| `usedTechnique` | Artwork | Technique | Technique(s) employed |
-| `hasGenre` | Artwork | Genre | Subject genre classification |
-| `heldBy` | Artwork | CulturalInstitution | Current holding institution |
-| `locatedIn` | CulturalInstitution | Place | Where the institution is |
-| `exhibitedIn` | Artwork | Exhibition | Exhibitions featuring the work |
-| `organisedBy` | Exhibition | CulturalInstitution / Curator | Who organised the exhibition |
-| `hostedAt` | Exhibition | CulturalInstitution | Venue of the exhibition |
-| `restoredBy` | ConservationEvent | Conservator | Who performed conservation |
-| `restoredArtwork` | ConservationEvent | Artwork | What was conserved |
-| `bornIn` | Person | Place | Birthplace of a person |
-| `activeIn` | Artist | ArtPeriod | Period(s) the artist was active |
-| `memberOf` | Artist | ArtistGroup | Artist membership in a collective |
-| `ownedBy` | Artwork | Person / CulturalInstitution | Provenance/current owner |
-| `previousOwner` | AcquisitionEvent | Person / CulturalInstitution | Prior owner in chain |
-| `wonAward` | Artist / Artwork | Award | Award received |
-| `placeInCountry` | City | Country | City to country relationship |
-| `influencedBy` | Artist | Artist / ArtMovement | Artistic influences |
+## 5. Existing Ontologies to Extend
 
-## 5. Key Data Properties
+The spec requires extending **at least 2 existing ontologies** with 2+ subclasses and 2+ subproperties each. I recommend these candidates for the **modelling experts** to evaluate:
 
-| Property | Domain | Range | Description |
-|----------|--------|-------|-------------|
-| `artworkTitle` | Artwork | xsd:string | Title of the artwork |
-| `creationYear` | Artwork | xsd:integer | Year of creation |
-| `dimensions` | Artwork | xsd:string | Physical dimensions |
-| `personName` | Person | xsd:string | Full name |
-| `birthYear` | Person | xsd:integer | Year of birth |
-| `deathYear` | Person | xsd:integer | Year of death |
-| `nationality` | Person | xsd:string | Nationality |
-| `exhibitionTitle` | Exhibition | xsd:string | Name of exhibition |
-| `startDate` | Exhibition | xsd:date | Exhibition start |
-| `endDate` | Exhibition | xsd:date | Exhibition end |
-| `mediumName` | Medium | xsd:string | Name of material |
-| `periodName` | ArtPeriod | xsd:string | Name of period |
-| `periodStart` | ArtPeriod | xsd:integer | Start year of period |
-| `periodEnd` | ArtPeriod | xsd:integer | End year of period |
-| `institutionName` | CulturalInstitution | xsd:string | Name of institution |
-| `foundedYear` | CulturalInstitution | xsd:integer | Year founded |
-| `awardName` | Award | xsd:string | Name of the award |
-| `awardYear` | Award | xsd:integer | Year awarded |
+| Ontology | Why it fits | URL |
+|----------|------------|-----|
+| **CIDOC-CRM** (ISO 21127) | The international standard for cultural heritage documentation; ~90 classes, ~160 properties | https://cidoc-crm.org/ |
+| **Europeana Data Model** | Used by 3,000+ European institutions; good for aggregating metadata | https://pro.europeana.eu/page/edm-documentation |
+| **Linked Art** | JSON-LD profile of CIDOC-CRM used by Getty, Yale, Smithsonian | https://linked.art/ |
+| **Dublin Core** | General metadata standard, widely used | https://www.dublincore.org/ |
+| **FOAF** | People and social connections | http://xmlns.com/foaf/0.1/ |
 
-## 6. Proposed Defined Classes (OWL2)
+The modelling team should pick 2 and define the extensions.
 
-These classes use equivalentClass axioms for automatic classification by a DL reasoner:
+## 6. Domain Decisions Log
 
-1. **`RenaissancePainting`** — A Painting whose creationYear falls between 1400 and 1600.
-2. **`MultidisciplinaryArtist`** — An Artist who created both a Painting and a Sculpture.
-3. **`InternationalExhibition`** — An Exhibition hosted at institutions in more than one Country.
-4. **`RestoredMasterpiece`** — An Artwork that has been the subject of at least one ConservationEvent and was created before 1800.
-5. **`LivingArtist`** — An Artist with a birthYear but no deathYear recorded.
-6. **`ProvenancedArtwork`** — An Artwork involved in at least two AcquisitionEvents (rich ownership history).
+As domain expert, I'll maintain a running log of decisions made throughout the project:
 
-## 7. Existing Ontologies and Standards
+| # | Decision | Rationale | Date |
+|---|----------|-----------|------|
+| 1 | Domain = Arts and Cultural Heritage | Rich ontologies, abundant data, real-world relevance | 06/03/2026 |
+| 2 | Focus on visual arts only (not performing arts) | Keeps scope manageable for 5-person team | 12/03/2026 |
+| 3 | Include conservation/provenance events | Enables interesting temporal queries and defined classes | 12/03/2026 |
 
-### 7.1 CIDOC-CRM (ISO 21127:2023)
-The definitive standard for cultural heritage. Defines ~90 classes and ~160 properties. Our ontology should align with CIDOC-CRM where possible, though we create a simplified subset suitable for this coursework.
+## 7. Recommendations for Team
 
-### 7.2 Europeana Data Model (EDM)
-Used by Europeana.eu to aggregate metadata from 3,000+ European institutions. Provides classes like `edm:ProvidedCHO` (cultural heritage object) and properties for linking to providers.
-
-### 7.3 Linked Art
-A JSON-LD based profile of CIDOC-CRM used by the Getty, Yale, the Smithsonian, and others. Focuses on art museum use cases.
-
-### 7.4 Getty Vocabularies
-- **AAT** (Art & Architecture Thesaurus) — 400,000+ terms for art concepts
-- **ULAN** (Union List of Artist Names) — 300,000+ artist records
-- **TGN** (Thesaurus of Geographic Names) — 2,000,000+ place names
-
-## 8. Alignment with CIDOC-CRM
-
-The table in Section 3 shows how each proposed class maps to CIDOC-CRM. This alignment ensures our ontology is interoperable with international cultural heritage data while remaining simple enough for coursework scope.
-
-## 9. Recommendations for the Team
-
-1. **Modelling Experts:** Use Protégé with the HermiT reasoner. Define at least 5 equivalentClass axioms for the defined classes above. Use `owl:TransitiveProperty` for `locatedIn` (city → country → continent).
-2. **Data Integration:** Pull sample data from the Metropolitan Museum API (free, no key needed) and the Rijksmuseum API. Map JSON fields to ontology properties.
-3. **LLM Pipeline:** Use prompts to generate an alternative ontology from the competency questions, then compare with the manual version.
-4. **Domain Validation:** I will validate the ontology against real-world examples from the British Museum, Tate, and Louvre collections.
+- **Modelling experts:** Evaluate CIDOC-CRM + one other ontology for extension. Consider `owl:TransitiveProperty` for geographic containment. Use Protégé with HermiT reasoner.
+- **Pipeline team:** Start with the Met Museum API (free, no key, 470k+ artworks in JSON) as the structured source. For textual data, consider Wikipedia articles on major artworks/artists.
+- **Everyone:** Document all LLM prompts used — this is worth 10 marks on its own.

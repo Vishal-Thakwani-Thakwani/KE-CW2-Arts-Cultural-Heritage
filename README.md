@@ -1,4 +1,4 @@
-# Arts and Cultural Heritage Ontology
+# Arts and Cultural Heritage Knowledge Graph
 
 **Module:** 5CCSAKNE Knowledge Engineering — Coursework 2 (Group Project)  
 **Domain:** Arts and Cultural Heritage  
@@ -7,15 +7,23 @@
 
 ## Project Overview
 
-This project develops an OWL2 ontology for the **Arts and Cultural Heritage** domain, covering artworks, artists, cultural institutions, exhibitions, conservation events, historical periods, and provenance. The ontology is grounded in the internationally standardised [CIDOC Conceptual Reference Model (CRM)](https://cidoc-crm.org/) (ISO 21127:2023) and is designed to be queried with SPARQL.
+This project develops an automated **knowledge graph (KG)** for the **Arts and Cultural Heritage** domain. Unlike CW1, this is not a manually-built ontology — we must develop a computational system that automates as much of the KG construction process as possible, using LLMs, information extraction, existing KG APIs, and structured/unstructured data sources.
+
+The KG will combine:
+- At least **1 textual data source** and **1 structured data source** (JSON, XML, SQL, etc.)
+- Extensions of at least **2 existing ontologies** (with 2+ subclasses and 2+ subproperties each)
+- **20 competency questions** (10 manual + 10 LLM-generated)
+- **20 SPARQL queries** answering those CQs
+- **Completion analysis** with RAG to resolve gaps
+- **Evaluation methodology** with quantitative metrics
 
 ## Team Roles
 
 | Role | Member(s) | Responsibilities |
 |------|-----------|------------------|
-| **Domain Expert** | Vishal Thakwani | Domain research, concept identification, competency questions, validation |
-| **Modelling Expert** | TBC | Ontology design in Protégé, OWL2 axioms, defined classes |
-| **Requirements, Data Integration & LLM Pipeline** | TBC (2 members) | Requirements engineering, data sourcing, LLM-assisted ontology generation |
+| **Domain Expert / Client** | Vishal Thakwani | Set objectives, domain decisions, lead 10 manual CQs, keep all documentation up to date |
+| **Modelling Experts** (2) | TBC | Design ontology in Protégé, extend 2 existing ontologies, produce mappings, write queries/prompts, evaluation methodology |
+| **Requirements, Data Ingestion & LLM Pipeline** (2) | TBC | Find and set up data sources, build extraction/processing code, data cleaning, produce mappings, develop LLM prompts |
 
 ## Repository Structure
 
@@ -23,30 +31,46 @@ This project develops an OWL2 ontology for the **Arts and Cultural Heritage** do
 .
 ├── README.md
 ├── domain-analysis/
-│   ├── domain-expert-report.md      # Comprehensive domain analysis
-│   ├── competency-questions.md      # 20 competency questions with rationale
-│   └── data-sources.md              # LOD endpoints, APIs, existing ontologies
+│   ├── domain-expert-report.md      # Domain objectives, scope, concept sketch
+│   ├── competency-questions.md      # 10 manual CQs (domain expert)
+│   └── data-sources.md              # Domain-validated data source recommendations
 ├── ontology/
-│   ├── arts-cultural-heritage.ttl   # Manual OWL2 ontology (Turtle)
-│   └── arts-cultural-heritage-ai.ttl # AI-generated ontology (TBC)
+│   ├── domain-concept-sketch.md     # High-level domain concepts for modelling team
+│   └── (ontology files built by modelling experts)
+├── meetings/
+│   ├── minutes-template.md          # Template for meeting minutes
+│   ├── meeting-01.md                # Week 10 meeting (TBC)
+│   ├── meeting-02.md                # Week 11 meeting (TBC)
+│   └── meeting-03.md                # Week 12 meeting (TBC)
+├── pipeline/
+│   └── (data ingestion code built by pipeline team)
 ├── sparql/
-│   └── queries.rq                   # SPARQL queries answering CQs (TBC)
+│   └── (SPARQL queries built by modelling experts)
 ├── prompts/
-│   └── llm-prompts.txt              # LLM prompts used for AI ontology (TBC)
+│   └── (LLM prompts documented by all team members)
 └── docs/
-    └── reflection.pdf               # Group reflection document (TBC)
+    ├── report.md                    # KG report (all contribute, domain expert maintains)
+    └── completion-analysis.md        # KG completion analysis (TBC)
 ```
 
-## Key Standards & References
+## Deliverables (from spec)
 
-- **CIDOC-CRM** (ISO 21127:2023) — The international standard ontology for cultural heritage documentation
-- **Europeana Data Model (EDM)** — Metadata framework for Europe's digital cultural heritage
-- **Linked Art** — A community and JSON-LD profile for describing art using CIDOC-CRM and Getty vocabularies
-- **Getty Vocabularies** — AAT (Art & Architecture Thesaurus), ULAN (Union List of Artist Names), TGN (Thesaurus of Geographic Names)
+1. **Turtle file** of the KG (ontology + instances)
+2. **Meeting minutes** (min. 3 meetings, weeks 10-12)
+3. **KG Report** (intro, data sources, ontology extensions, mappings, queries, evaluation)
+4. **Completion analysis** document (5 incomplete ontology + 5 incomplete instance elements, RAG strategy)
+5. **Prompts document** (all LLM prompts and which KE task they belong to)
+6. **Public code repository** (this repo)
 
-## Getting Started
+## Marking Breakdown
 
-1. Clone this repository
-2. Open `ontology/arts-cultural-heritage.ttl` in [Protégé](https://protege.stanford.edu/)
-3. Run the HermiT or Pellet reasoner to classify the ontology
-4. Execute SPARQL queries in `sparql/queries.rq` against the inferred model
+| Criterion | Weight |
+|-----------|--------|
+| Classes and properties | 10 |
+| Extensions of 2 existing ontologies | 5 |
+| 20 competency questions (manual + LLM) | 10 |
+| Data source mappings & pipeline | **25** |
+| 20 SPARQL queries | 10 |
+| KG completion + RAG | 10 |
+| Prompts documentation | 10 |
+| KG Report | **20** |
