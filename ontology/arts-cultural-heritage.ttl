@@ -1,0 +1,966 @@
+@prefix : <http://www.semanticweb.org/ke-cw2/ontologies/2026/arts-cultural-heritage#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@base <http://www.semanticweb.org/ke-cw2/ontologies/2026/arts-cultural-heritage#> .
+
+<http://www.semanticweb.org/ke-cw2/ontologies/2026/arts-cultural-heritage> rdf:type owl:Ontology ;
+    dc:creator "KE CW2 Group" ;
+    dc:description "OWL2 ontology for the Arts and Cultural Heritage domain. Aligned with CIDOC-CRM (ISO 21127). 5CCSAKNE Knowledge Engineering Coursework 2, King's College London 2025/26." ;
+    rdfs:comment "This ontology models artworks, artists, cultural institutions, exhibitions, conservation events, art periods, materials, and provenance within the arts and cultural heritage domain."@en ;
+    rdfs:label "Arts and Cultural Heritage Ontology"@en .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+dc:creator rdf:type owl:AnnotationProperty .
+dc:description rdf:type owl:AnnotationProperty .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+:createdBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range :Artist ;
+    rdfs:comment "Relates an artwork to the artist who created it (maps to CIDOC-CRM P14 carried out by via E12 Production)."@en ;
+    rdfs:label "created by"@en .
+
+:createdDuring rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range :ArtPeriod ;
+    rdfs:comment "The historical period during which the artwork was created."@en ;
+    rdfs:label "created during"@en .
+
+:usedMedium rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range :Medium ;
+    rdfs:comment "The material(s) used to create the artwork (e.g., oil on canvas, marble)."@en ;
+    rdfs:label "used medium"@en .
+
+:usedTechnique rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range :Technique ;
+    rdfs:comment "The technique employed in creating the artwork (e.g., fresco, casting)."@en ;
+    rdfs:label "used technique"@en .
+
+:hasGenre rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range :Genre ;
+    rdfs:comment "Subject genre of the artwork (e.g., portrait, landscape, still life)."@en ;
+    rdfs:label "has genre"@en .
+
+:heldBy rdf:type owl:ObjectProperty ;
+    owl:inverseOf :holdsArtwork ;
+    rdfs:domain :Artwork ;
+    rdfs:range :CulturalInstitution ;
+    rdfs:comment "The institution currently holding or displaying the artwork."@en ;
+    rdfs:label "held by"@en .
+
+:holdsArtwork rdf:type owl:ObjectProperty ;
+    rdfs:domain :CulturalInstitution ;
+    rdfs:range :Artwork ;
+    rdfs:comment "Inverse of heldBy. Relates an institution to the artworks it holds."@en ;
+    rdfs:label "holds artwork"@en .
+
+:exhibitedIn rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range :Exhibition ;
+    rdfs:comment "Relates an artwork to an exhibition in which it was displayed."@en ;
+    rdfs:label "exhibited in"@en .
+
+:organisedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :Exhibition ;
+    rdfs:range :CulturalInstitution ;
+    rdfs:comment "The institution or curator that organised the exhibition."@en ;
+    rdfs:label "organised by"@en .
+
+:hostedAt rdf:type owl:ObjectProperty ;
+    rdfs:domain :Exhibition ;
+    rdfs:range :CulturalInstitution ;
+    rdfs:comment "The venue where the exhibition was hosted."@en ;
+    rdfs:label "hosted at"@en .
+
+:restoredArtwork rdf:type owl:ObjectProperty ;
+    rdfs:domain :ConservationEvent ;
+    rdfs:range :Artwork ;
+    rdfs:comment "The artwork that was subject to conservation/restoration."@en ;
+    rdfs:label "restored artwork"@en .
+
+:restoredBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :ConservationEvent ;
+    rdfs:range :Conservator ;
+    rdfs:comment "The conservator who performed the restoration work."@en ;
+    rdfs:label "restored by"@en .
+
+:bornIn rdf:type owl:ObjectProperty ,
+                 owl:FunctionalProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :Place ;
+    rdfs:comment "The place where a person was born. Functional — one birthplace per person."@en ;
+    rdfs:label "born in"@en .
+
+:activeIn rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artist ;
+    rdfs:range :ArtPeriod ;
+    rdfs:comment "The art period(s) during which the artist was active."@en ;
+    rdfs:label "active in"@en .
+
+:memberOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artist ;
+    rdfs:range :ArtistGroup ;
+    rdfs:comment "Links an artist to a collective, movement, or group they belong to."@en ;
+    rdfs:label "member of"@en .
+
+:ownedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range :Person ;
+    rdfs:comment "Current or historical owner of the artwork."@en ;
+    rdfs:label "owned by"@en .
+
+:wonAward rdf:type owl:ObjectProperty ;
+    rdfs:domain :Person ;
+    rdfs:range :Award ;
+    rdfs:comment "An award received by a person (e.g., Turner Prize)."@en ;
+    rdfs:label "won award"@en .
+
+:locatedIn rdf:type owl:ObjectProperty ,
+                    owl:TransitiveProperty ;
+    rdfs:comment "Transitive geographic containment. If Tate Modern locatedIn London and London locatedIn UK, then Tate Modern locatedIn UK is inferred."@en ;
+    rdfs:label "located in"@en .
+
+:influencedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :Artist ;
+    rdfs:range :Artist ;
+    rdfs:comment "Indicates that one artist was artistically influenced by another."@en ;
+    rdfs:label "influenced by"@en .
+
+:acquiredFrom rdf:type owl:ObjectProperty ;
+    rdfs:domain :AcquisitionEvent ;
+    rdfs:range :Person ;
+    rdfs:comment "The previous owner from whom the artwork was acquired."@en ;
+    rdfs:label "acquired from"@en .
+
+:acquiredBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :AcquisitionEvent ;
+    rdfs:range :Person ;
+    rdfs:comment "The new owner who acquired the artwork."@en ;
+    rdfs:label "acquired by"@en .
+
+:acquisitionOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :AcquisitionEvent ;
+    rdfs:range :Artwork ;
+    rdfs:comment "The artwork that changed hands in this acquisition."@en ;
+    rdfs:label "acquisition of"@en .
+
+#################################################################
+#    Data properties
+#################################################################
+
+:artworkTitle rdf:type owl:DatatypeProperty ,
+                       owl:FunctionalProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The title of an artwork."@en ;
+    rdfs:label "artwork title"@en .
+
+:creationYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "The year in which the artwork was created."@en ;
+    rdfs:label "creation year"@en .
+
+:dimensions rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Artwork ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Physical dimensions of the artwork."@en ;
+    rdfs:label "dimensions"@en .
+
+:personName rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Full name of a person."@en ;
+    rdfs:label "person name"@en .
+
+:birthYear rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Year of birth."@en ;
+    rdfs:label "birth year"@en .
+
+:deathYear rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Year of death. Absent for living persons."@en ;
+    rdfs:label "death year"@en .
+
+:nationality rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Nationality of a person."@en ;
+    rdfs:label "nationality"@en .
+
+:exhibitionTitle rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+    rdfs:domain :Exhibition ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of an exhibition."@en ;
+    rdfs:label "exhibition title"@en .
+
+:startDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Exhibition ;
+    rdfs:range xsd:date ;
+    rdfs:comment "Start date of an exhibition."@en ;
+    rdfs:label "start date"@en .
+
+:endDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Exhibition ;
+    rdfs:range xsd:date ;
+    rdfs:comment "End date of an exhibition."@en ;
+    rdfs:label "end date"@en .
+
+:mediumName rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+    rdfs:domain :Medium ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of a material/medium."@en ;
+    rdfs:label "medium name"@en .
+
+:techniqueName rdf:type owl:DatatypeProperty ,
+                        owl:FunctionalProperty ;
+    rdfs:domain :Technique ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of a technique."@en ;
+    rdfs:label "technique name"@en .
+
+:periodName rdf:type owl:DatatypeProperty ,
+                     owl:FunctionalProperty ;
+    rdfs:domain :ArtPeriod ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of an art period or movement."@en ;
+    rdfs:label "period name"@en .
+
+:periodStart rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ArtPeriod ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Approximate start year of an art period."@en ;
+    rdfs:label "period start"@en .
+
+:periodEnd rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ArtPeriod ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Approximate end year of an art period."@en ;
+    rdfs:label "period end"@en .
+
+:institutionName rdf:type owl:DatatypeProperty ,
+                          owl:FunctionalProperty ;
+    rdfs:domain :CulturalInstitution ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of a cultural institution."@en ;
+    rdfs:label "institution name"@en .
+
+:foundedYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain :CulturalInstitution ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Year the institution was founded."@en ;
+    rdfs:label "founded year"@en .
+
+:genreName rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+    rdfs:domain :Genre ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of a genre category."@en ;
+    rdfs:label "genre name"@en .
+
+:awardName rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+    rdfs:domain :Award ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of an award."@en ;
+    rdfs:label "award name"@en .
+
+:placeName rdf:type owl:DatatypeProperty ,
+                    owl:FunctionalProperty ;
+    rdfs:domain :Place ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Name of a place."@en ;
+    rdfs:label "place name"@en .
+
+:conservationYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain :ConservationEvent ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Year the conservation work was performed."@en ;
+    rdfs:label "conservation year"@en .
+
+:acquisitionYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain :AcquisitionEvent ;
+    rdfs:range xsd:integer ;
+    rdfs:comment "Year of the acquisition event."@en ;
+    rdfs:label "acquisition year"@en .
+
+#################################################################
+#    Classes
+#################################################################
+
+:Artwork rdf:type owl:Class ;
+    owl:disjointWith :Person , :CulturalInstitution , :Exhibition ;
+    rdfs:comment "A physical or conceptual work of art. Maps to CIDOC-CRM E22 Human-Made Object / E28 Conceptual Object."@en ;
+    rdfs:label "Artwork"@en .
+
+:Painting rdf:type owl:Class ;
+    rdfs:subClassOf :Artwork ;
+    rdfs:comment "A painted work of art."@en ;
+    rdfs:label "Painting"@en .
+
+:Sculpture rdf:type owl:Class ;
+    rdfs:subClassOf :Artwork ;
+    rdfs:comment "A three-dimensional work of art."@en ;
+    rdfs:label "Sculpture"@en .
+
+:Photograph rdf:type owl:Class ;
+    rdfs:subClassOf :Artwork ;
+    rdfs:comment "A photographic work of art."@en ;
+    rdfs:label "Photograph"@en .
+
+:Print rdf:type owl:Class ;
+    rdfs:subClassOf :Artwork ;
+    rdfs:comment "A printed work of art (etching, lithograph, woodcut, etc.)."@en ;
+    rdfs:label "Print"@en .
+
+:Drawing rdf:type owl:Class ;
+    rdfs:subClassOf :Artwork ;
+    rdfs:comment "A drawn work of art."@en ;
+    rdfs:label "Drawing"@en .
+
+:Installation rdf:type owl:Class ;
+    rdfs:subClassOf :Artwork ;
+    rdfs:comment "A site-specific or immersive spatial artwork."@en ;
+    rdfs:label "Installation"@en .
+
+:Collection rdf:type owl:Class ;
+    rdfs:comment "A curated group of artworks. Maps to CIDOC-CRM E78 Curated Holding."@en ;
+    rdfs:label "Collection"@en .
+
+:Person rdf:type owl:Class ;
+    owl:disjointWith :CulturalInstitution , :Exhibition ;
+    rdfs:comment "A human individual. Maps to CIDOC-CRM E21 Person."@en ;
+    rdfs:label "Person"@en .
+
+:Artist rdf:type owl:Class ;
+    rdfs:subClassOf :Person ;
+    rdfs:comment "A person who creates artworks. Not disjoint with Curator or Conservator."@en ;
+    rdfs:label "Artist"@en .
+
+:Curator rdf:type owl:Class ;
+    rdfs:subClassOf :Person ;
+    rdfs:comment "A person who organises exhibitions."@en ;
+    rdfs:label "Curator"@en .
+
+:Conservator rdf:type owl:Class ;
+    rdfs:subClassOf :Person ;
+    rdfs:comment "A person who preserves or restores artworks."@en ;
+    rdfs:label "Conservator"@en .
+
+:Collector rdf:type owl:Class ;
+    rdfs:subClassOf :Person ;
+    rdfs:comment "A person who collects artworks."@en ;
+    rdfs:label "Collector"@en .
+
+:ArtistGroup rdf:type owl:Class ;
+    rdfs:comment "A collective, school, or movement of artists. Maps to CIDOC-CRM E74 Group."@en ;
+    rdfs:label "Artist Group"@en .
+
+:CulturalInstitution rdf:type owl:Class ;
+    owl:disjointWith :Exhibition ;
+    rdfs:comment "A museum, gallery, archive, or library. Maps to CIDOC-CRM E40 Legal Body."@en ;
+    rdfs:label "Cultural Institution"@en .
+
+:Museum rdf:type owl:Class ;
+    rdfs:subClassOf :CulturalInstitution ;
+    rdfs:comment "An institution dedicated to collecting and exhibiting cultural artefacts."@en ;
+    rdfs:label "Museum"@en .
+
+:Gallery rdf:type owl:Class ;
+    rdfs:subClassOf :CulturalInstitution ;
+    rdfs:comment "An institution focused on art display and sometimes sales."@en ;
+    rdfs:label "Gallery"@en .
+
+:Place rdf:type owl:Class ;
+    rdfs:comment "A geographic location. Maps to CIDOC-CRM E53 Place."@en ;
+    rdfs:label "Place"@en .
+
+:City rdf:type owl:Class ;
+    rdfs:subClassOf :Place ;
+    rdfs:comment "A city or town."@en ;
+    rdfs:label "City"@en .
+
+:Country rdf:type owl:Class ;
+    rdfs:subClassOf :Place ;
+    rdfs:comment "A sovereign nation."@en ;
+    rdfs:label "Country"@en .
+
+:Continent rdf:type owl:Class ;
+    rdfs:subClassOf :Place ;
+    rdfs:comment "A continent."@en ;
+    rdfs:label "Continent"@en .
+
+:Exhibition rdf:type owl:Class ;
+    rdfs:comment "A public display of artworks. Maps to CIDOC-CRM E7 Activity."@en ;
+    rdfs:label "Exhibition"@en .
+
+:ConservationEvent rdf:type owl:Class ;
+    rdfs:comment "A restoration or preservation activity on an artwork. Maps to CIDOC-CRM E11 Modification."@en ;
+    rdfs:label "Conservation Event"@en .
+
+:AcquisitionEvent rdf:type owl:Class ;
+    rdfs:comment "A transfer of ownership of an artwork. Maps to CIDOC-CRM E8 Acquisition."@en ;
+    rdfs:label "Acquisition Event"@en .
+
+:ArtPeriod rdf:type owl:Class ;
+    rdfs:comment "A historical or stylistic era in art history. Maps to CIDOC-CRM E4 Period."@en ;
+    rdfs:label "Art Period"@en .
+
+:ArtMovement rdf:type owl:Class ;
+    rdfs:subClassOf :ArtPeriod ;
+    rdfs:comment "A specific art movement such as Cubism, Surrealism, Impressionism."@en ;
+    rdfs:label "Art Movement"@en .
+
+:Medium rdf:type owl:Class ;
+    rdfs:comment "A material used to create an artwork. Maps to CIDOC-CRM E57 Material."@en ;
+    rdfs:label "Medium"@en .
+
+:Technique rdf:type owl:Class ;
+    rdfs:comment "A method of artistic creation (fresco, etching, casting). Maps to CIDOC-CRM E55 Type."@en ;
+    rdfs:label "Technique"@en .
+
+:Genre rdf:type owl:Class ;
+    rdfs:comment "A subject category for artworks (portrait, landscape, still life). Maps to CIDOC-CRM E55 Type."@en ;
+    rdfs:label "Genre"@en .
+
+:Award rdf:type owl:Class ;
+    rdfs:comment "A prize or honour for artistic achievement."@en ;
+    rdfs:label "Award"@en .
+
+#################################################################
+#    Defined Classes (OWL2 equivalentClass axioms)
+#################################################################
+
+:RenaissancePainting rdf:type owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf ( :Painting
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :creationYear ;
+                                                 owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                      owl:onDatatype xsd:integer ;
+                                                                      owl:withRestrictions ( [ xsd:minInclusive 1400 ]
+                                                                                             [ xsd:maxInclusive 1600 ] )
+                                                                    ]
+                                               ]
+                                             ) ;
+                          rdf:type owl:Class
+                        ] ;
+    rdfs:comment "Defined class: a Painting created between 1400 and 1600 (the Renaissance period). Mona Lisa should be classified here by the reasoner."@en ;
+    rdfs:label "Renaissance Painting"@en .
+
+:MultidisciplinaryArtist rdf:type owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf ( :Artist
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty [ owl:inverseOf :createdBy ] ;
+                                                 owl:someValuesFrom :Painting
+                                               ]
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty [ owl:inverseOf :createdBy ] ;
+                                                 owl:someValuesFrom :Sculpture
+                                               ]
+                                             ) ;
+                          rdf:type owl:Class
+                        ] ;
+    rdfs:comment "Defined class: an Artist who has created both a Painting and a Sculpture. Michelangelo should be classified here."@en ;
+    rdfs:label "Multidisciplinary Artist"@en .
+
+:RestoredMasterpiece rdf:type owl:Class ;
+    owl:equivalentClass [ owl:intersectionOf ( :Artwork
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty [ owl:inverseOf :restoredArtwork ] ;
+                                                 owl:someValuesFrom :ConservationEvent
+                                               ]
+                                               [ rdf:type owl:Restriction ;
+                                                 owl:onProperty :creationYear ;
+                                                 owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                                      owl:onDatatype xsd:integer ;
+                                                                      owl:withRestrictions ( [ xsd:maxExclusive 1800 ] )
+                                                                    ]
+                                               ]
+                                             ) ;
+                          rdf:type owl:Class
+                        ] ;
+    rdfs:comment "Defined class: an Artwork created before 1800 that has undergone at least one conservation event. Mona Lisa should be classified here."@en ;
+    rdfs:label "Restored Masterpiece"@en .
+
+#################################################################
+#    Individuals — Art Periods
+#################################################################
+
+:Renaissance rdf:type owl:NamedIndividual , :ArtPeriod ;
+    :periodName "Renaissance" ;
+    :periodStart 1400 ;
+    :periodEnd 1600 .
+
+:Baroque rdf:type owl:NamedIndividual , :ArtPeriod ;
+    :periodName "Baroque" ;
+    :periodStart 1600 ;
+    :periodEnd 1750 .
+
+:Impressionism rdf:type owl:NamedIndividual , :ArtMovement ;
+    :periodName "Impressionism" ;
+    :periodStart 1860 ;
+    :periodEnd 1900 .
+
+:Cubism rdf:type owl:NamedIndividual , :ArtMovement ;
+    :periodName "Cubism" ;
+    :periodStart 1907 ;
+    :periodEnd 1930 .
+
+:Surrealism rdf:type owl:NamedIndividual , :ArtMovement ;
+    :periodName "Surrealism" ;
+    :periodStart 1920 ;
+    :periodEnd 1960 .
+
+:PopArt rdf:type owl:NamedIndividual , :ArtMovement ;
+    :periodName "Pop Art" ;
+    :periodStart 1950 ;
+    :periodEnd 1970 .
+
+:ContemporaryArt rdf:type owl:NamedIndividual , :ArtPeriod ;
+    :periodName "Contemporary Art" ;
+    :periodStart 1970 ;
+    :periodEnd 2026 .
+
+#################################################################
+#    Individuals — Media
+#################################################################
+
+:OilOnCanvas rdf:type owl:NamedIndividual , :Medium ;
+    :mediumName "Oil on canvas" .
+
+:Marble rdf:type owl:NamedIndividual , :Medium ;
+    :mediumName "Marble" .
+
+:Bronze rdf:type owl:NamedIndividual , :Medium ;
+    :mediumName "Bronze" .
+
+:Watercolour rdf:type owl:NamedIndividual , :Medium ;
+    :mediumName "Watercolour" .
+
+:Fresco rdf:type owl:NamedIndividual , :Medium ;
+    :mediumName "Fresco" .
+
+:MixedMedia rdf:type owl:NamedIndividual , :Medium ;
+    :mediumName "Mixed media" .
+
+:PhotographicPrint rdf:type owl:NamedIndividual , :Medium ;
+    :mediumName "Photographic print" .
+
+#################################################################
+#    Individuals — Techniques
+#################################################################
+
+:OilPainting rdf:type owl:NamedIndividual , :Technique ;
+    :techniqueName "Oil painting" .
+
+:FrescoTechnique rdf:type owl:NamedIndividual , :Technique ;
+    :techniqueName "Fresco" .
+
+:Casting rdf:type owl:NamedIndividual , :Technique ;
+    :techniqueName "Casting" .
+
+:Carving rdf:type owl:NamedIndividual , :Technique ;
+    :techniqueName "Carving" .
+
+:Etching rdf:type owl:NamedIndividual , :Technique ;
+    :techniqueName "Etching" .
+
+#################################################################
+#    Individuals — Genres
+#################################################################
+
+:Portrait rdf:type owl:NamedIndividual , :Genre ;
+    :genreName "Portrait" .
+
+:Landscape rdf:type owl:NamedIndividual , :Genre ;
+    :genreName "Landscape" .
+
+:StillLife rdf:type owl:NamedIndividual , :Genre ;
+    :genreName "Still Life" .
+
+:Historical rdf:type owl:NamedIndividual , :Genre ;
+    :genreName "Historical" .
+
+:Religious rdf:type owl:NamedIndividual , :Genre ;
+    :genreName "Religious" .
+
+:Abstract rdf:type owl:NamedIndividual , :Genre ;
+    :genreName "Abstract" .
+
+#################################################################
+#    Individuals — Places
+#################################################################
+
+:Europe rdf:type owl:NamedIndividual , :Continent ;
+    :placeName "Europe" .
+
+:NorthAmerica rdf:type owl:NamedIndividual , :Continent ;
+    :placeName "North America" .
+
+:Asia rdf:type owl:NamedIndividual , :Continent ;
+    :placeName "Asia" .
+
+:Italy rdf:type owl:NamedIndividual , :Country ;
+    :locatedIn :Europe ;
+    :placeName "Italy" .
+
+:France rdf:type owl:NamedIndividual , :Country ;
+    :locatedIn :Europe ;
+    :placeName "France" .
+
+:UnitedKingdom rdf:type owl:NamedIndividual , :Country ;
+    :locatedIn :Europe ;
+    :placeName "United Kingdom" .
+
+:Netherlands rdf:type owl:NamedIndividual , :Country ;
+    :locatedIn :Europe ;
+    :placeName "Netherlands" .
+
+:Spain rdf:type owl:NamedIndividual , :Country ;
+    :locatedIn :Europe ;
+    :placeName "Spain" .
+
+:UnitedStates rdf:type owl:NamedIndividual , :Country ;
+    :locatedIn :NorthAmerica ;
+    :placeName "United States" .
+
+:Japan rdf:type owl:NamedIndividual , :Country ;
+    :locatedIn :Asia ;
+    :placeName "Japan" .
+
+:Mexico rdf:type owl:NamedIndividual , :Country ;
+    :locatedIn :NorthAmerica ;
+    :placeName "Mexico" .
+
+:Florence rdf:type owl:NamedIndividual , :City ;
+    :locatedIn :Italy ;
+    :placeName "Florence" .
+
+:Paris rdf:type owl:NamedIndividual , :City ;
+    :locatedIn :France ;
+    :placeName "Paris" .
+
+:London rdf:type owl:NamedIndividual , :City ;
+    :locatedIn :UnitedKingdom ;
+    :placeName "London" .
+
+:Amsterdam rdf:type owl:NamedIndividual , :City ;
+    :locatedIn :Netherlands ;
+    :placeName "Amsterdam" .
+
+:NewYorkCity rdf:type owl:NamedIndividual , :City ;
+    :locatedIn :UnitedStates ;
+    :placeName "New York City" .
+
+:Madrid rdf:type owl:NamedIndividual , :City ;
+    :locatedIn :Spain ;
+    :placeName "Madrid" .
+
+:Tokyo rdf:type owl:NamedIndividual , :City ;
+    :locatedIn :Japan ;
+    :placeName "Tokyo" .
+
+#################################################################
+#    Individuals — Awards
+#################################################################
+
+:TurnerPrize rdf:type owl:NamedIndividual , :Award ;
+    :awardName "Turner Prize" .
+
+:VeniceBiennaleGoldenLion rdf:type owl:NamedIndividual , :Award ;
+    :awardName "Venice Biennale Golden Lion" .
+
+#################################################################
+#    Individuals — Cultural Institutions
+#################################################################
+
+:TheLouvre rdf:type owl:NamedIndividual , :Museum ;
+    :institutionName "Musée du Louvre" ;
+    :foundedYear 1793 ;
+    :locatedIn :Paris .
+
+:BritishMuseum rdf:type owl:NamedIndividual , :Museum ;
+    :institutionName "British Museum" ;
+    :foundedYear 1753 ;
+    :locatedIn :London .
+
+:TateModern rdf:type owl:NamedIndividual , :Gallery ;
+    :institutionName "Tate Modern" ;
+    :foundedYear 2000 ;
+    :locatedIn :London .
+
+:MetropolitanMuseum rdf:type owl:NamedIndividual , :Museum ;
+    :institutionName "The Metropolitan Museum of Art" ;
+    :foundedYear 1870 ;
+    :locatedIn :NewYorkCity .
+
+:Rijksmuseum rdf:type owl:NamedIndividual , :Museum ;
+    :institutionName "Rijksmuseum" ;
+    :foundedYear 1800 ;
+    :locatedIn :Amsterdam .
+
+:UffiziGallery rdf:type owl:NamedIndividual , :Gallery ;
+    :institutionName "Uffizi Gallery" ;
+    :foundedYear 1581 ;
+    :locatedIn :Florence .
+
+:MoMA rdf:type owl:NamedIndividual , :Museum ;
+    :institutionName "Museum of Modern Art (MoMA)" ;
+    :foundedYear 1929 ;
+    :locatedIn :NewYorkCity .
+
+:NationalGalleryLondon rdf:type owl:NamedIndividual , :Gallery ;
+    :institutionName "National Gallery" ;
+    :foundedYear 1824 ;
+    :locatedIn :London .
+
+:MuseoDelPrado rdf:type owl:NamedIndividual , :Museum ;
+    :institutionName "Museo del Prado" ;
+    :foundedYear 1819 ;
+    :locatedIn :Madrid .
+
+#################################################################
+#    Individuals — Artists
+#################################################################
+
+:LeonardoDaVinci rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Leonardo da Vinci" ;
+    :birthYear 1452 ;
+    :deathYear 1519 ;
+    :nationality "Italian" ;
+    :bornIn :Florence ;
+    :activeIn :Renaissance .
+
+:Michelangelo rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Michelangelo di Lodovico Buonarroti Simoni" ;
+    :birthYear 1475 ;
+    :deathYear 1564 ;
+    :nationality "Italian" ;
+    :bornIn :Florence ;
+    :activeIn :Renaissance .
+
+:Rembrandt rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Rembrandt van Rijn" ;
+    :birthYear 1606 ;
+    :deathYear 1669 ;
+    :nationality "Dutch" ;
+    :bornIn :Amsterdam ;
+    :activeIn :Baroque .
+
+:ClaudeMonet rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Claude Monet" ;
+    :birthYear 1840 ;
+    :deathYear 1926 ;
+    :nationality "French" ;
+    :bornIn :Paris ;
+    :activeIn :Impressionism .
+
+:VincentVanGogh rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Vincent van Gogh" ;
+    :birthYear 1853 ;
+    :deathYear 1890 ;
+    :nationality "Dutch" ;
+    :bornIn :Amsterdam ;
+    :activeIn :Impressionism .
+
+:PabloPicasso rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Pablo Picasso" ;
+    :birthYear 1881 ;
+    :deathYear 1973 ;
+    :nationality "Spanish" ;
+    :bornIn :Madrid ;
+    :activeIn :Cubism .
+
+:FridaKahlo rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Frida Kahlo" ;
+    :birthYear 1907 ;
+    :deathYear 1954 ;
+    :nationality "Mexican" ;
+    :bornIn :Mexico ;
+    :activeIn :Surrealism .
+
+:Banksy rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Banksy" ;
+    :birthYear 1974 ;
+    :nationality "British" ;
+    :bornIn :London ;
+    :activeIn :ContemporaryArt .
+
+:YayoiKusama rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Yayoi Kusama" ;
+    :birthYear 1929 ;
+    :nationality "Japanese" ;
+    :bornIn :Tokyo ;
+    :activeIn :ContemporaryArt .
+
+:DamienHirst rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Damien Hirst" ;
+    :birthYear 1965 ;
+    :nationality "British" ;
+    :bornIn :London ;
+    :activeIn :ContemporaryArt ;
+    :wonAward :TurnerPrize .
+
+:JMWTurner rdf:type owl:NamedIndividual , :Artist ;
+    :personName "J.M.W. Turner" ;
+    :birthYear 1775 ;
+    :deathYear 1851 ;
+    :nationality "British" ;
+    :bornIn :London .
+
+:TraceyEmin rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Tracey Emin" ;
+    :birthYear 1963 ;
+    :nationality "British" ;
+    :bornIn :London ;
+    :activeIn :ContemporaryArt .
+
+:GraysonPerry rdf:type owl:NamedIndividual , :Artist ;
+    :personName "Grayson Perry" ;
+    :birthYear 1960 ;
+    :nationality "British" ;
+    :bornIn :London ;
+    :activeIn :ContemporaryArt ;
+    :wonAward :TurnerPrize .
+
+#################################################################
+#    Individuals — Artworks
+#################################################################
+
+:MonaLisa rdf:type owl:NamedIndividual , :Painting ;
+    :artworkTitle "Mona Lisa" ;
+    :creationYear 1503 ;
+    :dimensions "77 cm x 53 cm" ;
+    :createdBy :LeonardoDaVinci ;
+    :createdDuring :Renaissance ;
+    :usedMedium :OilOnCanvas ;
+    :usedTechnique :OilPainting ;
+    :hasGenre :Portrait ;
+    :heldBy :TheLouvre .
+
+:DavidSculpture rdf:type owl:NamedIndividual , :Sculpture ;
+    :artworkTitle "David" ;
+    :creationYear 1504 ;
+    :dimensions "517 cm tall" ;
+    :createdBy :Michelangelo ;
+    :createdDuring :Renaissance ;
+    :usedMedium :Marble ;
+    :usedTechnique :Carving ;
+    :heldBy :UffiziGallery .
+
+:SistineChapelCeiling rdf:type owl:NamedIndividual , :Painting ;
+    :artworkTitle "Sistine Chapel Ceiling" ;
+    :creationYear 1512 ;
+    :createdBy :Michelangelo ;
+    :createdDuring :Renaissance ;
+    :usedMedium :Fresco ;
+    :usedTechnique :FrescoTechnique ;
+    :hasGenre :Religious .
+
+:TheNightWatch rdf:type owl:NamedIndividual , :Painting ;
+    :artworkTitle "The Night Watch" ;
+    :creationYear 1642 ;
+    :dimensions "363 cm x 437 cm" ;
+    :createdBy :Rembrandt ;
+    :createdDuring :Baroque ;
+    :usedMedium :OilOnCanvas ;
+    :usedTechnique :OilPainting ;
+    :hasGenre :Historical ;
+    :heldBy :Rijksmuseum .
+
+:WaterLilies rdf:type owl:NamedIndividual , :Painting ;
+    :artworkTitle "Water Lilies" ;
+    :creationYear 1906 ;
+    :createdBy :ClaudeMonet ;
+    :usedMedium :OilOnCanvas ;
+    :usedTechnique :OilPainting ;
+    :hasGenre :Landscape ;
+    :heldBy :MoMA .
+
+:StarryNight rdf:type owl:NamedIndividual , :Painting ;
+    :artworkTitle "The Starry Night" ;
+    :creationYear 1889 ;
+    :dimensions "73.7 cm x 92.1 cm" ;
+    :createdBy :VincentVanGogh ;
+    :usedMedium :OilOnCanvas ;
+    :usedTechnique :OilPainting ;
+    :hasGenre :Landscape ;
+    :heldBy :MoMA .
+
+:Guernica rdf:type owl:NamedIndividual , :Painting ;
+    :artworkTitle "Guernica" ;
+    :creationYear 1937 ;
+    :dimensions "349 cm x 776 cm" ;
+    :createdBy :PabloPicasso ;
+    :createdDuring :Cubism ;
+    :usedMedium :OilOnCanvas ;
+    :usedTechnique :OilPainting ;
+    :hasGenre :Historical ;
+    :heldBy :MuseoDelPrado .
+
+:ThePhysicalImpossibility rdf:type owl:NamedIndividual , :Installation ;
+    :artworkTitle "The Physical Impossibility of Death in the Mind of Someone Living" ;
+    :creationYear 1991 ;
+    :createdBy :DamienHirst ;
+    :createdDuring :ContemporaryArt ;
+    :usedMedium :MixedMedia ;
+    :heldBy :TateModern .
+
+:MyBed rdf:type owl:NamedIndividual , :Installation ;
+    :artworkTitle "My Bed" ;
+    :creationYear 1998 ;
+    :createdBy :TraceyEmin ;
+    :createdDuring :ContemporaryArt ;
+    :usedMedium :MixedMedia ;
+    :heldBy :TateModern .
+
+:TheTwoFridas rdf:type owl:NamedIndividual , :Painting ;
+    :artworkTitle "The Two Fridas" ;
+    :creationYear 1939 ;
+    :dimensions "174 cm x 173 cm" ;
+    :createdBy :FridaKahlo ;
+    :createdDuring :Surrealism ;
+    :usedMedium :OilOnCanvas ;
+    :usedTechnique :OilPainting ;
+    :hasGenre :Portrait .
+
+#################################################################
+#    Individuals — Conservation Events
+#################################################################
+
+:MonaLisaRestoration1956 rdf:type owl:NamedIndividual , :ConservationEvent ;
+    :restoredArtwork :MonaLisa ;
+    :conservationYear 1956 .
+
+:MonaLisaRestoration2019 rdf:type owl:NamedIndividual , :ConservationEvent ;
+    :restoredArtwork :MonaLisa ;
+    :conservationYear 2019 .
+
+:NightWatchRestoration2019 rdf:type owl:NamedIndividual , :ConservationEvent ;
+    :restoredArtwork :TheNightWatch ;
+    :conservationYear 2019 .
+
+:SistineRestoration1994 rdf:type owl:NamedIndividual , :ConservationEvent ;
+    :restoredArtwork :SistineChapelCeiling ;
+    :conservationYear 1994 .
