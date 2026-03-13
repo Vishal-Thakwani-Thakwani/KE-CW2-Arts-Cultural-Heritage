@@ -5,6 +5,12 @@
 **Institution:** King's College London  
 **Academic Year:** 2025/26
 
+## Current Status
+
+> **Last updated:** 13 March 2026  
+> **Phase:** Domain Analysis & Data Source Identification  
+> **Next milestone:** Ontology modelling kickoff (Week 10)
+
 ## Project Overview
 
 This project develops an automated **knowledge graph (KG)** for the **Arts and Cultural Heritage** domain. Unlike CW1, this is not a manually-built ontology — we must develop a computational system that automates as much of the KG construction process as possible, using LLMs, information extraction, existing KG APIs, and structured/unstructured data sources.
