@@ -1,0 +1,8 @@
+# maybe create a text file for the base ontology only, and then one for attaching the existing ontologies?
+
+Build an ontology with classes, object properties, data properties, and axioms in RDF format for describing a cultural heritage ontology.
+Use this IRI for the base ontology: (give IRI here)
+Use the two existing ontologies listed below to add two sub-classes and sub-properties for creating the hierarchy of the ontology.
+Incorporate data properties, Inverse Properties, and ensure the hierarchy is well-structured. 
+Below are the files for the two existing ontologies:
+(give existing ontology files here)
