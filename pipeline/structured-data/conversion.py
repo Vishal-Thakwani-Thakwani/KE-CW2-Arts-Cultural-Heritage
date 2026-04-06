@@ -44,14 +44,36 @@ def json_to_rdf_graph(json_path: Path) -> Graph:
   # SPARQL Anything reads the file URI and maps JSON to triples via the Facade-X SERVICE block.
   engine: sa.SparqlAnything = sa.SparqlAnything()
   location: str = json_path.resolve().as_uri()
-  query = f"""PREFIX fx: <http://sparql.xyz/facade-x/ns/>
+  query: str = f"""
+  PREFIX fx: <http://sparql.xyz/facade-x/ns/>
+  PREFIX xyz: <http://sparql.xyz/facade-x/data/>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+  PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+  PREFIX ex: <http://example.org/met/>
 
-CONSTRUCT {{ ?s ?p ?o . }}
-WHERE {{
-  SERVICE <x-sparql-anything:location={location}> {{
-    ?s ?p ?o .
+  CONSTRUCT {{
+    # This creates an 'Individual' for every object in the JSON list
+    ?objectURI rdf:type ex:Artwork ;
+              rdfs:label ?title ;
+              ex:hasArtist ?artist ;
+              ex:objectID ?id .
   }}
-}}"""
+  WHERE {{
+    SERVICE <x-sparql-anything:location={location}> {{
+      # Navigate the JSON structure: payload -> objects -> [list items]
+      ?root xyz:objects ?container .
+      ?container ?slot ?item .
+      
+      # Extract specific fields
+      ?item xyz:title ?title .
+      ?item xyz:objectID ?id .
+      OPTIONAL {{ ?item xyz:artistDisplayName ?artist }}
+      
+      # Create a nice URI for Protégé to display
+      BIND(IRI(CONCAT("http://example.org/met/art_", STR(?id))) AS ?objectURI)
+    }}
+  }}
+  """
   graph: Graph = engine.construct(query=query)
   return graph
 
