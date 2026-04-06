@@ -7,3 +7,4 @@ Use the two existing ontologies listed below to add two sub-classes and sub-prop
 Incorporate data properties, Inverse Properties, and ensure the hierarchy is well-structured. 
 Below are the files for the two existing ontologies:
 (give existing ontology files here)
+(also give data from competency questions ontology)
