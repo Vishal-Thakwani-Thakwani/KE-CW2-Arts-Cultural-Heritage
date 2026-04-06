@@ -1,0 +1,34 @@
+Analyze the following competency questions and identify all the concepts, relationships, data properties, and inverse properties between concepts mentioned in the text. These elements will be used to build an ontology for describing a domain for arts and cultural heritage. 
+
+Below are some examples, please follow the same format to answer all the competency questions:
+
+CQ1: Which artists have won the Turner Prize?
+CQ2: Where is the location of the National History Museum?
+CQ3: How many artists have used oil paint as a medium in their work?
+CQ4: Who painted the Mona Lisa?
+CQ5: What are the artworks made by Michelangelo?
+
+Concepts: Artist, TurnerPrize, Location, NationalHistoryMuseum, OilPaint, Medium, Monalisa, Artwork, Michelangelo
+Relationships: hasPrize, hasLocation, hasMedium, hasPainted, hasArtworks
+DataProperties: artistName, artworkName, museumLocation
+InverseProperties: isThePrizeOf, isTheLocationOf, isMediumOf, isPaintingOf, isArtworkOf
+
+Competency Questions:
+CQ1: Which artworks in the collection were created by artists born in Italy during the Renaissance period (1400–1600)?
+CQ2: Which museums hold paintings by artists who were active in the Impressionist movement?
+CQ3: Which artworks have been through more than one conservation/restoration event?
+CQ4: Which artists have won the Turner Prize, and in which year?
+CQ5: What is the most common medium used for artworks created before 1500?
+CQ6: Which living artists have artworks held in museums located in London?
+CQ7: In which country is the Musée du Louvre located?
+CQ8: Which artworks were created before 1700 and are currently held by a museum?
+CQ9: Which artists created works in more than one genre (e.g., both portraits and landscapes)?
+CQ10: Which artworks by Michelangelo are classified as sculptures, and which institution holds them?
+
+Provide your answer as follows:
+
+Answer:::
+Concepts: (concepts in a comma separated list)
+Relationships: (relationships in a comma separated list)
+DataProperties: (data properties in a comma separated list)
+InverseProperties: (inverse properties in a comma separated list)
