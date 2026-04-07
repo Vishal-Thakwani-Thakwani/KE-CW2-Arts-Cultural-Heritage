@@ -1,0 +1,16 @@
+id,title,entity_type,source,url,reason,related_cqs
+artist_1,Leonardo da Vinci,artist,Wikipedia,https://en.wikipedia.org/wiki/Leonardo_da_Vinci,Supports artist birthplace, period and artwork creation,CQ1;CQ8;CQ10
+artist_2,Claude Monet,artist,Wikipedia,https://en.wikipedia.org/wiki/Claude_Monet,Supports Impressionism movement and artworks,CQ2;CQ16
+artist_3,Frida Kahlo,artist,Wikipedia,https://en.wikipedia.org/wiki/Frida_Kahlo,Supports modern artists, gender and movement diversity,CQ6;CQ14
+artist_4,Vincent van Gogh,artist,Wikipedia,https://en.wikipedia.org/wiki/Vincent_van_Gogh,Supports post-impressionism and artwork links,CQ2;CQ16
+artist_5,Yayoi Kusama,artist,Wikipedia,https://en.wikipedia.org/wiki/Yayoi_Kusama,Supports contemporary art and exhibitions,CQ11;CQ15
+
+artwork_1,Mona Lisa,artwork,Wikipedia,https://en.wikipedia.org/wiki/Mona_Lisa,Supports creator, museum holding and Renaissance period,CQ1;CQ8
+artwork_2,The Night Watch,artwork,Wikipedia,https://en.wikipedia.org/wiki/The_Night_Watch,Supports museum holding and historical artworks,CQ8;CQ2
+artwork_3,Water Lilies,artwork,Wikipedia,https://en.wikipedia.org/wiki/Water_Lilies_(Monet_series),Supports movement and medium analysis,CQ5;CQ16
+artwork_4,Guernica,artwork,Wikipedia,https://en.wikipedia.org/wiki/Guernica_(Picasso),Supports political art and exhibitions,CQ11;CQ14
+artwork_5,My Bed,artwork,Wikipedia,https://en.wikipedia.org/wiki/My_Bed,Supports contemporary art and artist awards,CQ4;CQ19
+
+museum_1,Louvre,museum,Wikipedia,https://en.wikipedia.org/wiki/Louvre,Supports location reasoning and artwork holding,CQ7;CQ8
+museum_2,British Museum,museum,Wikipedia,https://en.wikipedia.org/wiki/British_Museum,Supports institutional data and exhibitions,CQ11;CQ15
+museum_3,Tate Modern,museum,Wikipedia,https://en.wikipedia.org/wiki/Tate_Modern,Supports London-based museum queries,CQ6;CQ7
