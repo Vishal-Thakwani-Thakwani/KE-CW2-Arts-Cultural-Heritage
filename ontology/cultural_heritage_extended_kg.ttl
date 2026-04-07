@@ -208,7 +208,7 @@ cah:inverse_participatedInExhibition a owl:ObjectProperty ;
 
 cah:organizedBy a owl:ObjectProperty ;
     rdfs:label "organizedBy" ;
-    rdfs:comment "Relates an exhibition to a curator." .;
+    rdfs:comment "Relates an exhibition to a curator." ;
     rdfs:domain cah:Exhibition ;
     rdfs:range cah:Curator .
 
