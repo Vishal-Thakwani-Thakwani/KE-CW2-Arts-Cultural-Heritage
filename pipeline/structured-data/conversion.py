@@ -5,26 +5,16 @@ and materialise RDF with PySPARQL Anything (Facade-X). Requires a JDK and JAVA_H
 
 import json
 import tempfile
-from http.client import HTTPResponse
 from pathlib import Path
 from typing import Any, TextIO
-from urllib.request import urlopen
 
 import pysparql_anything as sa
 from rdflib import Graph
 
-# Met Collection API
-BASE_URL = "https://collectionapi.metmuseum.org/public/collection/v1"
+from clean_data import BASE_URL, get_json
+
 DEPARTMENT_ID = 1
 SAMPLE_SIZE = 20
-
-
-def get_json(url: str) -> dict[str, Any]:
-  """Fetch one JSON document from the Met Collection API."""
-
-  with urlopen(url) as response:
-    typed_response: HTTPResponse = response
-    return json.loads(typed_response.read().decode("utf-8"))
 
 
 def load_department_objects(department_id: int, limit: int) -> list[dict[str, Any]]:

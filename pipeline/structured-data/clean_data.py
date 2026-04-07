@@ -1,22 +1,64 @@
 import json
 import re
+import time
 import unicodedata
 from datetime import datetime
 from http.client import HTTPResponse
 from typing import Any
-from urllib.request import urlopen
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 
 BASE_URL = "https://collectionapi.metmuseum.org/public/collection/v1"
 DEPARTMENT_ID = 11  # Example: European Paintings
 MAX_OBJECTS = 25
 
+# The Met API returns 403 for urllib's default User-Agent; send a normal client UA.
+# Referer can reduce CDN/WAF blocks. After many requests, 403/429 may occur — get_json retries with backoff.
+_MET_HEADERS = {
+  "User-Agent": (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  ),
+  "Accept": "application/json",
+  "Accept-Language": "en-US,en;q=0.9",
+  "Referer": "https://www.metmuseum.org/",
+}
 
-def get_json(url: str) -> dict[str, Any]:
-  with urlopen(url) as response:
-    typed_response: HTTPResponse = response
-    payload: bytes = typed_response.read()
-    return json.loads(payload.decode("utf-8"))
+
+def get_json(
+  url: str,
+  *,
+  max_retries: int = 8,
+  base_delay_sec: float = 2.5,
+  timeout_sec: float = 90.0,
+) -> dict[str, Any]:
+  delay = base_delay_sec
+  last_error: BaseException | None = None
+  for attempt in range(max_retries):
+    req = Request(url, headers=_MET_HEADERS, method="GET")
+    try:
+      with urlopen(req, timeout=timeout_sec) as response:
+        typed_response: HTTPResponse = response
+        payload: bytes = typed_response.read()
+        return json.loads(payload.decode("utf-8"))
+    except HTTPError as e:
+      last_error = e
+      if e.code in (403, 429, 502, 503, 504) and attempt < max_retries - 1:
+        time.sleep(delay)
+        delay = min(delay * 1.75, 90.0)
+        continue
+      raise
+    except URLError as e:
+      last_error = e
+      if attempt < max_retries - 1:
+        time.sleep(delay)
+        delay = min(delay * 1.75, 90.0)
+        continue
+      raise
+  if last_error is not None:
+    raise last_error
+  raise RuntimeError("get_json: exhausted retries without error")
 
 
 def pretty_print(title: str, data: dict[str, Any]) -> None:

@@ -1,17 +1,7 @@
 import json
-from http.client import HTTPResponse
 from typing import Any
-from urllib.request import urlopen
 
-
-BASE_URL = "https://collectionapi.metmuseum.org/public/collection/v1"
-
-
-def get_json(url: str) -> dict[str, Any]:
-  with urlopen(url) as response:
-    typed_response: HTTPResponse = response
-    payload: bytes = typed_response.read()
-    return json.loads(payload.decode("utf-8"))
+from clean_data import BASE_URL, get_json
 
 
 # For formatting the output in the terminal
