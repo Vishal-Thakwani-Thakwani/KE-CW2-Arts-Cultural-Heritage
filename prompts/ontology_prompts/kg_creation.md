@@ -97,6 +97,7 @@ inverse_influencedBy, owl:ObjectProperty, Inverse of influencedBy (influenced).
 ### Model Response
 Outputs the .ttl file for the knowledge graph.
 (put the reference here)
+Labels and comments were not created - done manually based of the text.
 
 ## Justification 
 To be continued...
