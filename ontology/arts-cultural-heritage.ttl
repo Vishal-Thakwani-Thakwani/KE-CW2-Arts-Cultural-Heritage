@@ -13,12 +13,28 @@
 #    Object Properties
 #################################################################
 
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K1_created
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K4i_AP_had_active_artist
+:K4i_AP_had_active_artist rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :K4_was_active_during_art_period ;
+                          rdfs:domain :J10_Art_Period ;
+                          rdfs:range :J1_Artist ;
+                          rdfs:label "K4i AP had active artist"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K5i_AM_had_active_artist
+:K5i_AM_had_active_artist rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :K5_was_active_during_art_movement ;
+                          rdfs:domain :J11_Art_Movement ;
+                          rdfs:range :J1_Artist ;
+                          rdfs:label "K5i AM had active artist" .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K1_created
 :K1_created rdf:type owl:ObjectProperty ;
             owl:inverseOf :K1i_was_created_by ;
             rdfs:domain :J1_Artist ;
             rdfs:range :J6_Art_Piece ;
-            rdfs:comment """Quantification: many to many, #necessary (1,n:0,n)#
+            rdfs:comment """Quantification: many to many
 
 Scope note:
 This property identifies an instance of J1 Artist as having created an instance of J6 Art Piece.
@@ -27,11 +43,11 @@ Examples:"""@en ;
             rdfs:label "K1 created"@en .
 
 
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K1i_was_created_by
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K1i_was_created_by
 :K1i_was_created_by rdf:type owl:ObjectProperty ;
                     rdfs:domain :J6_Art_Piece ;
                     rdfs:range :J1_Artist ;
-                    rdfs:comment """Quantification of the inverse property: many to many, #necessary (1,n:0,n)#
+                    rdfs:comment """Quantification of the inverse property: many to many
 
 Scope note of the inverse property:
 This property identifies an instance of J1 Artist as having created an instance of J6 Art Piece.
@@ -40,7 +56,7 @@ Examples of the inverse property:"""@en ;
                     rdfs:label "K1i was created by"@en .
 
 
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K2_was_artistically_influenced_by
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K2_was_artistically_influenced_by
 :K2_was_artistically_influenced_by rdf:type owl:ObjectProperty ;
                                    rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P15_was_influenced_by> ;
                                    owl:inverseOf :K2i_artistically_influenced ;
@@ -49,7 +65,7 @@ Examples of the inverse property:"""@en ;
                                    rdfs:label "K2 was artistically influenced by"@en .
 
 
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K2i_artistically_influenced
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K2i_artistically_influenced
 :K2i_artistically_influenced rdf:type owl:ObjectProperty ;
                              rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P15i_influenced> ;
                              rdfs:domain :J1_Artist ;
@@ -57,7 +73,7 @@ Examples of the inverse property:"""@en ;
                              rdfs:label "K2i artistically influenced"@en .
 
 
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K3_specialises_in_art_genre
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K3_specialises_in_art_genre
 :K3_specialises_in_art_genre rdf:type owl:ObjectProperty ;
                              owl:inverseOf :K3i_is_speciality_art_genre_of ;
                              rdfs:domain :J1_Artist ;
@@ -65,21 +81,21 @@ Examples of the inverse property:"""@en ;
                              rdfs:label "K3 specialises in art genre"@en .
 
 
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K3i_is_speciality_art_genre_of
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K3i_is_speciality_art_genre_of
 :K3i_is_speciality_art_genre_of rdf:type owl:ObjectProperty ;
                                 rdfs:domain :J9_Art_Genre ;
                                 rdfs:range :J1_Artist ;
                                 rdfs:label "K3i is speciality art genre of"@en .
 
 
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K4_was_active_during_art_period
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K4_was_active_during_art_period
 :K4_was_active_during_art_period rdf:type owl:ObjectProperty ;
                                  rdfs:domain :J1_Artist ;
                                  rdfs:range :J10_Art_Period ;
                                  rdfs:label "K4 was active during art period"@en .
 
 
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K5_was_active_during_art_movement
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K5_was_active_during_art_movement
 :K5_was_active_during_art_movement rdf:type owl:ObjectProperty ;
                                    rdfs:domain :J1_Artist ;
                                    rdfs:range :J11_Art_Movement ;
@@ -89,18 +105,6 @@ Examples of the inverse property:"""@en ;
 #################################################################
 #    Classes
 #################################################################
-
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#J12_Restoration
-:J12_Restoration rdf:type owl:Class ;
-                 rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E11_Modification> ;
-                 rdfs:label "J12 Restoration"@en .
-
-
-###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#J13_Conservation
-:J13_Conservation rdf:type owl:Class ;
-                  rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E11_Modification> ;
-                  rdfs:label "J13 Conservation"@en .
-
 
 ###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J10_Art_Period
 :J10_Art_Period rdf:type owl:Class ;
@@ -112,6 +116,18 @@ Examples of the inverse property:"""@en ;
 :J11_Art_Movement rdf:type owl:Class ;
                   rdfs:subClassOf :J10_Art_Period ;
                   rdfs:label "J11 Art Movement"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J12_Restoration
+:J12_Restoration rdf:type owl:Class ;
+                 rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E11_Modification> ;
+                 rdfs:label "J12 Restoration"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J13_Conservation
+:J13_Conservation rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E11_Modification> ;
+                  rdfs:label "J13 Conservation"@en .
 
 
 ###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J1_Artist
