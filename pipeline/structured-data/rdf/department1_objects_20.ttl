@@ -1,0 +1,104 @@
+@prefix ex: <http://example.org/met/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:art_1 a ex:Artwork ;
+    rdfs:label "One-dollar Liberty Head Coin" ;
+    ex:hasArtist "James Barton Longacre" ;
+    ex:objectID "1"^^xsd:int .
+
+ex:art_10 a ex:Artwork ;
+    rdfs:label "Two-and-a-half-dollar Indian Head Coin" ;
+    ex:hasArtist "Bela Lyon Pratt" ;
+    ex:objectID "10"^^xsd:int .
+
+ex:art_11 a ex:Artwork ;
+    rdfs:label "Two-and-a-half-dollar Liberty Head Coin" ;
+    ex:hasArtist "Christian Gobrecht" ;
+    ex:objectID "11"^^xsd:int .
+
+ex:art_12 a ex:Artwork ;
+    rdfs:label "Twenty-dollar Liberty Head Coin" ;
+    ex:hasArtist "James Barton Longacre" ;
+    ex:objectID "12"^^xsd:int .
+
+ex:art_13 a ex:Artwork ;
+    rdfs:label "Five-dollar Indian Head Coin" ;
+    ex:hasArtist "Bela Lyon Pratt" ;
+    ex:objectID "13"^^xsd:int .
+
+ex:art_14 a ex:Artwork ;
+    rdfs:label "Five-dollar Liberty Head Coin" ;
+    ex:hasArtist "Christian Gobrecht" ;
+    ex:objectID "14"^^xsd:int .
+
+ex:art_15 a ex:Artwork ;
+    rdfs:label "Coin, 1/2 Real" ;
+    ex:hasArtist "" ;
+    ex:objectID "15"^^xsd:int .
+
+ex:art_16 a ex:Artwork ;
+    rdfs:label "Coin, 1/4 Peso" ;
+    ex:hasArtist "" ;
+    ex:objectID "16"^^xsd:int .
+
+ex:art_17 a ex:Artwork ;
+    rdfs:label "Coin, 1/4 Peso" ;
+    ex:hasArtist "" ;
+    ex:objectID "17"^^xsd:int .
+
+ex:art_18 a ex:Artwork ;
+    rdfs:label "Coin, 1/4 Peso" ;
+    ex:hasArtist "" ;
+    ex:objectID "18"^^xsd:int .
+
+ex:art_19 a ex:Artwork ;
+    rdfs:label "Coin, 1/4 Peso" ;
+    ex:hasArtist "" ;
+    ex:objectID "19"^^xsd:int .
+
+ex:art_2 a ex:Artwork ;
+    rdfs:label "Ten-dollar Liberty Head Coin" ;
+    ex:hasArtist "Christian Gobrecht" ;
+    ex:objectID "2"^^xsd:int .
+
+ex:art_20 a ex:Artwork ;
+    rdfs:label "Coin, 1/4 Peso" ;
+    ex:hasArtist "" ;
+    ex:objectID "20"^^xsd:int .
+
+ex:art_3 a ex:Artwork ;
+    rdfs:label "Two-and-a-Half Dollar Coin" ;
+    ex:hasArtist "" ;
+    ex:objectID "3"^^xsd:int .
+
+ex:art_4 a ex:Artwork ;
+    rdfs:label "Two-and-a-Half Dollar Coin" ;
+    ex:hasArtist "" ;
+    ex:objectID "4"^^xsd:int .
+
+ex:art_5 a ex:Artwork ;
+    rdfs:label "Two-and-a-Half Dollar Coin" ;
+    ex:hasArtist "" ;
+    ex:objectID "5"^^xsd:int .
+
+ex:art_6 a ex:Artwork ;
+    rdfs:label "Two-and-a-Half Dollar Coin" ;
+    ex:hasArtist "" ;
+    ex:objectID "6"^^xsd:int .
+
+ex:art_7 a ex:Artwork ;
+    rdfs:label "Two-and-a-Half Dollar Coin" ;
+    ex:hasArtist "" ;
+    ex:objectID "7"^^xsd:int .
+
+ex:art_8 a ex:Artwork ;
+    rdfs:label "Two-and-a-Half Dollar Coin" ;
+    ex:hasArtist "" ;
+    ex:objectID "8"^^xsd:int .
+
+ex:art_9 a ex:Artwork ;
+    rdfs:label "Two-and-a-Half Dollar Coin" ;
+    ex:hasArtist "" ;
+    ex:objectID "9"^^xsd:int .
+
