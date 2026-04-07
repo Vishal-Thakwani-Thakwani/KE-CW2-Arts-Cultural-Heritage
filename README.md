@@ -7,7 +7,7 @@
 
 ## Current Status
 
-> **Last updated:** 13 March 2026  
+> **Last updated:** 7th April 2026  
 > **Phase:** Domain Analysis & Data Source Identification  
 > **Next milestone:** Ontology modelling kickoff (Week 10)
 
