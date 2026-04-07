@@ -28,10 +28,10 @@ The KG will combine:
 | Role | Member(s) | Responsibilities |
 |------|-----------|------------------|
 | **Domain Expert / Client** | Vishal Thakwani | Set objectives, domain decisions, lead 10 manual CQs, keep all documentation up to date |
-| **Modelling Experts** (2) | TBC | Design ontology in Protégé, extend 2 existing ontologies, produce mappings, write queries/prompts, evaluation methodology |
-| **Requirements, Data Ingestion & LLM Pipeline** (2) | TBC | Find and set up data sources, build extraction/processing code, data cleaning, produce mappings, develop LLM prompts |
+| **Modelling Experts** (2) | Oluwatamilore Oshinnaike, Jia Tee | Conceptualisation/Implementation of ontology, extend 2 existing ontologies, produce mappings, write queries/prompts, evaluation methodology |
+| **Requirements, Data Ingestion & LLM Pipeline** (2) | Hristina Georgieva, Yusuf Rahman | Find and set up data sources, build extraction/processing code, data cleaning, produce mappings, develop LLM prompts |
 
-## Repository Structure
+## Repository Structure - WIP
 
 ```
 .
