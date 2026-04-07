@@ -26,102 +26,102 @@ cah:Artwork a owl:Class ;
 
 cah:Museum a owl:Class ;
     rdfs:label "Museum" ;
-    rdfs:comment "An institution that holds or exhibits artworks." .
+    rdfs:comment "An institution that holds or exhibits artworks." ;
     rdfs:subClassOf crm:E40_Legal_Body .
 
 cah:Painting a owl:Class ;
     rdfs:label "Painting" ;
-    rdfs:comment "A type of artwork created using paint." .
+    rdfs:comment "A type of artwork created using paint." ;
     rdfs:subClassOf cah:Artwork .
 
 cah:Sculpture a owl:Class ;
     rdfs:label "Sculpture" ;
-    rdfs:comment "A three-dimensional artwork." .
+    rdfs:comment "A three-dimensional artwork." ;
     rdfs:subClassOf cah:Artwork .
 
 cah:ArtMovement a owl:Class ;
     rdfs:label "ArtMovement" ;
-    rdfs:comment "A style or movement in art history." .
+    rdfs:comment "A style or movement in art history." ;
     rdfs:subClassOf crm:E55_Type .
 
 cah:ArtPeriod a owl:Class ;
     rdfs:label "ArtPeriod" ;
-    rdfs:comment "A historical period classification." .
+    rdfs:comment "A historical period classification." ;
     rdfs:subClassOf crm:E4_Period .
 
 cah:Genre a owl:Class ;
     rdfs:label "Genre" ;
-    rdfs:comment "A category of artistic composition." .
+    rdfs:comment "A category of artistic composition." ;
     rdfs:subClassOf crm:E55_Type .
 
 cah:Medium a owl:Class ;
     rdfs:label "Medium" ;
-    rdfs:comment "The material or technique used in an artwork." .
+    rdfs:comment "The material or technique used in an artwork." ;
     rdfs:subClassOf crm:E57_Material .
 
 cah:Exhibition a owl:Class ;
     rdfs:label "Exhibition" ;
-    rdfs:comment "An event where artworks are displayed." .
+    rdfs:comment "An event where artworks are displayed." ;
     rdfs:subClassOf crm:E7_Activity .
 
 cah:RestorationEvent a owl:Class ;
     rdfs:label "RestorationEvent" ;
-    rdfs:comment "An event of conservation/restoration." .
+    rdfs:comment "An event of conservation/restoration." ;
     rdfs:subClassOf crm:E11_Modification .
 
 cah:CreationEvent a owl:Class ;
     rdfs:label "CreationEvent" ;
-    rdfs:comment "The act of creating an artwork." .
+    rdfs:comment "The act of creating an artwork." ;
     rdfs:subClassOf crm:E12_Production .
 
 cah:BirthEvent a owl:Class ;
     rdfs:label "BirthEvent" ;
-    rdfs:comment "The birth of a person." .
+    rdfs:comment "The birth of a person." ;
     rdfs:subClassOf crm:E67_Birth .
 
 cah:ProvenanceEvent a owl:Class ;
     rdfs:label "ProvenanceEvent" ;
-    rdfs:comment "An ownership transfer event." .
+    rdfs:comment "An ownership transfer event." ;
     rdfs:subClassOf crm:E10_Transfer_of_Custody .
 
 cah:DonationEvent a owl:Class ;
     rdfs:label "DonationEvent" ;
-    rdfs:comment "A transfer of ownership as a donation." .
+    rdfs:comment "A transfer of ownership as a donation." ;
     rdfs:subClassOf cah:ProvenanceEvent .
 
 cah:Collector a owl:Class ;
     rdfs:label "Collector" ;
-    rdfs:comment "A person or entity collecting artworks." 
+    rdfs:comment "A person or entity collecting artworks." ;
     rdfs:subClassOf crm:E39_Actor .
 
 cah:Curator a owl:Class ;
     rdfs:label "Curator" ;
-    rdfs:comment "A person organizing exhibitions." .
+    rdfs:comment "A person organizing exhibitions." ;
     rdfs:subClassOf crm:E21_Person .
 
 cah:Institution a owl:Class ;
     rdfs:label "Institution" ;
-    rdfs:comment "An organization such as a museum." .
+    rdfs:comment "An organization such as a museum." ;
     rdfs:subClassOf crm:E40_Legal_Body .
 
 cah:Country a owl:Class ;
     rdfs:label "Country" ;
-    rdfs:comment "A geopolitical entity." .
+    rdfs:comment "A geopolitical entity." ;
     rdfs:subClassOf crm:E53_Place .
 
 cah:City a owl:Class ;
     rdfs:label "City" ;
-    rdfs:comment "A subdivision of a country." .
+    rdfs:comment "A subdivision of a country." ;
     rdfs:subClassOf crm:E53_Place .
 
 cah:TimeSpan a owl:Class ;
     rdfs:label "TimeSpan" ;
-    rdfs:comment "A temporal extent." .
+    rdfs:comment "A temporal extent." ;
     rdfs:subClassOf crm:E52_Time-Span .
 
 cah:Prize a owl:Class ;
     rdfs:label "Prize" ;
-    rdfs:comment "An award given for artistic achievement." .
+    rdfs:comment "An award given for artistic achievement." ;
     rdfs:subClassOf crm:E89_Propositional_Object .
 
 ########################
@@ -130,7 +130,7 @@ cah:Prize a owl:Class ;
 
 cah:createdBy a owl:ObjectProperty ;
     rdfs:label "createdBy" ;
-    rdfs:comment "Relates an artwork to the artist who created it." .
+    rdfs:comment "Relates an artwork to the artist who created it." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:Artist ;
     owl:inverseOf cah:inverse_createdBy ;
@@ -138,43 +138,43 @@ cah:createdBy a owl:ObjectProperty ;
 
 cah:inverse_createdBy a owl:ObjectProperty ;
     rdfs:label "inverse_createdBy" ;
-    rdfs:comment "Inverse of createdBy (artist to artworks created)." .
+    rdfs:comment "Inverse of createdBy (artist to artworks created)." ;
     rdfs:domain cah:Artist ;
     rdfs:range cah:Artwork .
 
 cah:createdInPeriod a owl:ObjectProperty ;
     rdfs:label "createdInPeriod" ;
-    rdfs:comment "Relates an artwork to an art period." .
+    rdfs:comment "Relates an artwork to an art period." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:ArtPeriod .
 
 cah:activeInMovement a owl:ObjectProperty ;
     rdfs:label "activeInMovement" ;
-    rdfs:comment "Relates an artist to an art movement." .
+    rdfs:comment "Relates an artist to an art movement." ;
     rdfs:domain cah:Artist ;
     rdfs:range cah:ArtMovement .
 
 cah:belongsToMovement a owl:ObjectProperty ;
     rdfs:label "belongsToMovement" ;
-    rdfs:comment "Relates an artwork to an art movement." .
+    rdfs:comment "Relates an artwork to an art movement." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:ArtMovement .
 
 cah:hasGenre a owl:ObjectProperty ;
     rdfs:label "hasGenre" ;
-    rdfs:comment "Relates an artwork to a genre." .
+    rdfs:comment "Relates an artwork to a genre." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:Genre .
 
 cah:usesMedium a owl:ObjectProperty ;
     rdfs:label "usesMedium" ;
-    rdfs:comment "Relates an artwork to the medium used." .
+    rdfs:comment "Relates an artwork to the medium used." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:Medium .
 
 cah:heldBy a owl:ObjectProperty ;
     rdfs:label "heldBy" ;
-    rdfs:comment "Relates an artwork to the institution that holds it." .
+    rdfs:comment "Relates an artwork to the institution that holds it." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:Institution ;
     owl:inverseOf cah:inverse_heldBy ;
@@ -182,126 +182,126 @@ cah:heldBy a owl:ObjectProperty ;
 
 cah:inverse_heldBy a owl:ObjectProperty ;
     rdfs:label "inverse_heldBy" ;
-    rdfs:comment "Inverse of heldBy (institution to artworks held)." .
+    rdfs:comment "Inverse of heldBy (institution to artworks held)." ;
     rdfs:domain cah:Institution ;
     rdfs:range cah:Artwork .
 
 cah:locatedIn a owl:ObjectProperty ;
     rdfs:label "locatedIn" ;
-    rdfs:comment "Relates an institution to a place." .
+    rdfs:comment "Relates an institution to a place." ;
     rdfs:domain cah:Institution ;
     rdfs:range crm:E53_Place ;
     rdfs:subPropertyOf crm:P53_has_former_or_current_location .
 
 cah:participatedInExhibition a owl:ObjectProperty ;
     rdfs:label "participatedInExhibition" ;
-    rdfs:comment "Relates an artwork to an exhibition." .
+    rdfs:comment "Relates an artwork to an exhibition." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:Exhibition ;
     owl:inverseOf cah:inverse_participatedInExhibition .
 
 cah:inverse_participatedInExhibition a owl:ObjectProperty ;
     rdfs:label "inverse_participatedInExhibition" ;
-    rdfs:comment "Inverse of participatedInExhibition." .
+    rdfs:comment "Inverse of participatedInExhibition." ;
     rdfs:domain cah:Exhibition ;
     rdfs:range cah:Artwork .
 
 cah:organizedBy a owl:ObjectProperty ;
     rdfs:label "organizedBy" ;
-    rdfs:comment "Relates an exhibition to a curator." .
+    rdfs:comment "Relates an exhibition to a curator." .;
     rdfs:domain cah:Exhibition ;
     rdfs:range cah:Curator .
 
 cah:hasParticipant a owl:ObjectProperty ;
     rdfs:label "hasParticipant" ;
-    rdfs:comment "Relates an exhibition to participating artworks or artists." .
+    rdfs:comment "Relates an exhibition to participating artworks or artists." ;
     rdfs:domain cah:Exhibition ;
     rdfs:range crm:E39_Actor .
 
 cah:underwentRestoration a owl:ObjectProperty ;
     rdfs:label "underwentRestoration" ;
-    rdfs:comment "Relates an artwork to restoration events." .
+    rdfs:comment "Relates an artwork to restoration events." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:RestorationEvent ;
     owl:inverseOf cah:inverse_underwentRestoration .
 
 cah:inverse_underwentRestoration a owl:ObjectProperty ;
     rdfs:label "inverse_underwentRestoration" ;
-    rdfs:comment "Inverse of underwentRestoration." .
+    rdfs:comment "Inverse of underwentRestoration." ;
     rdfs:domain cah:RestorationEvent ;
     rdfs:range cah:Artwork .
 
 cah:hasTimeSpan a owl:ObjectProperty ;
     rdfs:label "hasTimeSpan" ;
-    rdfs:comment "Relates an event to its time span." .
+    rdfs:comment "Relates an event to its time span." ;
     rdfs:domain crm:E2_Temporal_Entity ;
     rdfs:range cah:TimeSpan ;
     rdfs:subPropertyOf crm:P4_has_time-span .
 
 cah:hasOwner a owl:ObjectProperty ;
     rdfs:label "hasOwner" ;
-    rdfs:comment "Relates an artwork to its owner." .
+    rdfs:comment "Relates an artwork to its owner." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:Institution .
 
 cah:transferredOwnershipTo a owl:ObjectProperty ;
     rdfs:label "transferredOwnershipTo" ;
-    rdfs:comment "Relates a provenance event to the new owner." .
+    rdfs:comment "Relates a provenance event to the new owner." ;
     rdfs:domain cah:ProvenanceEvent ;
     rdfs:range cah:Institution .
 
 cah:transferredOwnershipFrom a owl:ObjectProperty ;
     rdfs:label "transferredOwnershipFrom" ;
-    rdfs:comment "Relates a provenance event to the previous owner." .
+    rdfs:comment "Relates a provenance event to the previous owner." ;
     rdfs:domain cah:ProvenanceEvent ;
     rdfs:range cah:Institution .
 
 cah:hasCountry a owl:ObjectProperty ;
     rdfs:label "hasCountry" ;
-    rdfs:comment "Relates a place to a country." .
+    rdfs:comment "Relates a place to a country." ;
     rdfs:domain crm:E53_Place ;
     rdfs:range cah:Country .
 
 cah:influencedBy a owl:ObjectProperty ;
     rdfs:label "influencedBy" ;
-    rdfs:comment "Relates an artist to another artist who influenced them." .
+    rdfs:comment "Relates an artist to another artist who influenced them." ;
     rdfs:domain cah:Artist ;
     rdfs:range cah:Artist ;
     owl:inverseOf cah:inverse_influencedBy .
 
 cah:inverse_influencedBy a owl:ObjectProperty ;
     rdfs:label "inverse_influencedBy" ;
-    rdfs:comment "Inverse of influencedBy (influenced)." .
+    rdfs:comment "Inverse of influencedBy (influenced)." ;
     rdfs:domain cah:Artist ;
     rdfs:range cah:Artist .
 
 cah:collaboratedWith a owl:ObjectProperty ;
     rdfs:label "collaboratedWith" ;
-    rdfs:comment "Relates artists who collaborated on an artwork." .
+    rdfs:comment "Relates artists who collaborated on an artwork." ;
     rdfs:domain cah:Artist ;
     rdfs:range cah:Artist .
 
 cah:wonPrize a owl:ObjectProperty ;
     rdfs:label "wonPrize" ;
-    rdfs:comment "Relates an artist to a prize received." .
+    rdfs:comment "Relates an artist to a prize received." ;
     rdfs:domain cah:Artist ;
     rdfs:range cah:Prize .
 
 cah:donatedBy a owl:ObjectProperty ;
     rdfs:label "donatedBy" ;
-    rdfs:comment "Relates an artwork to the donor." .
+    rdfs:comment "Relates an artwork to the donor." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:Collector .
 
 cah:donatedTo a owl:ObjectProperty ;
     rdfs:label "donatedTo" ;
-    rdfs:comment "Relates a donation event to a museum." .
+    rdfs:comment "Relates a donation event to a museum." ;
     rdfs:domain cah:DonationEvent ;
     rdfs:range cah:Museum .
 
 cah:hasContributor a owl:ObjectProperty ;
     rdfs:label "hasContributor" ;
-    rdfs:comment "Relates an artwork to multiple contributing artists." .
+    rdfs:comment "Relates an artwork to multiple contributing artists." ;
     rdfs:domain cah:Artwork ;
     rdfs:range cah:Artist .
 
@@ -311,37 +311,37 @@ cah:hasContributor a owl:ObjectProperty ;
 
 cah:hasCreationDate a owl:DatatypeProperty ;
     rdfs:label "hasCreationDate" ;
-    rdfs:comment "The date when an artwork was created." .
+    rdfs:comment "The date when an artwork was created." ;
     rdfs:domain cah:Artwork ;
     rdfs:range xsd:date .
 
 cah:hasBirthDate a owl:DatatypeProperty ;
     rdfs:label "hasBirthDate" ;
-    rdfs:comment "The birth date of an artist." .
+    rdfs:comment "The birth date of an artist." ;
     rdfs:domain cah:Artist ;
     rdfs:range xsd:date .
 
 cah:startDate a owl:DatatypeProperty ;
     rdfs:label "startDate" ;
-    rdfs:comment "The start date of a time span." .
+    rdfs:comment "The start date of a time span." ;
     rdfs:domain cah:TimeSpan ;
     rdfs:range xsd:date .
 
 cah:endDate a owl:DatatypeProperty ;
     rdfs:label "endDate" ;
-    rdfs:comment "The end date of a time span." .
+    rdfs:comment "The end date of a time span." ;
     rdfs:domain cah:TimeSpan ;
     rdfs:range xsd:date .
 
 cah:awardYear a owl:DatatypeProperty ;
     rdfs:label "awardYear" ;
-    rdfs:comment "The year a prize was awarded." .
+    rdfs:comment "The year a prize was awarded." ;
     rdfs:domain cah:Prize ;
     rdfs:range xsd:gYear .
 
 cah:isLiving a owl:DatatypeProperty ;
     rdfs:label "isLiving" ;
-    rdfs:comment "Indicates whether an artist is alive." .
+    rdfs:comment "Indicates whether an artist is alive." ;
     rdfs:domain cah:Artist ;
     rdfs:range xsd:boolean .
 
