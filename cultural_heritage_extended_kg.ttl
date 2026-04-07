@@ -1,0 +1,452 @@
+@prefix cah: <http://example.org/culturalheritage#> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> . 
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+########################
+# Classes
+########################
+
+cah:Artist a owl:Class ;
+    rdfs:label "Artist" ;
+    rdfs:comment "A person who creates artworks" ;
+    rdfs:subClassOf crm:E21_Person .
+
+cah:Artwork a owl:Class ;
+    rdfs:label "Artwork" ;
+    rdfs:comment "A cultural or artistic work" ;
+    rdfs:subClassOf edm:ProvidedCHO , crm:E22_Man-Made_Object .
+
+cah:Museum a owl:Class ;
+    rdfs:subClassOf crm:E40_Legal_Body .
+
+cah:Painting a owl:Class ;
+    rdfs:subClassOf cah:Artwork .
+
+cah:Sculpture a owl:Class ;
+    rdfs:subClassOf cah:Artwork .
+
+cah:ArtMovement a owl:Class ;
+    rdfs:subClassOf crm:E55_Type .
+
+cah:ArtPeriod a owl:Class ;
+    rdfs:subClassOf crm:E4_Period .
+
+cah:Genre a owl:Class ;
+    rdfs:subClassOf crm:E55_Type .
+
+cah:Medium a owl:Class ;
+    rdfs:subClassOf crm:E57_Material .
+
+cah:Exhibition a owl:Class ;
+    rdfs:subClassOf crm:E7_Activity .
+
+cah:RestorationEvent a owl:Class ;
+    rdfs:subClassOf crm:E11_Modification .
+
+cah:CreationEvent a owl:Class ;
+    rdfs:subClassOf crm:E12_Production .
+
+cah:BirthEvent a owl:Class ;
+    rdfs:subClassOf crm:E67_Birth .
+
+cah:ProvenanceEvent a owl:Class ;
+    rdfs:subClassOf crm:E10_Transfer_of_Custody .
+
+cah:DonationEvent a owl:Class ;
+    rdfs:subClassOf cah:ProvenanceEvent .
+
+cah:Collector a owl:Class ;
+    rdfs:subClassOf crm:E39_Actor .
+
+cah:Curator a owl:Class ;
+    rdfs:subClassOf crm:E21_Person .
+
+cah:Institution a owl:Class ;
+    rdfs:subClassOf crm:E40_Legal_Body .
+
+cah:Country a owl:Class ;
+    rdfs:subClassOf crm:E53_Place .
+
+cah:City a owl:Class ;
+    rdfs:subClassOf crm:E53_Place .
+
+cah:TimeSpan a owl:Class ;
+    rdfs:subClassOf crm:E52_Time-Span .
+
+cah:Prize a owl:Class ;
+    rdfs:subClassOf crm:E89_Propositional_Object .
+
+########################
+# Object Properties
+########################
+
+cah:createdBy a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Artist ;
+    owl:inverseOf cah:inverse_createdBy ;
+    rdfs:subPropertyOf crm:P14_carried_out_by .
+
+cah:inverse_createdBy a owl:ObjectProperty ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artwork .
+
+cah:createdInPeriod a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:ArtPeriod .
+
+cah:activeInMovement a owl:ObjectProperty ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:ArtMovement .
+
+cah:belongsToMovement a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:ArtMovement .
+
+cah:hasGenre a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Genre .
+
+cah:usesMedium a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Medium .
+
+cah:heldBy a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Institution ;
+    owl:inverseOf cah:inverse_heldBy ;
+    rdfs:subPropertyOf crm:P50_has_current_keeper .
+
+cah:inverse_heldBy a owl:ObjectProperty ;
+    rdfs:domain cah:Institution ;
+    rdfs:range cah:Artwork .
+
+cah:locatedIn a owl:ObjectProperty ;
+    rdfs:domain cah:Institution ;
+    rdfs:range crm:E53_Place ;
+    rdfs:subPropertyOf crm:P53_has_former_or_current_location .
+
+cah:participatedInExhibition a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Exhibition ;
+    owl:inverseOf cah:inverse_participatedInExhibition .
+
+cah:inverse_participatedInExhibition a owl:ObjectProperty ;
+    rdfs:domain cah:Exhibition ;
+    rdfs:range cah:Artwork .
+
+cah:organizedBy a owl:ObjectProperty ;
+    rdfs:domain cah:Exhibition ;
+    rdfs:range cah:Curator .
+
+cah:hasParticipant a owl:ObjectProperty ;
+    rdfs:domain cah:Exhibition ;
+    rdfs:range crm:E39_Actor .
+
+cah:underwentRestoration a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:RestorationEvent ;
+    owl:inverseOf cah:inverse_underwentRestoration .
+
+cah:inverse_underwentRestoration a owl:ObjectProperty ;
+    rdfs:domain cah:RestorationEvent ;
+    rdfs:range cah:Artwork .
+
+cah:hasTimeSpan a owl:ObjectProperty ;
+    rdfs:domain crm:E2_Temporal_Entity ;
+    rdfs:range cah:TimeSpan ;
+    rdfs:subPropertyOf crm:P4_has_time-span .
+
+cah:hasOwner a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Institution .
+
+cah:transferredOwnershipTo a owl:ObjectProperty ;
+    rdfs:domain cah:ProvenanceEvent ;
+    rdfs:range cah:Institution .
+
+cah:transferredOwnershipFrom a owl:ObjectProperty ;
+    rdfs:domain cah:ProvenanceEvent ;
+    rdfs:range cah:Institution .
+
+cah:hasCountry a owl:ObjectProperty ;
+    rdfs:domain crm:E53_Place ;
+    rdfs:range cah:Country .
+
+cah:influencedBy a owl:ObjectProperty ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artist ;
+    owl:inverseOf cah:inverse_influencedBy .
+
+cah:inverse_influencedBy a owl:ObjectProperty ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artist .
+
+cah:collaboratedWith a owl:ObjectProperty ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artist .
+
+cah:wonPrize a owl:ObjectProperty ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Prize .
+
+cah:donatedBy a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Collector .
+
+cah:donatedTo a owl:ObjectProperty ;
+    rdfs:domain cah:DonationEvent ;
+    rdfs:range cah:Museum .
+
+cah:hasContributor a owl:ObjectProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Artist .
+
+########################
+# Datatype Properties
+########################
+
+cah:hasCreationDate a owl:DatatypeProperty ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range xsd:date .
+
+cah:hasBirthDate a owl:DatatypeProperty ;
+    rdfs:domain cah:Artist ;
+    rdfs:range xsd:date .
+
+cah:startDate a owl:DatatypeProperty ;
+    rdfs:domain cah:TimeSpan ;
+    rdfs:range xsd:date .
+
+cah:endDate a owl:DatatypeProperty ;
+    rdfs:domain cah:TimeSpan ;
+    rdfs:range xsd:date .
+
+cah:awardYear a owl:DatatypeProperty ;
+    rdfs:domain cah:Prize ;
+    rdfs:range xsd:gYear .
+
+cah:isLiving a owl:DatatypeProperty ;
+    rdfs:domain cah:Artist ;
+    rdfs:range xsd:boolean .
+
+########################
+# Axioms / Restrictions
+########################
+
+cah:Painting rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:usesMedium ;
+    owl:someValuesFrom cah:Medium
+] .
+
+cah:Artwork rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:createdBy ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass cah:Artist
+] .
+
+cah:Exhibition rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:organizedBy ;
+    owl:someValuesFrom cah:Curator
+] .
+
+cah:RestorationEvent rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:hasTimeSpan ;
+    owl:someValuesFrom cah:TimeSpan
+] .
+
+########################
+# Additional Property Characteristics
+########################
+
+cah:createdBy a owl:ObjectProperty ;
+    rdf:type owl:AsymmetricProperty .
+
+cah:createdInPeriod a owl:ObjectProperty ;
+    rdf:type owl:AsymmetricProperty .
+
+cah:influencedBy a owl:ObjectProperty ;
+    rdf:type owl:TransitiveProperty .
+
+cah:collaboratedWith a owl:ObjectProperty ;
+    rdf:type owl:SymmetricProperty .
+
+cah:locatedIn a owl:ObjectProperty ;
+    rdf:type owl:TransitiveProperty .
+
+cah:hasCountry a owl:ObjectProperty ;
+    rdf:type owl:FunctionalProperty .
+
+########################
+# Property Chain Axioms
+########################
+
+# If an artwork is held by an institution and the institution is located in a place,
+# then the artwork is indirectly located in that place
+cah:locatedIn owl:propertyChainAxiom ( cah:heldBy cah:locatedIn ) .
+
+# If an artist created an artwork and the artwork belongs to a movement,
+# then the artist is associated with that movement
+cah:activeInMovement owl:propertyChainAxiom ( cah:inverse_createdBy cah:belongsToMovement ) .
+
+########################
+# Cardinality Constraints (Qualified)
+########################
+
+# Artwork can have multiple creators (many-to-many)
+cah:Artwork rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:createdBy ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass cah:Artist
+] .
+
+# Artist can create multiple artworks
+cah:Artist rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:inverse_createdBy ;
+    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+    owl:onClass cah:Artwork
+] .
+
+# Artwork may have multiple contributors (collaborative works)
+cah:Artwork rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:hasContributor ;
+    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+    owl:onClass cah:Artist
+] .
+
+# Exhibition must include at least one artwork
+cah:Exhibition rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:hasParticipant ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass cah:Artwork
+] .
+
+# Museum holds zero or more artworks
+cah:Institution rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:inverse_heldBy ;
+    owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+    owl:onClass cah:Artwork
+] .
+
+########################
+# Disjointness Axioms
+########################
+
+cah:Artist owl:disjointWith cah:Artwork .
+cah:Artwork owl:disjointWith cah:Exhibition .
+cah:Museum owl:disjointWith cah:Artist .
+cah:ArtPeriod owl:disjointWith cah:Artwork .
+cah:ArtMovement owl:disjointWith cah:Artist .
+
+########################
+# Domain and Range Reinforcement
+########################
+
+cah:createdInPeriod rdfs:domain cah:Artwork ;
+    rdfs:range cah:ArtPeriod .
+
+cah:belongsToMovement rdfs:domain cah:Artwork ;
+    rdfs:range cah:ArtMovement .
+
+cah:activeInMovement rdfs:domain cah:Artist ;
+    rdfs:range cah:ArtMovement .
+
+########################
+# Inverse Property Reinforcement
+########################
+
+cah:transferredOwnershipTo owl:inverseOf cah:transferredOwnershipFrom .
+
+########################
+# Additional Semantic Restrictions
+########################
+
+# Provenance events must involve at least one transfer
+cah:ProvenanceEvent rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:transferredOwnershipTo ;
+    owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onClass cah:Institution
+] .
+
+# Donation events must involve a donor and receiving museum
+cah:DonationEvent rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:donatedTo ;
+    owl:someValuesFrom cah:Museum
+] .
+
+cah:DonationEvent rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:donatedBy ;
+    owl:someValuesFrom cah:Collector
+] .
+
+########################
+# Functional / Inverse Functional Properties
+########################
+
+# Each prize has exactly one award year
+cah:awardYear rdf:type owl:FunctionalProperty .
+
+# Birth date uniquely identifies an artist instance (weak identity constraint)
+cah:hasBirthDate rdf:type owl:FunctionalProperty .
+
+########################
+# Complex Class Expressions
+########################
+
+# Define CollaborativeArtwork as artwork with more than one contributor
+cah:CollaborativeArtwork a owl:Class ;
+    rdfs:subClassOf cah:Artwork ;
+    owl:equivalentClass [
+        a owl:Restriction ;
+        owl:onProperty cah:hasContributor ;
+        owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+        owl:onClass cah:Artist
+    ] .
+
+# Define InternationalProvenanceArtwork (ownership across countries)
+cah:InternationalProvenanceArtwork a owl:Class ;
+    rdfs:subClassOf cah:Artwork ;
+    owl:equivalentClass [
+        a owl:Restriction ;
+        owl:onProperty cah:hasOwner ;
+        owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+        owl:onClass cah:Institution
+    ] .
+
+########################
+# Temporal Reasoning Enhancements
+########################
+
+# TimeSpan must have exactly one start and end date
+cah:TimeSpan rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:startDate ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onDataRange xsd:date
+] .
+
+cah:TimeSpan rdfs:subClassOf [
+    a owl:Restriction ;
+    owl:onProperty cah:endDate ;
+    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+    owl:onDataRange xsd:date
+] .
