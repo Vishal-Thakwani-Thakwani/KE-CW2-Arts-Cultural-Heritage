@@ -1,0 +1,276 @@
+PREFIX cah: <http://example.org/culturalheritage#> 
+PREFIX edm: <http://www.europeana.eu/schemas/edm/> 
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/> 
+PREFIX ore: <http://www.openarchives.org/ore/terms/> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX dcterms: <http://purl.org/dc/terms/> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+# CQ1: Which artworks in the collection were created by artists born in Italy during the Renaissance period (1400–1600)? 
+
+SELECT ?artwork
+WHERE {
+  ?artwork a cah:Artwork ;
+           cah:createdBy ?artist ;
+           cah:createdInPeriod ?period .
+
+  ?artist cah:hasBirthPlace ?place .
+  ?place cah:hasCountry ?country .
+
+  ?country rdfs:label "Italy" .
+  ?period rdfs:label "Renaissance" .
+
+  # Ensure date constraint 1400–1600
+  ?artwork cah:hasCreationDate ?date .
+  FILTER (?date >= "1400-01-01"^^xsd:date && ?date <= "1600-12-31"^^xsd:date)
+}
+
+
+# CQ2: Which museums hold paintings by artists who were active in the Impressionist movement?
+
+SELECT DISTINCT ?museum
+WHERE {
+  ?painting a cah:Painting ;
+            cah:createdBy ?artist ;
+            cah:heldBy ?museum .
+
+  ?artist cah:activeInMovement ?movement .
+  ?movement rdfs:label "Impressionism" .
+}
+
+
+# CQ3: Which artworks have been through more than one conservation/restoration event?
+
+SELECT ?artwork (COUNT(?rest) AS ?restorationCount)
+WHERE {
+  ?artwork cah:underwentRestoration ?rest .
+}
+GROUP BY ?artwork
+HAVING (COUNT(?rest) > 1)
+
+
+# CQ4: Which artists have won the Turner Prize, and in which year?
+
+SELECT ?artist ?year
+WHERE {
+  ?artist cah:wonPrize ?prize .
+  ?prize rdfs:label "Turner Prize" ;
+         cah:awardYear ?year .
+}
+
+
+# CQ5: What is the most common medium used for artworks created before 1500? - works with instances atm
+
+SELECT ?medium (COUNT(?artwork) AS ?count)
+WHERE {
+  ?artwork cah:usesMedium ?medium ;
+           cah:hasCreationDate ?date .
+  FILTER (?date < "1500-01-01"^^xsd:date)
+}
+GROUP BY ?medium
+ORDER BY DESC(?count)
+LIMIT 1
+
+
+# CQ6: Which living artists have artworks held in museums located in London?
+
+SELECT DISTINCT ?artist
+WHERE {
+  ?artist cah:isLiving true .
+
+  ?artwork cah:createdBy ?artist ;
+           cah:heldBy ?museum .
+
+  ?museum cah:locatedIn ?city .
+  ?city rdfs:label "London" .
+}
+
+
+# CQ7: In which country is the Musée du Louvre located?
+
+SELECT ?country
+WHERE {
+  ?museum rdfs:label "Musée du Louvre" ;
+          cah:locatedIn ?place .
+
+  ?place cah:hasCountry ?country .
+}
+
+
+# CQ8: Which artworks were created before 1700 and are currently held by a museum? - works with instances
+
+SELECT ?artwork
+WHERE {
+  ?artwork cah:hasCreationDate ?date ;
+           cah:heldBy ?museum .
+  FILTER (?date < "1700-01-01"^^xsd:date)
+}
+
+
+# CQ9: Which artists created works in more than one genre (e.g., both portraits and landscapes)? - comes up with "Unknown artist"
+
+SELECT ?artist (COUNT(DISTINCT ?genre) AS ?genreCount)
+WHERE {
+  ?artwork cah:createdBy ?artist ;
+           cah:hasGenre ?genre .
+}
+GROUP BY ?artist
+HAVING (COUNT(DISTINCT ?genre) > 1)
+
+
+# CQ10: Which artworks by Michelangelo are classified as sculptures, and which institution holds them?
+
+SELECT ?artwork ?institution
+WHERE {
+  ?artist rdfs:label "Michelangelo" .
+
+  ?artwork a cah:Sculpture ;
+           cah:createdBy ?artist ;
+           cah:heldBy ?institution .
+}
+
+
+# CQ11: Which artists have had artworks exhibited at more than one museum during the same calendar year, and which museums were involved?
+
+SELECT ?artist ?year (COUNT(DISTINCT ?museum) AS ?museumCount)
+WHERE {
+  ?artwork cah:createdBy ?artist ;
+           cah:participatedInExhibition ?exhibition .
+
+  ?exhibition cah:hasTimeSpan ?ts ;
+              cah:hasParticipant ?artwork .
+
+  ?ts cah:startDate ?date .
+  BIND(YEAR(?date) AS ?year)
+
+  ?artwork cah:heldBy ?museum .
+}
+GROUP BY ?artist ?year
+HAVING (COUNT(DISTINCT ?museum) > 1)
+
+
+# CQ12: Which artworks have undergone more than two restoration events, and what is the time span between the earliest and most recent restoration?
+
+SELECT ?artwork 
+       (COUNT(?rest) AS ?count)
+       (MIN(?start) AS ?earliest)
+       (MAX(?end) AS ?latest)
+WHERE {
+  ?artwork cah:underwentRestoration ?rest .
+  ?rest cah:hasTimeSpan ?ts .
+  ?ts cah:startDate ?start ;
+      cah:endDate ?end .
+}
+GROUP BY ?artwork
+HAVING (COUNT(?rest) > 2)
+
+
+# CQ13: Which artworks have changed ownership across at least two different countries, and what was the sequence of provenance events with dates and acquiring institutions?
+
+SELECT ?artwork ?event ?date ?institution ?country
+WHERE {
+  ?event a cah:ProvenanceEvent ;
+         cah:transferredOwnershipTo ?institution ;
+         cah:hasTimeSpan ?ts .
+
+  ?ts cah:startDate ?date .
+
+  ?institution cah:locatedIn ?place .
+  ?place cah:hasCountry ?country .
+
+  ?artwork cah:hasOwner ?institution .
+}
+ORDER BY ?artwork ?date
+
+
+# CQ14: For each art movement represented in the knowledge graph, what is the date range of artworks associated with it (earliest and latest creation year), and how many distinct artists contributed?
+
+SELECT ?movement 
+       (MIN(?date) AS ?earliest)
+       (MAX(?date) AS ?latest)
+       (COUNT(DISTINCT ?artist) AS ?artistCount)
+WHERE {
+  ?artwork cah:belongsToMovement ?movement ;
+           cah:hasCreationDate ?date ;
+           cah:createdBy ?artist .
+}
+GROUP BY ?movement
+
+
+# CQ15: Which curators have organised exhibitions featuring artworks from more than one art period, and which periods were combined in those exhibitions?
+
+SELECT ?curator (COUNT(DISTINCT ?period) AS ?periodCount)
+WHERE {
+  ?exhibition cah:organizedBy ?curator ;
+              cah:hasParticipant ?artwork .
+
+  ?artwork cah:createdInPeriod ?period .
+}
+GROUP BY ?curator
+HAVING (COUNT(DISTINCT ?period) > 1)
+
+
+# CQ16: How has the distribution of artistic mediums (oil on canvas, sculpture, photography, etc.) in museum collections changed across centuries (pre-1500, 1500–1700, 1700–1900, post-1900)? - has answers for some instances
+
+SELECT ?periodGroup ?medium (COUNT(?artwork) AS ?count)
+WHERE {
+  ?artwork cah:usesMedium ?medium ;
+           cah:hasCreationDate ?date .
+
+  BIND(
+    IF(?date < "1500-01-01"^^xsd:date, "pre-1500",
+    IF(?date < "1700-01-01"^^xsd:date, "1500-1700",
+    IF(?date < "1900-01-01"^^xsd:date, "1700-1900",
+       "post-1900"))) AS ?periodGroup)
+}
+GROUP BY ?periodGroup ?medium
+ORDER BY ?periodGroup
+
+
+# CQ17: Which artworks in the knowledge graph have never been part of any exhibition, and which museums currently hold them? - has answers for some instances (museums are all from metropolitan art museum)
+
+SELECT ?artwork ?museum
+WHERE {
+  ?artwork cah:heldBy ?museum .
+  FILTER NOT EXISTS {
+    ?artwork cah:participatedInExhibition ?ex .
+  }
+}
+
+
+# CQ18: Which artworks were created collaboratively by more than one artist, and do those artists belong to the same art movement or different ones?
+
+SELECT ?artwork (COUNT(DISTINCT ?artist) AS ?artistCount)
+WHERE {
+  ?artwork cah:hasContributor ?artist .
+}
+GROUP BY ?artwork
+HAVING (COUNT(DISTINCT ?artist) > 1)
+
+
+# CQ19: Which collectors or donors have contributed artworks to more than one museum, and how many artworks did each donate in total across all institutions?
+
+SELECT ?collector (COUNT(DISTINCT ?museum) AS ?museumCount) (COUNT(?artwork) AS ?totalDonations)
+WHERE {
+  ?artwork cah:donatedBy ?collector .
+  ?event cah:donatedTo ?museum .
+}
+GROUP BY ?collector
+HAVING (COUNT(DISTINCT ?museum) > 1)
+
+
+# CQ20: Which artists influenced other artists who created works in a different art movement from their own?
+
+SELECT ?artist1 ?artist2
+WHERE {
+  ?artist2 cah:influencedBy ?artist1 .
+
+  ?artist1 cah:activeInMovement ?m1 .
+  ?artist2 cah:activeInMovement ?m2 .
+
+  FILTER (?m1 != ?m2)
+}
