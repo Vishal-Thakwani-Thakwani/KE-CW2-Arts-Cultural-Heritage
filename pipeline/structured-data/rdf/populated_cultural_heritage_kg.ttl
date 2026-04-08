@@ -1,0 +1,2130 @@
+@prefix cah: <http://example.org/culturalheritage#> .
+@prefix ch: <http://example.org/cultural#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ch:artwork_1 a ch:Artwork ;
+    rdfs:label "One-dollar Liberty Head Coin" ;
+    ch:createdBy ch:artist_164292 ;
+    ch:hasMedium ch:medium_Gold ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/1"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_1 .
+
+ch:artwork_10 a ch:Artwork ;
+    rdfs:label "Two-and-a-half-dollar Indian Head Coin" ;
+    ch:createdBy ch:artist_1080 ;
+    ch:hasMedium ch:medium_Gold ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/10"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_10 .
+
+ch:artwork_104779 a ch:Artwork ;
+    rdfs:label "Wedding Dress" ;
+    ch:hasMedium ch:medium_Cotton%2C_silk%3B_embroidered ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:city_Bethlehem ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/104779"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_104779 .
+
+ch:artwork_11 a ch:Artwork ;
+    rdfs:label "Two-and-a-half-dollar Liberty Head Coin" ;
+    ch:createdBy ch:artist_1079 ;
+    ch:hasMedium ch:medium_Gold ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/11"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_11 .
+
+ch:artwork_123888 a ch:Artwork ;
+    rdfs:label "Akhnif / Burnus" ;
+    ch:hasMedium ch:medium_Wool%2C_cotton ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Morocco ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/123888"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_123888 .
+
+ch:artwork_124428 a ch:Artwork ;
+    rdfs:label "Buckle" ;
+    ch:hasMedium ch:medium_Metal%2C_orange_stones ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/124428"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_124428 .
+
+ch:artwork_126673 a ch:Artwork ;
+    rdfs:label "Pin (ttipqui)" ;
+    ch:createdBy ch:artist_223354 ;
+    ch:hasMedium ch:medium_Silver%2C_glass ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Peru ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/126673"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_126673 .
+
+ch:artwork_126682 a ch:Artwork ;
+    rdfs:label "Bag" ;
+    ch:hasMedium ch:medium_abaca%2C_cotton%2C_beads ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Philippines ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/126682"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_126682 .
+
+ch:artwork_13110 a ch:Artwork ;
+    rdfs:label "Maiden, Cupid and Frog" ;
+    ch:createdBy ch:artist_231771 ;
+    ch:hasMedium ch:medium_Ink_and_watercolor ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/13110"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_13110 .
+
+ch:artwork_13126 a ch:Artwork ;
+    rdfs:label "Room \"M\" in The Metropolitan Museum of Art in 14th Street" ;
+    ch:createdBy ch:artist_165380 ;
+    ch:hasMedium ch:medium_Pen%2C_ink%2C_and_graphite ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/13126"^^xsd:anyURI .
+
+ch:artwork_13127 a ch:Artwork ;
+    rdfs:label "Sketch of Room \"M\" in The Metropolitan Museum of Art when in 14th Street" ;
+    ch:createdBy ch:artist_165380 ;
+    ch:hasMedium ch:medium_Graphite_with_white_touches ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/13127"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_13127 .
+
+ch:artwork_13128 a ch:Artwork ;
+    rdfs:label "Stairway and balcony, study for \"Interior of the Metropolitan Museum of Art when in 14th Street\"" ;
+    ch:createdBy ch:artist_165380 ;
+    ch:hasMedium ch:medium_Graphite_and_chalk ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/13128"^^xsd:anyURI .
+
+ch:artwork_13737 a ch:Artwork ;
+    rdfs:label "Embroidered Picture" ;
+    ch:hasMedium ch:medium_Embroidered_wool_on_linen ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/13737"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_13737 .
+
+ch:artwork_13740 a ch:Artwork ;
+    rdfs:label "Embroidered picture of Charles I" ;
+    ch:hasMedium ch:medium_Canvas_embroidered_with_wool_and_silk_thread ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/13740"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_13740 .
+
+ch:artwork_2 a ch:Artwork ;
+    rdfs:label "Ten-dollar Liberty Head Coin" ;
+    ch:createdBy ch:artist_1079 ;
+    ch:hasMedium ch:medium_Gold ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/2"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_2 .
+
+ch:artwork_21910 a ch:Artwork ;
+    rdfs:label "Blade and Mounting for a Short Sword (Wakizashi)" ;
+    ch:hasMedium ch:medium_Steel%2C_wood%2C_lacquer%2C_gold%2C_silver%2C_copper-silver_allowy_%28shibuichi%29 ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Japan ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/21910"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_21910 .
+
+ch:artwork_21912 a ch:Artwork ;
+    rdfs:label "Blade and Mounting for a Dagger (Tantō)" ;
+    ch:hasMedium ch:medium_Steel%2C_wood%2Cray_skin_%28sam%C3%A9%29%2C_paper%2C_laquer%2C_copper-gold_alloy_%28shakud%C5%8D%29%2C_silver ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Japan ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/21912"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_21912 .
+
+ch:artwork_21916 a ch:Artwork ;
+    rdfs:label "Blade and Mounting for a Sword (Katana)" ;
+    ch:hasMedium ch:medium_Steel%2C_wood%2C_lacquer%2C_silver%2C_abalone_shell%2C_copper-gold_alloy_%28shakud%C5%8D%29%2C_iron ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Japan ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/21916"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_21916 .
+
+ch:artwork_21917 a ch:Artwork ;
+    rdfs:label "Halberd of Archduke Ferdinand II of Austria (1578–1637, Emperor from 1619)" ;
+    ch:hasMedium ch:medium_Steel%2C_wood%2C_textile ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Germany ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/21917"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_21917 .
+
+ch:artwork_21918 a ch:Artwork ;
+    rdfs:label "Vambrace" ;
+    ch:hasMedium ch:medium_Steel ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Italy ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/21918"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_21918 .
+
+ch:artwork_240220 a ch:Artwork ;
+    rdfs:label "Terracotta jug with horse's head in relief" ;
+    ch:createdInPeriod ch:period_Cypro-Classical_I_or_II ;
+    ch:hasMedium ch:medium_Terracotta ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/240220"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_240220 .
+
+ch:artwork_240221 a ch:Artwork ;
+    rdfs:label "Terracotta jug" ;
+    ch:createdInPeriod ch:period_Cypro-Archaic%E2%80%93Cypro-Classical ;
+    ch:hasMedium ch:medium_Terracotta ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/240221"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_240221 .
+
+ch:artwork_240222 a ch:Artwork ;
+    rdfs:label "Jug" ;
+    ch:createdInPeriod ch:period_Cypro-Archaic_II ;
+    ch:hasMedium ch:medium_Terracotta ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/240222"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_240222 .
+
+ch:artwork_240223 a ch:Artwork ;
+    rdfs:label "Amphora" ;
+    ch:createdInPeriod ch:period_Cypro-Geometric_I ;
+    ch:hasMedium ch:medium_Terracotta ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/240223"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_240223 .
+
+ch:artwork_240224 a ch:Artwork ;
+    rdfs:label "Terracotta amphora (jar)" ;
+    ch:createdInPeriod ch:period_Cypro-Geometric_I ;
+    ch:hasMedium ch:medium_Terracotta ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/240224"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_240224 .
+
+ch:artwork_260046 a ch:Artwork ;
+    rdfs:label "Joe's Auto Graveyard, Near Bethlehem, Pennsylvania" ;
+    ch:createdBy ch:artist_161869 ;
+    ch:hasMedium ch:medium_Gelatin_silver_print ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/260046"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_260046 .
+
+ch:artwork_260047 a ch:Artwork ;
+    rdfs:label "Birmingham Steel Mill and Workers' Houses" ;
+    ch:createdBy ch:artist_161869 ;
+    ch:hasMedium ch:medium_Gelatin_silver_print ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/260047"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_260047 .
+
+ch:artwork_260048 a ch:Artwork ;
+    rdfs:label "Commodore" ;
+    ch:createdBy ch:artist_164633 ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/260048"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_260048 .
+
+ch:artwork_260049 a ch:Artwork ;
+    rdfs:label "The Astor Place Luncheonette with the Judgement of Paris by Rubens" ;
+    ch:createdBy ch:artist_164633 ;
+    ch:hasMedium ch:medium_Photo_silkscreen ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/260049"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_260049 .
+
+ch:artwork_260050 a ch:Artwork ;
+    rdfs:label "Flower Still II" ;
+    ch:createdBy ch:artist_164633 ;
+    ch:hasMedium ch:medium_Photo_silkscreen ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/260050"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_260050 .
+
+ch:artwork_2646 a ch:Artwork ;
+    rdfs:label "Cream jug" ;
+    ch:createdBy ch:artist_35094 ;
+    ch:hasMedium ch:medium_Soft-paste_porcelain ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/2646"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_2646 .
+
+ch:artwork_3 a ch:Artwork ;
+    rdfs:label "Two-and-a-Half Dollar Coin" ;
+    ch:hasMedium ch:medium_Gold ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/3"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_3 .
+
+ch:artwork_321768 a ch:Artwork ;
+    rdfs:label "Cuneiform tablet: quittance for rent, Esagilaya archive" ;
+    ch:createdInPeriod ch:period_Achaemenid ;
+    ch:hasMedium ch:medium_Clay ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/321768"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_321768 .
+
+ch:artwork_321769 a ch:Artwork ;
+    rdfs:label "Cuneiform tablet: cession of promissory note (?), Esagilaya archive" ;
+    ch:createdInPeriod ch:period_Neo-Babylonian ;
+    ch:hasMedium ch:medium_Clay ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/321769"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_321769 .
+
+ch:artwork_321770 a ch:Artwork ;
+    rdfs:label "Cuneiform tablet: account of gold, Ebabbar archive" ;
+    ch:createdInPeriod ch:period_Neo-Babylonian ;
+    ch:hasMedium ch:medium_Clay ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/321770"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_321770 .
+
+ch:artwork_321771 a ch:Artwork ;
+    rdfs:label "Cuneiform tablet: account of delivery of animals for offering, Ebabbar archive" ;
+    ch:createdInPeriod ch:period_Neo-Babylonian ;
+    ch:hasMedium ch:medium_Clay ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/321771"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_321771 .
+
+ch:artwork_321772 a ch:Artwork ;
+    rdfs:label "Cuneiform tablet: account of silver disbursements, Ebabbar archive" ;
+    ch:createdInPeriod ch:period_Neo-Babylonian ;
+    ch:hasMedium ch:medium_Clay ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/321772"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_321772 .
+
+ch:artwork_329915 a ch:Artwork ;
+    rdfs:label "Upper Part of a Seated Figure in a Long Kilt" ;
+    ch:createdInPeriod ch:period_Middle_Kingdom ;
+    ch:hasMedium ch:medium_Serpentinite_%28%3F%29 ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Egypt ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/329915"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_329915 .
+
+ch:artwork_329916 a ch:Artwork ;
+    rdfs:label "Fragmentary Head of Thutmose IV" ;
+    ch:createdInPeriod ch:period_New_Kingdom ;
+    ch:hasMedium ch:medium_Granodiorite ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Egypt ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/329916"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_329916 .
+
+ch:artwork_329917 a ch:Artwork ;
+    rdfs:label "Face of a Man with Part of a Short Echeloned Wig" ;
+    ch:createdInPeriod ch:period_Old_Kingdom ;
+    ch:hasMedium ch:medium_Wood%2C_paint ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Egypt ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/329917"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_329917 .
+
+ch:artwork_329918 a ch:Artwork ;
+    rdfs:label "Pediusir kneeling, holding a jar" ;
+    ch:createdInPeriod ch:period_Late_Period%E2%80%93Ptolemaic_Period ;
+    ch:hasMedium ch:medium_Copper_alloy ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Egypt ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/329918"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_329918 .
+
+ch:artwork_329919 a ch:Artwork ;
+    rdfs:label "Kneeling Priest, Pouring Libation" ;
+    ch:createdInPeriod ch:period_Late_Period%E2%80%93Ptolemaic_Period ;
+    ch:hasMedium ch:medium_Copper_alloy ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Egypt ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/329919"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_329919 .
+
+ch:artwork_330120 a ch:Artwork ;
+    rdfs:label "Cover Design for \"Les Vieilles Histoires\"" ;
+    ch:createdBy ch:artist_162561 ;
+    ch:hasMedium ch:medium_Hand-colored_lithograph ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/330120"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_330120 .
+
+ch:artwork_36482 a ch:Artwork ;
+    rdfs:label "Three Actors in Beautiful Costumes Performing a Religious Dance" ;
+    ch:createdBy ch:artist_11401 ;
+    ch:createdInPeriod ch:period_Edo_period_%281615%E2%80%931868%29 ;
+    ch:hasMedium ch:medium_Triptych_of_woodblock_prints%3B_ink_and_color_on_paper ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/36482"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_36482 .
+
+ch:artwork_36483 a ch:Artwork ;
+    rdfs:label "New Year's Day at the Ōgiya Brothel, Yoshiwara" ;
+    ch:createdBy ch:artist_164560 ;
+    ch:createdInPeriod ch:period_Edo_period_%281615%E2%80%931868%29 ;
+    ch:hasMedium ch:medium_Pentaptych_of_woodblock_prints%3B_ink_and_color_on_paper ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/36483"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_36483 .
+
+ch:artwork_36484 a ch:Artwork ;
+    rdfs:label "Rōben Waterfall at Ōyama in Sagami Province (Sōshū Ōyama Rōben no taki), from the series A Tour of Waterfalls in Various Provinces (Shokoku taki meguri)" ;
+    ch:createdBy ch:artist_164560 ;
+    ch:createdInPeriod ch:period_Edo_period_%281615%E2%80%931868%29 ;
+    ch:hasMedium ch:medium_Woodblock_print%3B_ink_and_color_on_paper ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/36484"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_36484 .
+
+ch:artwork_36485 a ch:Artwork ;
+    rdfs:label "Poem by Jitō Tenno (Empress Jitō), from the series One Hundred Poems Explained by the Nurse (Hyakunin isshu uba ga etoki)" ;
+    ch:createdBy ch:artist_164560 ;
+    ch:createdInPeriod ch:period_Edo_period_%281615%E2%80%931868%29 ;
+    ch:hasMedium ch:medium_Woodblock_print%3B_ink_and_color_on_paper ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/36485"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_36485 .
+
+ch:artwork_36486 a ch:Artwork ;
+    rdfs:label "Poem by Kakinomoto Hitomaro, from the series One Hundred Poems Explained by the Nurse (Hyakunin isshu uba ga etoki)" ;
+    ch:createdBy ch:artist_164560 ;
+    ch:createdInPeriod ch:period_Edo_period_%281615%E2%80%931868%29 ;
+    ch:hasMedium ch:medium_Woodblock_print%3B_ink_and_color_on_paper ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/36486"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_36486 .
+
+ch:artwork_437344 a ch:Artwork ;
+    rdfs:label "The Shepherd's Song" ;
+    ch:createdBy ch:artist_162280 ;
+    ch:hasMedium ch:medium_Oil_on_canvas ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/437344"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_437344 .
+
+ch:artwork_437345 a ch:Artwork ;
+    rdfs:label "Cider" ;
+    ch:createdBy ch:artist_162280 ;
+    ch:hasMedium ch:medium_Oil_on_paper%2C_laid_down_on_canvas ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/437345"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_437345 .
+
+ch:artwork_437346 a ch:Artwork ;
+    rdfs:label "Inter artes et naturam (Between Art and Nature)" ;
+    ch:createdBy ch:artist_162280 ;
+    ch:hasMedium ch:medium_Oil_on_canvas ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/437346"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_437346 .
+
+ch:artwork_437347 a ch:Artwork ;
+    rdfs:label "Ludus pro patria (Patriotic Games)" ;
+    ch:createdBy ch:artist_162280 ;
+    ch:hasMedium ch:medium_Oil_on_canvas ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/437347"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_437347 .
+
+ch:artwork_437348 a ch:Artwork ;
+    rdfs:label "The River" ;
+    ch:createdBy ch:artist_162280 ;
+    ch:hasMedium ch:medium_Oil_on_paper%2C_laid_down_on_canvas ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/437348"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_437348 .
+
+ch:artwork_458953 a ch:Artwork ;
+    rdfs:label "Saint Ansanus" ;
+    ch:createdBy ch:artist_162107 ;
+    ch:hasMedium ch:medium_Tempera_on_wood%2C_gold_ground ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/458953"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_458953 .
+
+ch:artwork_458954 a ch:Artwork ;
+    rdfs:label "Saint Mary Magdalen" ;
+    ch:createdBy ch:artist_108029 ;
+    ch:hasMedium ch:medium_Tempera_on_wood%2C_gold_ground ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/458954"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_458954 .
+
+ch:artwork_458955 a ch:Artwork ;
+    rdfs:label "Saint Peter" ;
+    ch:createdBy ch:artist_108029 ;
+    ch:hasMedium ch:medium_Tempera_on_wood%2C_gold_ground ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/458955"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_458955 .
+
+ch:artwork_458956 a ch:Artwork ;
+    rdfs:label "The Adoration of the Magi" ;
+    ch:createdBy ch:artist_161654 ;
+    ch:hasMedium ch:medium_Tempera_and_gold_on_wood ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/458956"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_458956 .
+
+ch:artwork_458957 a ch:Artwork ;
+    rdfs:label "Head of an Angel in Full Face" ;
+    ch:createdBy ch:artist_162505 ;
+    ch:hasMedium ch:medium_Tempera_on_wood_%28paint_around_head_scraped_away_and_vacant_area_gessoed%29 ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/458957"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_458957 .
+
+ch:artwork_464584 a ch:Artwork ;
+    rdfs:label "Dove" ;
+    ch:hasMedium ch:medium_Cloisonn%C3%A9_enamel%2C_gold ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/464584"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_464584 .
+
+ch:artwork_464585 a ch:Artwork ;
+    rdfs:label "Plaque of St. John" ;
+    ch:hasMedium ch:medium_Cloisonn%C3%A9_enamel%2C_silver_gilt ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/464585"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_464585 .
+
+ch:artwork_464586 a ch:Artwork ;
+    rdfs:label "Plaque of The Virgin" ;
+    ch:hasMedium ch:medium_Cloisonn%C3%A9_enamel%2C_silver_gilt ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/464586"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_464586 .
+
+ch:artwork_464587 a ch:Artwork ;
+    rdfs:label "Enthroned Virgin" ;
+    ch:hasMedium ch:medium_Poplar_with_paint ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:city_possibly_Gotland ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/464587"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_464587 .
+
+ch:artwork_464588 a ch:Artwork ;
+    rdfs:label "Virgin and Child" ;
+    ch:hasMedium ch:medium_Marble_with_traces_of_polychromy ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/464588"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_464588 .
+
+ch:artwork_465956 a ch:Artwork ;
+    rdfs:label "Fragment with Personifications of Victory and the Nile" ;
+    ch:hasMedium ch:medium_Elephant_ivory ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_probably_Egypt ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/465956"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_465956 .
+
+ch:artwork_465961 a ch:Artwork ;
+    rdfs:label "Door Knocker" ;
+    ch:hasMedium ch:medium_Wrought_iron ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/465961"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_465961 .
+
+ch:artwork_465981 a ch:Artwork ;
+    rdfs:label "Pendant Medallion with Michael Slaying the Dragon" ;
+    ch:hasMedium ch:medium_Mother_of_pearl%2C_tempera%2C_and_silver ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/465981"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_465981 .
+
+ch:artwork_466092 a ch:Artwork ;
+    rdfs:label "Section of a Border with Foliate Pattern" ;
+    ch:hasMedium ch:medium_Pot-metal_glass_and_vitreous_paint ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:city_possibly_Amiens ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/466092"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_466092 .
+
+ch:artwork_466093 a ch:Artwork ;
+    rdfs:label "Comb" ;
+    ch:hasMedium ch:medium_Boxwood_inlaid_with_bone%2C_and_decorated_with_red_and_green_silk ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/466093"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_466093 .
+
+ch:artwork_479972 a ch:Artwork ;
+    rdfs:label "Textile sample" ;
+    ch:createdBy ch:artist_165507,
+        ch:artist_169986 ;
+    ch:hasMedium ch:medium_Silk ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/479972"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_479972 .
+
+ch:artwork_500790 a ch:Artwork ;
+    rdfs:label "Algoja" ;
+    ch:hasMedium ch:medium_Wood ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_India ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/500790"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_500790 .
+
+ch:artwork_500791 a ch:Artwork ;
+    rdfs:label "Double Clarinet" ;
+    ch:hasMedium ch:medium_Reed%2C_wax%2C_string ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_India ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/500791"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_500791 .
+
+ch:artwork_500792 a ch:Artwork ;
+    rdfs:label "Palwei" ;
+    ch:hasMedium ch:medium_Bamboo ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Myanmar_%28formerly_Burma%29 ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/500792"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_500792 .
+
+ch:artwork_500793 a ch:Artwork ;
+    rdfs:label "Flute" ;
+    ch:hasMedium ch:medium_Wood ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_India ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/500793"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_500793 .
+
+ch:artwork_500796 a ch:Artwork ;
+    rdfs:label "Klui" ;
+    ch:hasMedium ch:medium_Bamboo ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Thailand ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/500796"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_500796 .
+
+ch:artwork_5209 a ch:Artwork ;
+    rdfs:label "Curtain knob" ;
+    ch:hasMedium ch:medium_Brass ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/5209"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_5209 .
+
+ch:artwork_591824 a ch:Artwork ;
+    rdfs:label "\"Alberti Dvreri pictoris et architecti praestantissimi De vrbibvs...\"" ;
+    ch:createdBy ch:artist_161857 ;
+    ch:hasMedium ch:medium_Illustrated_book ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/591824"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_591824 .
+
+ch:artwork_591825 a ch:Artwork ;
+    rdfs:label "Vita di Michelagnolo Buonarroti raccolta per Ascanio Condivi da la Ripa Transone" ;
+    ch:createdBy ch:artist_161417 ;
+    ch:hasMedium ch:medium_Illustrated_book ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/591825"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_591825 .
+
+ch:artwork_591826 a ch:Artwork ;
+    rdfs:label "Vita del Tintoretto" ;
+    ch:createdBy ch:artist_161418 ;
+    ch:hasMedium ch:medium_Illustrated_book ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/591826"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_591826 .
+
+ch:artwork_591827 a ch:Artwork ;
+    rdfs:label "Bononiensis de architectura libri quinque quibus cuncta fere architectonicae facultatis mysteria docte, perspicue . . ." ;
+    ch:createdBy ch:artist_161419 ;
+    ch:hasMedium ch:medium_Illustrated_book ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/591827"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_591827 .
+
+ch:artwork_591828 a ch:Artwork ;
+    rdfs:label "I quattro libri dell'architettura di Andrea Palladio . . ." ;
+    ch:createdBy ch:artist_161420 ;
+    ch:hasMedium ch:medium_Illustrated_book ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/591828"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_591828 .
+
+ch:artwork_7829 a ch:Artwork ;
+    rdfs:label "Spoon" ;
+    ch:hasMedium ch:medium_Pewter ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/7829"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_7829 .
+
+ch:artwork_80747 a ch:Artwork ;
+    rdfs:label "Evening dress" ;
+    ch:createdBy ch:artist_20241,
+        ch:artist_25236 ;
+    ch:hasMedium ch:medium_silk ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/80747"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_80747 .
+
+ch:artwork_80748 a ch:Artwork ;
+    rdfs:label "Evening ensemble" ;
+    ch:createdBy ch:artist_163904,
+        ch:artist_20184 ;
+    ch:hasMedium ch:medium_silk%2C_metal ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/80748"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_80748 .
+
+ch:artwork_80749 a ch:Artwork ;
+    rdfs:label "Corset" ;
+    ch:hasMedium ch:medium_cotton%2C_metal ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/80749"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_80749 .
+
+ch:artwork_80750 a ch:Artwork ;
+    rdfs:label "Jacket" ;
+    ch:createdBy ch:artist_20217 ;
+    ch:hasMedium ch:medium_hemp ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/80750"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_80750 .
+
+ch:artwork_80751 a ch:Artwork ;
+    rdfs:label "Shoes" ;
+    ch:createdBy ch:artist_20217 ;
+    ch:hasMedium ch:medium_metal%2C_leather ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/80751"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_80751 .
+
+ch:artwork_83514 a ch:Artwork ;
+    rdfs:label "Hammam Shoes" ;
+    ch:hasMedium ch:medium_Wood%2C_mother-of-pearl%2C_metal_wrapped_thread%2C_velvet%3B_embroidered ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Syria ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/83514"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_83514 .
+
+ch:artwork_83600 a ch:Artwork ;
+    rdfs:label "Robe" ;
+    ch:hasMedium ch:medium_Silk ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:city_Bukhara ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/83600"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_83600 .
+
+ch:artwork_92385 a ch:Artwork ;
+    rdfs:label "Sarong" ;
+    ch:hasMedium ch:medium_Cotton ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/92385"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_92385 .
+
+ch:artwork_92387 a ch:Artwork ;
+    rdfs:label "Textile" ;
+    ch:hasMedium ch:medium_Cotton%2C_gold_leaf ;
+    ch:heldBy ch:met_museum ;
+    ch:locatedIn ch:country_Indonesia ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/92387"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_92387 .
+
+ch:artwork_98472 a ch:Artwork ;
+    rdfs:label "Ensemble" ;
+    ch:hasMedium ch:medium_plant_fiber%2C_synthetic ;
+    ch:heldBy ch:met_museum ;
+    ch:objectURL "https://www.metmuseum.org/art/collection/search/98472"^^xsd:anyURI ;
+    ch:wasCreatedIn ch:creation_98472 .
+
+cah:BirthEvent a owl:Class ;
+    rdfs:label "BirthEvent" ;
+    rdfs:comment "The birth of a person." ;
+    rdfs:subClassOf crm:E67_Birth .
+
+cah:City a owl:Class ;
+    rdfs:label "City" ;
+    rdfs:comment "A subdivision of a country." ;
+    rdfs:subClassOf crm:E53_Place .
+
+cah:CollaborativeArtwork a owl:Class ;
+    rdfs:subClassOf cah:Artwork ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artist ;
+            owl:onProperty cah:hasContributor ] .
+
+cah:CreationEvent a owl:Class ;
+    rdfs:label "CreationEvent" ;
+    rdfs:comment "The act of creating an artwork." ;
+    rdfs:subClassOf crm:E12_Production .
+
+cah:InternationalProvenanceArtwork a owl:Class ;
+    rdfs:subClassOf cah:Artwork ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Institution ;
+            owl:onProperty cah:hasOwner ] .
+
+cah:Painting a owl:Class ;
+    rdfs:label "Painting" ;
+    rdfs:comment "A type of artwork created using paint." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty cah:usesMedium ;
+            owl:someValuesFrom cah:Medium ],
+        cah:Artwork .
+
+cah:Sculpture a owl:Class ;
+    rdfs:label "Sculpture" ;
+    rdfs:comment "A three-dimensional artwork." ;
+    rdfs:subClassOf cah:Artwork .
+
+cah:activeInMovement a owl:ObjectProperty ;
+    rdfs:label "activeInMovement" ;
+    rdfs:comment "Relates an artist to an art movement." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:ArtMovement ;
+    owl:propertyChainAxiom ( cah:inverse_createdBy cah:belongsToMovement ) .
+
+cah:awardYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "awardYear" ;
+    rdfs:comment "The year a prize was awarded." ;
+    rdfs:domain cah:Prize ;
+    rdfs:range xsd:gYear .
+
+cah:collaboratedWith a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "collaboratedWith" ;
+    rdfs:comment "Relates artists who collaborated on an artwork." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artist .
+
+cah:createdInPeriod a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "createdInPeriod" ;
+    rdfs:comment "Relates an artwork to an art period." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:ArtPeriod .
+
+cah:hasBirthDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "hasBirthDate" ;
+    rdfs:comment "The birth date of an artist." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range xsd:date .
+
+cah:hasCountry a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "hasCountry" ;
+    rdfs:comment "Relates a place to a country." ;
+    rdfs:domain crm:E53_Place ;
+    rdfs:range cah:Country .
+
+cah:hasCreationDate a owl:DatatypeProperty ;
+    rdfs:label "hasCreationDate" ;
+    rdfs:comment "The date when an artwork was created." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range xsd:date .
+
+cah:hasGenre a owl:ObjectProperty ;
+    rdfs:label "hasGenre" ;
+    rdfs:comment "Relates an artwork to a genre." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Genre .
+
+cah:influencedBy a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "influencedBy" ;
+    rdfs:comment "Relates an artist to another artist who influenced them." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artist ;
+    owl:inverseOf cah:inverse_influencedBy .
+
+cah:isLiving a owl:DatatypeProperty ;
+    rdfs:label "isLiving" ;
+    rdfs:comment "Indicates whether an artist is alive." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range xsd:boolean .
+
+cah:participatedInExhibition a owl:ObjectProperty ;
+    rdfs:label "participatedInExhibition" ;
+    rdfs:comment "Relates an artwork to an exhibition." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Exhibition ;
+    owl:inverseOf cah:inverse_participatedInExhibition .
+
+cah:underwentRestoration a owl:ObjectProperty ;
+    rdfs:label "underwentRestoration" ;
+    rdfs:comment "Relates an artwork to restoration events." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:RestorationEvent ;
+    owl:inverseOf cah:inverse_underwentRestoration .
+
+cah:wonPrize a owl:ObjectProperty ;
+    rdfs:label "wonPrize" ;
+    rdfs:comment "Relates an artist to a prize received." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Prize .
+
+ch:artist_1080 a ch:Artist ;
+    rdfs:label "Bela Lyon Pratt" .
+
+ch:artist_11401 a ch:Artist ;
+    rdfs:label "Katsukawa Shunsen" .
+
+ch:artist_161417 a ch:Artist ;
+    rdfs:label "Ascanio Condivi" .
+
+ch:artist_161418 a ch:Artist ;
+    rdfs:label "Carlo Ridolfi" .
+
+ch:artist_161419 a ch:Artist ;
+    rdfs:label "Sebastiano Serlio" .
+
+ch:artist_161420 a ch:Artist ;
+    rdfs:label "Andrea Palladio" .
+
+ch:artist_161654 a ch:Artist ;
+    rdfs:label "Bartolo di Fredi" .
+
+ch:artist_161857 a ch:Artist ;
+    rdfs:label "Albrecht Dürer" .
+
+ch:artist_162107 a ch:Artist ;
+    rdfs:label "Simone Martini" .
+
+ch:artist_162505 a ch:Artist ;
+    rdfs:label "Taddeo di Bartolo" .
+
+ch:artist_162561 a ch:Artist ;
+    rdfs:label "Henri de Toulouse-Lautrec" .
+
+ch:artist_163904 a ch:Artist ;
+    rdfs:label "Karl Lagerfeld" .
+
+ch:artist_164292 a ch:Artist ;
+    rdfs:label "James Barton Longacre" .
+
+ch:artist_165507 a ch:Artist ;
+    rdfs:label "J. Claude Frères &amp; Co." .
+
+ch:artist_169986 a ch:Artist ;
+    rdfs:label "Unknown Designer" .
+
+ch:artist_20184 a ch:Artist ;
+    rdfs:label "House of Chanel" .
+
+ch:artist_20241 a ch:Artist ;
+    rdfs:label "Yves Saint Laurent" .
+
+ch:artist_223354 a ch:Artist ;
+    rdfs:label "Peruvian artist(s)" .
+
+ch:artist_231771 a ch:Artist ;
+    rdfs:label "William Henry Romaine Walker" .
+
+ch:artist_25236 a ch:Artist ;
+    rdfs:label "Yves Saint Laurent" .
+
+ch:artist_35094 a ch:Artist ;
+    rdfs:label "Chelsea Porcelain Manufactory" .
+
+ch:city_Bethlehem a ch:City ;
+    rdfs:label "Bethlehem" ;
+    ch:hasCountry ch:country_Palestine .
+
+ch:city_Bukhara a ch:City ;
+    rdfs:label "Bukhara" ;
+    ch:hasCountry ch:country_present-day_Uzbekistan .
+
+ch:city_possibly_Amiens a ch:City ;
+    rdfs:label "possibly Amiens" ;
+    ch:hasCountry ch:country_France .
+
+ch:city_possibly_Gotland a ch:City ;
+    rdfs:label "possibly Gotland" ;
+    ch:hasCountry ch:country_Sweden .
+
+ch:country_France a ch:Country ;
+    rdfs:label "France" .
+
+ch:country_Germany a ch:Country ;
+    rdfs:label "Germany" .
+
+ch:country_Indonesia a ch:Country ;
+    rdfs:label "Indonesia" .
+
+ch:country_Italy a ch:Country ;
+    rdfs:label "Italy" .
+
+ch:country_Morocco a ch:Country ;
+    rdfs:label "Morocco" .
+
+ch:country_Myanmar_%28formerly_Burma%29 a ch:Country ;
+    rdfs:label "Myanmar (formerly Burma)" .
+
+ch:country_Palestine a ch:Country ;
+    rdfs:label "Palestine" .
+
+ch:country_Peru a ch:Country ;
+    rdfs:label "Peru" .
+
+ch:country_Philippines a ch:Country ;
+    rdfs:label "Philippines" .
+
+ch:country_Sweden a ch:Country ;
+    rdfs:label "Sweden" .
+
+ch:country_Syria a ch:Country ;
+    rdfs:label "Syria" .
+
+ch:country_Thailand a ch:Country ;
+    rdfs:label "Thailand" .
+
+ch:country_present-day_Uzbekistan a ch:Country ;
+    rdfs:label "present-day Uzbekistan" .
+
+ch:country_probably_Egypt a ch:Country ;
+    rdfs:label "probably Egypt" .
+
+ch:creation_1 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_1 .
+
+ch:creation_10 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_10 .
+
+ch:creation_104779 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_104779 .
+
+ch:creation_11 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_11 .
+
+ch:creation_123888 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_123888 .
+
+ch:creation_124428 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_124428 .
+
+ch:creation_126673 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_126673 .
+
+ch:creation_126682 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_126682 .
+
+ch:creation_13110 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_13110 .
+
+ch:creation_13127 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_13127 .
+
+ch:creation_13737 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_13737 .
+
+ch:creation_13740 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_13740 .
+
+ch:creation_2 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_2 .
+
+ch:creation_21910 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_21910 .
+
+ch:creation_21912 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_21912 .
+
+ch:creation_21916 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_21916 .
+
+ch:creation_21917 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_21917 .
+
+ch:creation_21918 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_21918 .
+
+ch:creation_240220 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_240220 .
+
+ch:creation_240221 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_240221 .
+
+ch:creation_240222 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_240222 .
+
+ch:creation_240223 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_240223 .
+
+ch:creation_240224 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_240224 .
+
+ch:creation_260046 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_260046 .
+
+ch:creation_260047 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_260047 .
+
+ch:creation_260048 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_260048 .
+
+ch:creation_260049 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_260049 .
+
+ch:creation_260050 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_260050 .
+
+ch:creation_2646 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_2646 .
+
+ch:creation_3 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_3 .
+
+ch:creation_321768 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_321768 .
+
+ch:creation_321769 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_321769 .
+
+ch:creation_321770 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_321770 .
+
+ch:creation_321771 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_321771 .
+
+ch:creation_321772 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_321772 .
+
+ch:creation_329915 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_329915 .
+
+ch:creation_329916 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_329916 .
+
+ch:creation_329917 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_329917 .
+
+ch:creation_329918 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_329918 .
+
+ch:creation_329919 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_329919 .
+
+ch:creation_330120 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_330120 .
+
+ch:creation_36482 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_36482 .
+
+ch:creation_36483 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_36483 .
+
+ch:creation_36484 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_36484 .
+
+ch:creation_36485 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_36485 .
+
+ch:creation_36486 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_36486 .
+
+ch:creation_437344 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_437344 .
+
+ch:creation_437345 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_437345 .
+
+ch:creation_437346 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_437346 .
+
+ch:creation_437347 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_437347 .
+
+ch:creation_437348 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_437348 .
+
+ch:creation_458953 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_458953 .
+
+ch:creation_458954 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_458954 .
+
+ch:creation_458955 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_458955 .
+
+ch:creation_458956 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_458956 .
+
+ch:creation_458957 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_458957 .
+
+ch:creation_464584 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_464584 .
+
+ch:creation_464585 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_464585 .
+
+ch:creation_464586 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_464586 .
+
+ch:creation_464587 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_464587 .
+
+ch:creation_464588 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_464588 .
+
+ch:creation_465956 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_465956 .
+
+ch:creation_465961 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_465961 .
+
+ch:creation_465981 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_465981 .
+
+ch:creation_466092 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_466092 .
+
+ch:creation_466093 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_466093 .
+
+ch:creation_479972 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_479972 .
+
+ch:creation_500790 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_500790 .
+
+ch:creation_500791 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_500791 .
+
+ch:creation_500792 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_500792 .
+
+ch:creation_500793 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_500793 .
+
+ch:creation_500796 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_500796 .
+
+ch:creation_5209 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_5209 .
+
+ch:creation_591824 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_591824 .
+
+ch:creation_591825 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_591825 .
+
+ch:creation_591826 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_591826 .
+
+ch:creation_591827 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_591827 .
+
+ch:creation_591828 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_591828 .
+
+ch:creation_7829 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_7829 .
+
+ch:creation_80747 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_80747 .
+
+ch:creation_80748 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_80748 .
+
+ch:creation_80749 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_80749 .
+
+ch:creation_80750 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_80750 .
+
+ch:creation_80751 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_80751 .
+
+ch:creation_83514 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_83514 .
+
+ch:creation_83600 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_83600 .
+
+ch:creation_92385 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_92385 .
+
+ch:creation_92387 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_92387 .
+
+ch:creation_98472 a ch:CreationEvent ;
+    ch:hasTimeSpan ch:timespan_98472 .
+
+ch:medium_Boxwood_inlaid_with_bone%2C_and_decorated_with_red_and_green_silk a ch:Medium ;
+    rdfs:label "Boxwood inlaid with bone, and decorated with red and green silk" .
+
+ch:medium_Brass a ch:Medium ;
+    rdfs:label "Brass" .
+
+ch:medium_Canvas_embroidered_with_wool_and_silk_thread a ch:Medium ;
+    rdfs:label "Canvas embroidered with wool and silk thread" .
+
+ch:medium_Cloisonn%C3%A9_enamel%2C_gold a ch:Medium ;
+    rdfs:label "Cloisonné enamel, gold" .
+
+ch:medium_Cotton a ch:Medium ;
+    rdfs:label "Cotton" .
+
+ch:medium_Cotton%2C_gold_leaf a ch:Medium ;
+    rdfs:label "Cotton, gold leaf" .
+
+ch:medium_Cotton%2C_silk%3B_embroidered a ch:Medium ;
+    rdfs:label "Cotton, silk; embroidered" .
+
+ch:medium_Elephant_ivory a ch:Medium ;
+    rdfs:label "Elephant ivory" .
+
+ch:medium_Embroidered_wool_on_linen a ch:Medium ;
+    rdfs:label "Embroidered wool on linen" .
+
+ch:medium_Granodiorite a ch:Medium ;
+    rdfs:label "Granodiorite" .
+
+ch:medium_Graphite_and_chalk a ch:Medium ;
+    rdfs:label "Graphite and chalk" .
+
+ch:medium_Graphite_with_white_touches a ch:Medium ;
+    rdfs:label "Graphite with white touches" .
+
+ch:medium_Hand-colored_lithograph a ch:Medium ;
+    rdfs:label "Hand-colored lithograph" .
+
+ch:medium_Ink_and_watercolor a ch:Medium ;
+    rdfs:label "Ink and watercolor" .
+
+ch:medium_Marble_with_traces_of_polychromy a ch:Medium ;
+    rdfs:label "Marble with traces of polychromy" .
+
+ch:medium_Metal%2C_orange_stones a ch:Medium ;
+    rdfs:label "Metal, orange stones" .
+
+ch:medium_Mother_of_pearl%2C_tempera%2C_and_silver a ch:Medium ;
+    rdfs:label "Mother of pearl, tempera, and silver" .
+
+ch:medium_Pen%2C_ink%2C_and_graphite a ch:Medium ;
+    rdfs:label "Pen, ink, and graphite" .
+
+ch:medium_Pentaptych_of_woodblock_prints%3B_ink_and_color_on_paper a ch:Medium ;
+    rdfs:label "Pentaptych of woodblock prints; ink and color on paper" .
+
+ch:medium_Pewter a ch:Medium ;
+    rdfs:label "Pewter" .
+
+ch:medium_Poplar_with_paint a ch:Medium ;
+    rdfs:label "Poplar with paint" .
+
+ch:medium_Pot-metal_glass_and_vitreous_paint a ch:Medium ;
+    rdfs:label "Pot-metal glass and vitreous paint" .
+
+ch:medium_Reed%2C_wax%2C_string a ch:Medium ;
+    rdfs:label "Reed, wax, string" .
+
+ch:medium_Serpentinite_%28%3F%29 a ch:Medium ;
+    rdfs:label "Serpentinite (?)" .
+
+ch:medium_Silver%2C_glass a ch:Medium ;
+    rdfs:label "Silver, glass" .
+
+ch:medium_Soft-paste_porcelain a ch:Medium ;
+    rdfs:label "Soft-paste porcelain" .
+
+ch:medium_Steel a ch:Medium ;
+    rdfs:label "Steel" .
+
+ch:medium_Steel%2C_wood%2C_lacquer%2C_gold%2C_silver%2C_copper-silver_allowy_%28shibuichi%29 a ch:Medium ;
+    rdfs:label "Steel, wood, lacquer, gold, silver, copper-silver allowy (shibuichi)" .
+
+ch:medium_Steel%2C_wood%2C_lacquer%2C_silver%2C_abalone_shell%2C_copper-gold_alloy_%28shakud%C5%8D%29%2C_iron a ch:Medium ;
+    rdfs:label "Steel, wood, lacquer, silver, abalone shell, copper-gold alloy (shakudō), iron" .
+
+ch:medium_Steel%2C_wood%2C_textile a ch:Medium ;
+    rdfs:label "Steel, wood, textile" .
+
+ch:medium_Steel%2C_wood%2Cray_skin_%28sam%C3%A9%29%2C_paper%2C_laquer%2C_copper-gold_alloy_%28shakud%C5%8D%29%2C_silver a ch:Medium ;
+    rdfs:label "Steel, wood,ray skin (samé), paper, laquer, copper-gold alloy (shakudō), silver" .
+
+ch:medium_Tempera_and_gold_on_wood a ch:Medium ;
+    rdfs:label "Tempera and gold on wood" .
+
+ch:medium_Tempera_on_wood_%28paint_around_head_scraped_away_and_vacant_area_gessoed%29 a ch:Medium ;
+    rdfs:label "Tempera on wood (paint around head scraped away and vacant area gessoed)" .
+
+ch:medium_Triptych_of_woodblock_prints%3B_ink_and_color_on_paper a ch:Medium ;
+    rdfs:label "Triptych of woodblock prints; ink and color on paper" .
+
+ch:medium_Wood%2C_mother-of-pearl%2C_metal_wrapped_thread%2C_velvet%3B_embroidered a ch:Medium ;
+    rdfs:label "Wood, mother-of-pearl, metal wrapped thread, velvet; embroidered" .
+
+ch:medium_Wood%2C_paint a ch:Medium ;
+    rdfs:label "Wood, paint" .
+
+ch:medium_Wool%2C_cotton a ch:Medium ;
+    rdfs:label "Wool, cotton" .
+
+ch:medium_Wrought_iron a ch:Medium ;
+    rdfs:label "Wrought iron" .
+
+ch:medium_abaca%2C_cotton%2C_beads a ch:Medium ;
+    rdfs:label "abaca, cotton, beads" .
+
+ch:medium_cotton%2C_metal a ch:Medium ;
+    rdfs:label "cotton, metal" .
+
+ch:medium_hemp a ch:Medium ;
+    rdfs:label "hemp" .
+
+ch:medium_metal%2C_leather a ch:Medium ;
+    rdfs:label "metal, leather" .
+
+ch:medium_plant_fiber%2C_synthetic a ch:Medium ;
+    rdfs:label "plant fiber, synthetic" .
+
+ch:medium_silk a ch:Medium ;
+    rdfs:label "silk" .
+
+ch:medium_silk%2C_metal a ch:Medium ;
+    rdfs:label "silk, metal" .
+
+ch:period_Achaemenid a ch:ArtPeriod ;
+    rdfs:label "Achaemenid" .
+
+ch:period_Cypro-Archaic%E2%80%93Cypro-Classical a ch:ArtPeriod ;
+    rdfs:label "Cypro-Archaic–Cypro-Classical" .
+
+ch:period_Cypro-Archaic_II a ch:ArtPeriod ;
+    rdfs:label "Cypro-Archaic II" .
+
+ch:period_Cypro-Classical_I_or_II a ch:ArtPeriod ;
+    rdfs:label "Cypro-Classical I or II" .
+
+ch:period_Middle_Kingdom a ch:ArtPeriod ;
+    rdfs:label "Middle Kingdom" .
+
+ch:period_New_Kingdom a ch:ArtPeriod ;
+    rdfs:label "New Kingdom" .
+
+ch:period_Old_Kingdom a ch:ArtPeriod ;
+    rdfs:label "Old Kingdom" .
+
+ch:timespan_1 a ch:TimeSpan ;
+    ch:endDate "1853"^^xsd:gYear ;
+    ch:startDate "1853"^^xsd:gYear .
+
+ch:timespan_10 a ch:TimeSpan ;
+    ch:endDate "1912"^^xsd:gYear ;
+    ch:startDate "1912"^^xsd:gYear .
+
+ch:timespan_104779 a ch:TimeSpan ;
+    ch:endDate "1949"^^xsd:gYear ;
+    ch:startDate "1930"^^xsd:gYear .
+
+ch:timespan_11 a ch:TimeSpan ;
+    ch:endDate "1907"^^xsd:gYear ;
+    ch:startDate "1907"^^xsd:gYear .
+
+ch:timespan_123888 a ch:TimeSpan ;
+    ch:endDate "1975"^^xsd:gYear ;
+    ch:startDate "1900"^^xsd:gYear .
+
+ch:timespan_124428 a ch:TimeSpan ;
+    ch:endDate "1910"^^xsd:gYear ;
+    ch:startDate "1880"^^xsd:gYear .
+
+ch:timespan_126673 a ch:TimeSpan ;
+    ch:endDate "1899"^^xsd:gYear ;
+    ch:startDate "1800"^^xsd:gYear .
+
+ch:timespan_126682 a ch:TimeSpan ;
+    ch:endDate "1946"^^xsd:gYear ;
+    ch:startDate "1900"^^xsd:gYear .
+
+ch:timespan_13110 a ch:TimeSpan ;
+    ch:endDate "1920"^^xsd:gYear ;
+    ch:startDate "1890"^^xsd:gYear .
+
+ch:timespan_13127 a ch:TimeSpan ;
+    ch:endDate "1884"^^xsd:gYear ;
+    ch:startDate "1874"^^xsd:gYear .
+
+ch:timespan_13737 a ch:TimeSpan ;
+    ch:endDate "1845"^^xsd:gYear ;
+    ch:startDate "1842"^^xsd:gYear .
+
+ch:timespan_13740 a ch:TimeSpan ;
+    ch:endDate "1675"^^xsd:gYear ;
+    ch:startDate "1650"^^xsd:gYear .
+
+ch:timespan_2 a ch:TimeSpan ;
+    ch:endDate "1901"^^xsd:gYear ;
+    ch:startDate "1901"^^xsd:gYear .
+
+ch:timespan_21910 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1801"^^xsd:gYear .
+
+ch:timespan_21912 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1501"^^xsd:gYear .
+
+ch:timespan_21916 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1701"^^xsd:gYear .
+
+ch:timespan_21917 a ch:TimeSpan ;
+    ch:endDate "1598"^^xsd:gYear ;
+    ch:startDate "1598"^^xsd:gYear .
+
+ch:timespan_21918 a ch:TimeSpan ;
+    ch:endDate "1605"^^xsd:gYear ;
+    ch:startDate "1555"^^xsd:gYear .
+
+ch:timespan_240220 a ch:TimeSpan ;
+    ch:endDate "-350"^^xsd:gYear ;
+    ch:startDate "-480"^^xsd:gYear .
+
+ch:timespan_240221 a ch:TimeSpan ;
+    ch:endDate "-400"^^xsd:gYear ;
+    ch:startDate "-599"^^xsd:gYear .
+
+ch:timespan_240222 a ch:TimeSpan ;
+    ch:endDate "-480"^^xsd:gYear ;
+    ch:startDate "-600"^^xsd:gYear .
+
+ch:timespan_240223 a ch:TimeSpan ;
+    ch:endDate "-700"^^xsd:gYear ;
+    ch:startDate "-899"^^xsd:gYear .
+
+ch:timespan_240224 a ch:TimeSpan ;
+    ch:endDate "-950"^^xsd:gYear ;
+    ch:startDate "-1050"^^xsd:gYear .
+
+ch:timespan_260046 a ch:TimeSpan ;
+    ch:endDate "1936"^^xsd:gYear ;
+    ch:startDate "1936"^^xsd:gYear .
+
+ch:timespan_260047 a ch:TimeSpan ;
+    ch:endDate "1936"^^xsd:gYear ;
+    ch:startDate "1936"^^xsd:gYear .
+
+ch:timespan_260048 a ch:TimeSpan ;
+    ch:endDate "1974"^^xsd:gYear ;
+    ch:startDate "1970"^^xsd:gYear .
+
+ch:timespan_260049 a ch:TimeSpan ;
+    ch:endDate "1974"^^xsd:gYear ;
+    ch:startDate "1970"^^xsd:gYear .
+
+ch:timespan_260050 a ch:TimeSpan ;
+    ch:endDate "1974"^^xsd:gYear ;
+    ch:startDate "1970"^^xsd:gYear .
+
+ch:timespan_2646 a ch:TimeSpan ;
+    ch:endDate "1750"^^xsd:gYear ;
+    ch:startDate "1747"^^xsd:gYear .
+
+ch:timespan_3 a ch:TimeSpan ;
+    ch:endDate "1927"^^xsd:gYear ;
+    ch:startDate "1909"^^xsd:gYear .
+
+ch:timespan_321768 a ch:TimeSpan ;
+    ch:endDate "-523"^^xsd:gYear ;
+    ch:startDate "-523"^^xsd:gYear .
+
+ch:timespan_321769 a ch:TimeSpan ;
+    ch:endDate "-539"^^xsd:gYear ;
+    ch:startDate "-555"^^xsd:gYear .
+
+ch:timespan_321770 a ch:TimeSpan ;
+    ch:endDate "-500"^^xsd:gYear ;
+    ch:startDate "-700"^^xsd:gYear .
+
+ch:timespan_321771 a ch:TimeSpan ;
+    ch:endDate "-622"^^xsd:gYear ;
+    ch:startDate "-622"^^xsd:gYear .
+
+ch:timespan_321772 a ch:TimeSpan ;
+    ch:endDate "-500"^^xsd:gYear ;
+    ch:startDate "-700"^^xsd:gYear .
+
+ch:timespan_329915 a ch:TimeSpan ;
+    ch:endDate "-1650"^^xsd:gYear ;
+    ch:startDate "-1800"^^xsd:gYear .
+
+ch:timespan_329916 a ch:TimeSpan ;
+    ch:endDate "-1440"^^xsd:gYear ;
+    ch:startDate "-1440"^^xsd:gYear .
+
+ch:timespan_329917 a ch:TimeSpan ;
+    ch:endDate "-2100"^^xsd:gYear ;
+    ch:startDate "-2200"^^xsd:gYear .
+
+ch:timespan_329918 a ch:TimeSpan ;
+    ch:endDate "-200"^^xsd:gYear ;
+    ch:startDate "-664"^^xsd:gYear .
+
+ch:timespan_329919 a ch:TimeSpan ;
+    ch:endDate "-200"^^xsd:gYear ;
+    ch:startDate "-664"^^xsd:gYear .
+
+ch:timespan_330120 a ch:TimeSpan ;
+    ch:endDate "1893"^^xsd:gYear ;
+    ch:startDate "1893"^^xsd:gYear .
+
+ch:timespan_36482 a ch:TimeSpan ;
+    ch:endDate "1795"^^xsd:gYear ;
+    ch:startDate "1775"^^xsd:gYear .
+
+ch:timespan_36483 a ch:TimeSpan ;
+    ch:endDate "1814"^^xsd:gYear ;
+    ch:startDate "1794"^^xsd:gYear .
+
+ch:timespan_36484 a ch:TimeSpan ;
+    ch:endDate "1837"^^xsd:gYear ;
+    ch:startDate "1817"^^xsd:gYear .
+
+ch:timespan_36485 a ch:TimeSpan ;
+    ch:endDate "1839"^^xsd:gYear ;
+    ch:startDate "1839"^^xsd:gYear .
+
+ch:timespan_36486 a ch:TimeSpan ;
+    ch:endDate "1839"^^xsd:gYear ;
+    ch:startDate "1839"^^xsd:gYear .
+
+ch:timespan_437344 a ch:TimeSpan ;
+    ch:endDate "1891"^^xsd:gYear ;
+    ch:startDate "1891"^^xsd:gYear .
+
+ch:timespan_437345 a ch:TimeSpan ;
+    ch:endDate "1869"^^xsd:gYear ;
+    ch:startDate "1859"^^xsd:gYear .
+
+ch:timespan_437346 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1885"^^xsd:gYear .
+
+ch:timespan_437347 a ch:TimeSpan ;
+    ch:endDate "1894"^^xsd:gYear ;
+    ch:startDate "1878"^^xsd:gYear .
+
+ch:timespan_437348 a ch:TimeSpan ;
+    ch:endDate "1869"^^xsd:gYear ;
+    ch:startDate "1859"^^xsd:gYear .
+
+ch:timespan_458953 a ch:TimeSpan ;
+    ch:endDate "1329"^^xsd:gYear ;
+    ch:startDate "1323"^^xsd:gYear .
+
+ch:timespan_458954 a ch:TimeSpan ;
+    ch:endDate "1370"^^xsd:gYear ;
+    ch:startDate "1336"^^xsd:gYear .
+
+ch:timespan_458955 a ch:TimeSpan ;
+    ch:endDate "1370"^^xsd:gYear ;
+    ch:startDate "1336"^^xsd:gYear .
+
+ch:timespan_458956 a ch:TimeSpan ;
+    ch:endDate "1393"^^xsd:gYear ;
+    ch:startDate "1387"^^xsd:gYear .
+
+ch:timespan_458957 a ch:TimeSpan ;
+    ch:endDate "1420"^^xsd:gYear ;
+    ch:startDate "1410"^^xsd:gYear .
+
+ch:timespan_464584 a ch:TimeSpan ;
+    ch:endDate "1913"^^xsd:gYear ;
+    ch:startDate "1875"^^xsd:gYear .
+
+ch:timespan_464585 a ch:TimeSpan ;
+    ch:endDate "1199"^^xsd:gYear ;
+    ch:startDate "1100"^^xsd:gYear .
+
+ch:timespan_464586 a ch:TimeSpan ;
+    ch:endDate "1199"^^xsd:gYear ;
+    ch:startDate "1100"^^xsd:gYear .
+
+ch:timespan_464587 a ch:TimeSpan ;
+    ch:endDate "1200"^^xsd:gYear ;
+    ch:startDate "1175"^^xsd:gYear .
+
+ch:timespan_464588 a ch:TimeSpan ;
+    ch:endDate "1399"^^xsd:gYear ;
+    ch:startDate "1300"^^xsd:gYear .
+
+ch:timespan_465956 a ch:TimeSpan ;
+    ch:endDate "599"^^xsd:gYear ;
+    ch:startDate "500"^^xsd:gYear .
+
+ch:timespan_465961 a ch:TimeSpan ;
+    ch:endDate "1499"^^xsd:gYear ;
+    ch:startDate "1400"^^xsd:gYear .
+
+ch:timespan_465981 a ch:TimeSpan ;
+    ch:endDate "1480"^^xsd:gYear ;
+    ch:startDate "1470"^^xsd:gYear .
+
+ch:timespan_466092 a ch:TimeSpan ;
+    ch:endDate "1240"^^xsd:gYear ;
+    ch:startDate "1225"^^xsd:gYear .
+
+ch:timespan_466093 a ch:TimeSpan ;
+    ch:endDate "1499"^^xsd:gYear ;
+    ch:startDate "1400"^^xsd:gYear .
+
+ch:timespan_479972 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1900"^^xsd:gYear .
+
+ch:timespan_500790 a ch:TimeSpan ;
+    ch:endDate "1890"^^xsd:gYear ;
+    ch:startDate "1880"^^xsd:gYear .
+
+ch:timespan_500791 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1801"^^xsd:gYear .
+
+ch:timespan_500792 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1850"^^xsd:gYear .
+
+ch:timespan_500793 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1850"^^xsd:gYear .
+
+ch:timespan_500796 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1850"^^xsd:gYear .
+
+ch:timespan_5209 a ch:TimeSpan ;
+    ch:endDate "1900"^^xsd:gYear ;
+    ch:startDate "1700"^^xsd:gYear .
+
+ch:timespan_591824 a ch:TimeSpan ;
+    ch:endDate "1535"^^xsd:gYear ;
+    ch:startDate "1535"^^xsd:gYear .
+
+ch:timespan_591825 a ch:TimeSpan ;
+    ch:endDate "1553"^^xsd:gYear ;
+    ch:startDate "1553"^^xsd:gYear .
+
+ch:timespan_591826 a ch:TimeSpan ;
+    ch:endDate "1642"^^xsd:gYear ;
+    ch:startDate "1642"^^xsd:gYear .
+
+ch:timespan_591827 a ch:TimeSpan ;
+    ch:endDate "1569"^^xsd:gYear ;
+    ch:startDate "1568"^^xsd:gYear .
+
+ch:timespan_591828 a ch:TimeSpan ;
+    ch:endDate "1570"^^xsd:gYear ;
+    ch:startDate "1570"^^xsd:gYear .
+
+ch:timespan_7829 a ch:TimeSpan ;
+    ch:endDate "1800"^^xsd:gYear ;
+    ch:startDate "1700"^^xsd:gYear .
+
+ch:timespan_80747 a ch:TimeSpan ;
+    ch:endDate "1989"^^xsd:gYear ;
+    ch:startDate "1989"^^xsd:gYear .
+
+ch:timespan_80748 a ch:TimeSpan ;
+    ch:endDate "1990"^^xsd:gYear ;
+    ch:startDate "1989"^^xsd:gYear .
+
+ch:timespan_80749 a ch:TimeSpan ;
+    ch:endDate "1889"^^xsd:gYear ;
+    ch:startDate "1880"^^xsd:gYear .
+
+ch:timespan_80750 a ch:TimeSpan ;
+    ch:endDate "1995"^^xsd:gYear ;
+    ch:startDate "1985"^^xsd:gYear .
+
+ch:timespan_80751 a ch:TimeSpan ;
+    ch:endDate "1995"^^xsd:gYear ;
+    ch:startDate "1985"^^xsd:gYear .
+
+ch:timespan_83514 a ch:TimeSpan ;
+    ch:endDate "1929"^^xsd:gYear ;
+    ch:startDate "1920"^^xsd:gYear .
+
+ch:timespan_83600 a ch:TimeSpan ;
+    ch:endDate "1948"^^xsd:gYear ;
+    ch:startDate "1900"^^xsd:gYear .
+
+ch:timespan_92385 a ch:TimeSpan ;
+    ch:endDate "1899"^^xsd:gYear ;
+    ch:startDate "1850"^^xsd:gYear .
+
+ch:timespan_92387 a ch:TimeSpan ;
+    ch:endDate "1987"^^xsd:gYear ;
+    ch:startDate "1900"^^xsd:gYear .
+
+ch:timespan_98472 a ch:TimeSpan ;
+    ch:endDate "2000"^^xsd:gYear ;
+    ch:startDate "1975"^^xsd:gYear .
+
+cah:ArtPeriod a owl:Class ;
+    rdfs:label "ArtPeriod" ;
+    rdfs:comment "A historical period classification." ;
+    rdfs:subClassOf crm:E4_Period ;
+    owl:disjointWith cah:Artwork .
+
+cah:Country a owl:Class ;
+    rdfs:label "Country" ;
+    rdfs:comment "A geopolitical entity." ;
+    rdfs:subClassOf crm:E53_Place .
+
+cah:DonationEvent a owl:Class ;
+    rdfs:label "DonationEvent" ;
+    rdfs:comment "A transfer of ownership as a donation." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty cah:donatedTo ;
+            owl:someValuesFrom cah:Museum ],
+        [ a owl:Restriction ;
+            owl:onProperty cah:donatedBy ;
+            owl:someValuesFrom cah:Collector ],
+        cah:ProvenanceEvent .
+
+cah:Genre a owl:Class ;
+    rdfs:label "Genre" ;
+    rdfs:comment "A category of artistic composition." ;
+    rdfs:subClassOf crm:E55_Type .
+
+cah:belongsToMovement a owl:ObjectProperty ;
+    rdfs:label "belongsToMovement" ;
+    rdfs:comment "Relates an artwork to an art movement." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:ArtMovement .
+
+cah:donatedBy a owl:ObjectProperty ;
+    rdfs:label "donatedBy" ;
+    rdfs:comment "Relates an artwork to the donor." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Collector .
+
+cah:donatedTo a owl:ObjectProperty ;
+    rdfs:label "donatedTo" ;
+    rdfs:comment "Relates a donation event to a museum." ;
+    rdfs:domain cah:DonationEvent ;
+    rdfs:range cah:Museum .
+
+cah:endDate a owl:DatatypeProperty ;
+    rdfs:label "endDate" ;
+    rdfs:comment "The end date of a time span." ;
+    rdfs:domain cah:TimeSpan ;
+    rdfs:range xsd:date .
+
+cah:hasOwner a owl:ObjectProperty ;
+    rdfs:label "hasOwner" ;
+    rdfs:comment "Relates an artwork to its owner." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Institution .
+
+cah:hasParticipant a owl:ObjectProperty ;
+    rdfs:label "hasParticipant" ;
+    rdfs:comment "Relates an exhibition to participating artworks or artists." ;
+    rdfs:domain cah:Exhibition ;
+    rdfs:range crm:E39_Actor .
+
+cah:hasTimeSpan a owl:ObjectProperty ;
+    rdfs:label "hasTimeSpan" ;
+    rdfs:comment "Relates an event to its time span." ;
+    rdfs:domain crm:E2_Temporal_Entity ;
+    rdfs:range cah:TimeSpan ;
+    rdfs:subPropertyOf crm:P4_has_time-span .
+
+cah:heldBy a owl:ObjectProperty ;
+    rdfs:label "heldBy" ;
+    rdfs:comment "Relates an artwork to the institution that holds it." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Institution ;
+    rdfs:subPropertyOf crm:P50_has_current_keeper ;
+    owl:inverseOf cah:inverse_heldBy .
+
+cah:inverse_influencedBy a owl:ObjectProperty ;
+    rdfs:label "inverse_influencedBy" ;
+    rdfs:comment "Inverse of influencedBy (influenced)." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artist .
+
+cah:inverse_participatedInExhibition a owl:ObjectProperty ;
+    rdfs:label "inverse_participatedInExhibition" ;
+    rdfs:comment "Inverse of participatedInExhibition." ;
+    rdfs:domain cah:Exhibition ;
+    rdfs:range cah:Artwork .
+
+cah:inverse_underwentRestoration a owl:ObjectProperty ;
+    rdfs:label "inverse_underwentRestoration" ;
+    rdfs:comment "Inverse of underwentRestoration." ;
+    rdfs:domain cah:RestorationEvent ;
+    rdfs:range cah:Artwork .
+
+cah:locatedIn a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "locatedIn" ;
+    rdfs:comment "Relates an institution to a place." ;
+    rdfs:domain cah:Institution ;
+    rdfs:range crm:E53_Place ;
+    rdfs:subPropertyOf crm:P53_has_former_or_current_location ;
+    owl:propertyChainAxiom ( cah:heldBy cah:locatedIn ) .
+
+cah:organizedBy a owl:ObjectProperty ;
+    rdfs:label "organizedBy" ;
+    rdfs:comment "Relates an exhibition to a curator." ;
+    rdfs:domain cah:Exhibition ;
+    rdfs:range cah:Curator .
+
+cah:startDate a owl:DatatypeProperty ;
+    rdfs:label "startDate" ;
+    rdfs:comment "The start date of a time span." ;
+    rdfs:domain cah:TimeSpan ;
+    rdfs:range xsd:date .
+
+cah:transferredOwnershipFrom a owl:ObjectProperty ;
+    rdfs:label "transferredOwnershipFrom" ;
+    rdfs:comment "Relates a provenance event to the previous owner." ;
+    rdfs:domain cah:ProvenanceEvent ;
+    rdfs:range cah:Institution .
+
+cah:transferredOwnershipTo a owl:ObjectProperty ;
+    rdfs:label "transferredOwnershipTo" ;
+    rdfs:comment "Relates a provenance event to the new owner." ;
+    rdfs:domain cah:ProvenanceEvent ;
+    rdfs:range cah:Institution ;
+    owl:inverseOf cah:transferredOwnershipFrom .
+
+cah:usesMedium a owl:ObjectProperty ;
+    rdfs:label "usesMedium" ;
+    rdfs:comment "Relates an artwork to the medium used." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Medium .
+
+ch:artist_1079 a ch:Artist ;
+    rdfs:label "Christian Gobrecht" .
+
+ch:artist_108029 a ch:Artist ;
+    rdfs:label "Follower of Lippo Memmi (Filippo di Memmo)" .
+
+ch:artist_161869 a ch:Artist ;
+    rdfs:label "Walker Evans" .
+
+ch:artist_20217 a ch:Artist ;
+    rdfs:label "Romeo Gigli" .
+
+ch:medium_Bamboo a ch:Medium ;
+    rdfs:label "Bamboo" .
+
+ch:medium_Cloisonn%C3%A9_enamel%2C_silver_gilt a ch:Medium ;
+    rdfs:label "Cloisonné enamel, silver gilt" .
+
+ch:medium_Copper_alloy a ch:Medium ;
+    rdfs:label "Copper alloy" .
+
+ch:medium_Gelatin_silver_print a ch:Medium ;
+    rdfs:label "Gelatin silver print" .
+
+ch:medium_Oil_on_paper%2C_laid_down_on_canvas a ch:Medium ;
+    rdfs:label "Oil on paper, laid down on canvas" .
+
+ch:medium_Photo_silkscreen a ch:Medium ;
+    rdfs:label "Photo silkscreen" .
+
+ch:medium_Silk a ch:Medium ;
+    rdfs:label "Silk" .
+
+ch:medium_Wood a ch:Medium ;
+    rdfs:label "Wood" .
+
+ch:period_Cypro-Geometric_I a ch:ArtPeriod ;
+    rdfs:label "Cypro-Geometric I" .
+
+ch:period_Late_Period%E2%80%93Ptolemaic_Period a ch:ArtPeriod ;
+    rdfs:label "Late Period–Ptolemaic Period" .
+
+cah:ArtMovement a owl:Class ;
+    rdfs:label "ArtMovement" ;
+    rdfs:comment "A style or movement in art history." ;
+    rdfs:subClassOf crm:E55_Type ;
+    owl:disjointWith cah:Artist .
+
+cah:Collector a owl:Class ;
+    rdfs:label "Collector" ;
+    rdfs:comment "A person or entity collecting artworks." ;
+    rdfs:subClassOf crm:E39_Actor .
+
+cah:Curator a owl:Class ;
+    rdfs:label "Curator" ;
+    rdfs:comment "A person organizing exhibitions." ;
+    rdfs:subClassOf crm:E21_Person .
+
+cah:Medium a owl:Class ;
+    rdfs:label "Medium" ;
+    rdfs:comment "The material or technique used in an artwork." ;
+    rdfs:subClassOf crm:E57_Material .
+
+cah:Museum a owl:Class ;
+    rdfs:label "Museum" ;
+    rdfs:comment "An institution that holds or exhibits artworks." ;
+    rdfs:subClassOf crm:E40_Legal_Body ;
+    owl:disjointWith cah:Artist .
+
+cah:Prize a owl:Class ;
+    rdfs:label "Prize" ;
+    rdfs:comment "An award given for artistic achievement." ;
+    rdfs:subClassOf crm:E89_Propositional_Object .
+
+cah:RestorationEvent a owl:Class ;
+    rdfs:label "RestorationEvent" ;
+    rdfs:comment "An event of conservation/restoration." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty cah:hasTimeSpan ;
+            owl:someValuesFrom cah:TimeSpan ],
+        crm:E11_Modification .
+
+cah:createdBy a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "createdBy" ;
+    rdfs:comment "Relates an artwork to the artist who created it." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Artist ;
+    rdfs:subPropertyOf crm:P14_carried_out_by ;
+    owl:inverseOf cah:inverse_createdBy .
+
+cah:hasContributor a owl:ObjectProperty ;
+    rdfs:label "hasContributor" ;
+    rdfs:comment "Relates an artwork to multiple contributing artists." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Artist .
+
+cah:inverse_heldBy a owl:ObjectProperty ;
+    rdfs:label "inverse_heldBy" ;
+    rdfs:comment "Inverse of heldBy (institution to artworks held)." ;
+    rdfs:domain cah:Institution ;
+    rdfs:range cah:Artwork .
+
+ch:artist_164633 a ch:Artist ;
+    rdfs:label "Scott Hyde" .
+
+ch:artist_165380 a ch:Artist ;
+    rdfs:label "Frank Waller" .
+
+ch:country_India a ch:Country ;
+    rdfs:label "India" .
+
+ch:country_Japan a ch:Country ;
+    rdfs:label "Japan" .
+
+ch:medium_Oil_on_canvas a ch:Medium ;
+    rdfs:label "Oil on canvas" .
+
+ch:medium_Tempera_on_wood%2C_gold_ground a ch:Medium ;
+    rdfs:label "Tempera on wood, gold ground" .
+
+ch:medium_Woodblock_print%3B_ink_and_color_on_paper a ch:Medium ;
+    rdfs:label "Woodblock print; ink and color on paper" .
+
+cah:ProvenanceEvent a owl:Class ;
+    rdfs:label "ProvenanceEvent" ;
+    rdfs:comment "An ownership transfer event." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Institution ;
+            owl:onProperty cah:transferredOwnershipTo ],
+        crm:E10_Transfer_of_Custody .
+
+cah:inverse_createdBy a owl:ObjectProperty ;
+    rdfs:label "inverse_createdBy" ;
+    rdfs:comment "Inverse of createdBy (artist to artworks created)." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artwork .
+
+ch:artist_164560 a ch:Artist ;
+    rdfs:label "Katsushika Hokusai" .
+
+ch:period_Neo-Babylonian a ch:ArtPeriod ;
+    rdfs:label "Neo-Babylonian" .
+
+cah:TimeSpan a owl:Class ;
+    rdfs:label "TimeSpan" ;
+    rdfs:comment "A temporal extent." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty cah:startDate ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty cah:endDate ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        crm:E52_Time-Span .
+
+ch:artist_162280 a ch:Artist ;
+    rdfs:label "Pierre Puvis de Chavannes" .
+
+ch:country_Egypt a ch:Country ;
+    rdfs:label "Egypt" .
+
+ch:medium_Clay a ch:Medium ;
+    rdfs:label "Clay" .
+
+ch:medium_Gold a ch:Medium ;
+    rdfs:label "Gold" .
+
+ch:medium_Illustrated_book a ch:Medium ;
+    rdfs:label "Illustrated book" .
+
+ch:medium_Terracotta a ch:Medium ;
+    rdfs:label "Terracotta" .
+
+ch:period_Edo_period_%281615%E2%80%931868%29 a ch:ArtPeriod ;
+    rdfs:label "Edo period (1615–1868)" .
+
+cah:Exhibition a owl:Class ;
+    rdfs:label "Exhibition" ;
+    rdfs:comment "An event where artworks are displayed." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artwork ;
+            owl:onProperty cah:hasParticipant ],
+        [ a owl:Restriction ;
+            owl:onProperty cah:organizedBy ;
+            owl:someValuesFrom cah:Curator ],
+        crm:E7_Activity .
+
+cah:Institution a owl:Class ;
+    rdfs:label "Institution" ;
+    rdfs:comment "An organization such as a museum." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artwork ;
+            owl:onProperty cah:inverse_heldBy ],
+        crm:E40_Legal_Body .
+
+cah:Artist a owl:Class ;
+    rdfs:label "Artist" ;
+    rdfs:comment "A person who creates artworks." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artwork ;
+            owl:onProperty cah:inverse_createdBy ],
+        crm:E21_Person ;
+    owl:disjointWith cah:Artwork .
+
+cah:Artwork a owl:Class ;
+    rdfs:label "Artwork" ;
+    rdfs:comment "A cultural or artistic work." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artist ;
+            owl:onProperty cah:hasContributor ],
+        [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artist ;
+            owl:onProperty cah:createdBy ],
+        [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artist ;
+            owl:onProperty cah:createdBy ],
+        crm:E22_Man-Made_Object,
+        edm:ProvidedCHO ;
+    owl:disjointWith cah:Exhibition .
+
+ch:met_museum a ch:Museum ;
+    rdfs:label "Metropolitan Museum of Art, New York, NY" .
+
