@@ -1,0 +1,1724 @@
+@prefix cah: <http://example.org/culturalheritage#> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cah:BirthEvent a owl:Class ;
+    rdfs:label "BirthEvent" ;
+    rdfs:comment "The birth of a person." ;
+    rdfs:subClassOf crm:E67_Birth .
+
+cah:City a owl:Class ;
+    rdfs:label "City" ;
+    rdfs:comment "A subdivision of a country." ;
+    rdfs:subClassOf crm:E53_Place .
+
+cah:CollaborativeArtwork a owl:Class ;
+    rdfs:subClassOf cah:Artwork ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artist ;
+            owl:onProperty cah:hasContributor ] .
+
+cah:CreationEvent a owl:Class ;
+    rdfs:label "CreationEvent" ;
+    rdfs:comment "The act of creating an artwork." ;
+    rdfs:subClassOf crm:E12_Production .
+
+cah:InternationalProvenanceArtwork a owl:Class ;
+    rdfs:subClassOf cah:Artwork ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:minQualifiedCardinality "2"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Institution ;
+            owl:onProperty cah:hasOwner ] .
+
+cah:Painting a owl:Class ;
+    rdfs:label "Painting" ;
+    rdfs:comment "A type of artwork created using paint." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty cah:usesMedium ;
+            owl:someValuesFrom cah:Medium ],
+        cah:Artwork .
+
+cah:Sculpture a owl:Class ;
+    rdfs:label "Sculpture" ;
+    rdfs:comment "A three-dimensional artwork." ;
+    rdfs:subClassOf cah:Artwork .
+
+cah:activeInMovement a owl:ObjectProperty ;
+    rdfs:label "activeInMovement" ;
+    rdfs:comment "Relates an artist to an art movement." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:ArtMovement ;
+    owl:propertyChainAxiom ( cah:inverse_createdBy cah:belongsToMovement ) .
+
+cah:awardYear a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "awardYear" ;
+    rdfs:comment "The year a prize was awarded." ;
+    rdfs:domain cah:Prize ;
+    rdfs:range xsd:gYear .
+
+cah:collaboratedWith a owl:ObjectProperty,
+        owl:SymmetricProperty ;
+    rdfs:label "collaboratedWith" ;
+    rdfs:comment "Relates artists who collaborated on an artwork." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artist .
+
+cah:createdInPeriod a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "createdInPeriod" ;
+    rdfs:comment "Relates an artwork to an art period." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:ArtPeriod .
+
+cah:hasBirthDate a owl:DatatypeProperty,
+        owl:FunctionalProperty ;
+    rdfs:label "hasBirthDate" ;
+    rdfs:comment "The birth date of an artist." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range xsd:date .
+
+cah:hasCountry a owl:FunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "hasCountry" ;
+    rdfs:comment "Relates a place to a country." ;
+    rdfs:domain crm:E53_Place ;
+    rdfs:range cah:Country .
+
+cah:hasCreationDate a owl:DatatypeProperty ;
+    rdfs:label "hasCreationDate" ;
+    rdfs:comment "The date when an artwork was created." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range xsd:date .
+
+cah:hasGenre a owl:ObjectProperty ;
+    rdfs:label "hasGenre" ;
+    rdfs:comment "Relates an artwork to a genre." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Genre .
+
+cah:influencedBy a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "influencedBy" ;
+    rdfs:comment "Relates an artist to another artist who influenced them." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artist ;
+    owl:inverseOf cah:inverse_influencedBy .
+
+cah:isLiving a owl:DatatypeProperty ;
+    rdfs:label "isLiving" ;
+    rdfs:comment "Indicates whether an artist is alive." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range xsd:boolean .
+
+cah:met_object_1 a cah:Artwork ;
+    rdfs:label "One-dollar Liberty Head Coin"@en ;
+    cah:createdBy cah:artist_james_barton_longacre_b466d81595e3fb06 ;
+    cah:hasCreationDate "1853-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_6249df4367d0a2e0 ;
+    dcterms:subject "American Decorative Arts"@en .
+
+cah:met_object_10 a cah:Artwork ;
+    rdfs:label "Two-and-a-half-dollar Indian Head Coin"@en ;
+    cah:createdBy cah:artist_bela_lyon_pratt_17e6e61b45a09dc6 ;
+    cah:hasCreationDate "1912-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_6249df4367d0a2e0 ;
+    dcterms:subject "American Decorative Arts"@en .
+
+cah:met_object_104779 a cah:Artwork ;
+    rdfs:label "Wedding Dress"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1930-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_2cb06de1f01e16ab ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_38ba2144543153b7,
+        cah:medium_5f7db416d5c3d027 ;
+    dcterms:subject "Islamic Art"@en .
+
+cah:met_object_11 a cah:Artwork ;
+    rdfs:label "Two-and-a-half-dollar Liberty Head Coin"@en ;
+    cah:createdBy cah:artist_christian_gobrecht_610ee8f990f3e0c1 ;
+    cah:hasCreationDate "1907-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_6249df4367d0a2e0 ;
+    dcterms:subject "American Decorative Arts"@en .
+
+cah:met_object_123888 a cah:Artwork ;
+    rdfs:label "Akhnif / Burnus"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1900-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_fd377fb77ee911ac ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_5f91efa41797d91d,
+        cah:medium_69e399851c841999 ;
+    dcterms:subject "Islamic Art"@en .
+
+cah:met_object_124428 a cah:Artwork ;
+    rdfs:label "Buckle"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1880-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6ab2a818175e61d7 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_9a167ce6dc0eb079,
+        cah:medium_ecf783a585cbdf92 ;
+    dcterms:subject "Islamic Art"@en .
+
+cah:met_object_126673 a cah:Artwork ;
+    rdfs:label "Pin (ttipqui)"@en ;
+    cah:createdBy cah:artist_peruvian_artist_s_d5ad07da78e4fb12 ;
+    cah:hasCreationDate "1800-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_f27c73c20d15177e ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_132a1a391cce181c,
+        cah:medium_a0b43df06f52085e ;
+    dcterms:subject "Arts of Africa, Oceania, and the Americas"@en .
+
+cah:met_object_126682 a cah:Artwork ;
+    rdfs:label "Bag"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1900-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_756abaccfaa5646d ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_577aeff8518fcd2a,
+        cah:medium_5c2309d2de8b4a92,
+        cah:medium_69e399851c841999 ;
+    dcterms:subject "Arts of Africa, Oceania, and the Americas"@en .
+
+cah:met_object_13110 a cah:Artwork ;
+    rdfs:label "Maiden, Cupid and Frog"@en ;
+    cah:createdBy cah:artist_william_henry_romaine_walker_9144f7451b37f26f ;
+    cah:hasCreationDate "1890-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_e4469f56afc9ff87 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_2c983208e3454c02 ;
+    dcterms:subject "Drawings and Prints"@en .
+
+cah:met_object_13126 a cah:Artwork ;
+    rdfs:label "Room \"M\" in The Metropolitan Museum of Art in 14th Street"@en ;
+    cah:createdBy cah:artist_frank_waller_a5b556c8bc48bdff ;
+    cah:hasGenre cah:genre_e4469f56afc9ff87 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_559a8e4bacdbd8f2,
+        cah:medium_a04bd35be1678964,
+        cah:medium_b728b7e775f708fa ;
+    dcterms:subject "Drawings and Prints"@en .
+
+cah:met_object_13127 a cah:Artwork ;
+    rdfs:label "Sketch of Room \"M\" in The Metropolitan Museum of Art when in 14th Street"@en ;
+    cah:createdBy cah:artist_frank_waller_a5b556c8bc48bdff ;
+    cah:hasCreationDate "1874-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_e4469f56afc9ff87 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_a29d0030ca0fd83d ;
+    dcterms:subject "Drawings and Prints"@en .
+
+cah:met_object_13128 a cah:Artwork ;
+    rdfs:label "Stairway and balcony, study for \"Interior of the Metropolitan Museum of Art when in 14th Street\""@en ;
+    cah:createdBy cah:artist_frank_waller_a5b556c8bc48bdff ;
+    cah:hasGenre cah:genre_e4469f56afc9ff87 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_448c637af8403128 ;
+    dcterms:subject "Drawings and Prints"@en .
+
+cah:met_object_13737 a cah:Artwork ;
+    rdfs:label "Embroidered Picture"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1842-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6a839eefd35ef4b6 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_bd7697360f4d68ea ;
+    dcterms:subject "European Sculpture and Decorative Arts"@en .
+
+cah:met_object_13740 a cah:Artwork ;
+    rdfs:label "Embroidered picture of Charles I"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1650-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6a839eefd35ef4b6 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_dc5af4ca165c9e0f ;
+    dcterms:subject "European Sculpture and Decorative Arts"@en .
+
+cah:met_object_2 a cah:Artwork ;
+    rdfs:label "Ten-dollar Liberty Head Coin"@en ;
+    cah:createdBy cah:artist_christian_gobrecht_610ee8f990f3e0c1 ;
+    cah:hasCreationDate "1901-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_6249df4367d0a2e0 ;
+    dcterms:subject "American Decorative Arts"@en .
+
+cah:met_object_21910 a cah:Artwork ;
+    rdfs:label "Blade and Mounting for a Short Sword (Wakizashi)"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1801-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_5919dcd44e227bc4 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_04dd908e8ab50135,
+        cah:medium_24d7f03d8dc3c366,
+        cah:medium_78cde64c3e47f2cb,
+        cah:medium_99f7855eb789dfec,
+        cah:medium_ea9973d1460ee95c,
+        cah:medium_fbf577de136cbd3c ;
+    dcterms:subject "Arms and Armor"@en .
+
+cah:met_object_21912 a cah:Artwork ;
+    rdfs:label "Blade and Mounting for a Dagger (Tantō)"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1501-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_72d13cd454532ac4 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_382635c9325bf327,
+        cah:medium_78cde64c3e47f2cb,
+        cah:medium_99f7855eb789dfec,
+        cah:medium_da926dc4ef99a3b0,
+        cah:medium_e65ff685ab814883,
+        cah:medium_ea9973d1460ee95c,
+        cah:medium_fcc0f95278f0ab99 ;
+    dcterms:subject "Arms and Armor"@en .
+
+cah:met_object_21916 a cah:Artwork ;
+    rdfs:label "Blade and Mounting for a Sword (Katana)"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1701-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_5919dcd44e227bc4 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_04dd908e8ab50135,
+        cah:medium_04e9c0db87e7eebb,
+        cah:medium_1aa06c3f11cfc12d,
+        cah:medium_78cde64c3e47f2cb,
+        cah:medium_99f7855eb789dfec,
+        cah:medium_e65ff685ab814883,
+        cah:medium_ea9973d1460ee95c ;
+    dcterms:subject "Arms and Armor"@en .
+
+cah:met_object_21917 a cah:Artwork ;
+    rdfs:label "Halberd of Archduke Ferdinand II of Austria (1578–1637, Emperor from 1619)"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1598-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_7640954f8a060885 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_96663ba66fcd6366,
+        cah:medium_99f7855eb789dfec,
+        cah:medium_ea9973d1460ee95c ;
+    dcterms:subject "Arms and Armor"@en .
+
+cah:met_object_21918 a cah:Artwork ;
+    rdfs:label "Vambrace"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1555-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6407f674067e045f ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_ea9973d1460ee95c ;
+    dcterms:subject "Arms and Armor"@en .
+
+cah:met_object_240220 a cah:Artwork ;
+    rdfs:label "Terracotta jug with horse's head in relief"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_e83229f0da370885 ;
+    cah:hasGenre cah:genre_13b78ad8a5ad48f2 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_433d669dcf6e6be8 ;
+    dcterms:subject "Greek and Roman Art"@en .
+
+cah:met_object_240221 a cah:Artwork ;
+    rdfs:label "Terracotta jug"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_8ecda37eff17daa0 ;
+    cah:hasGenre cah:genre_13b78ad8a5ad48f2 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_433d669dcf6e6be8 ;
+    dcterms:subject "Greek and Roman Art"@en .
+
+cah:met_object_240222 a cah:Artwork ;
+    rdfs:label "Jug"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_5a73c3ff19460785 ;
+    cah:hasGenre cah:genre_13b78ad8a5ad48f2 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_433d669dcf6e6be8 ;
+    dcterms:subject "Greek and Roman Art"@en .
+
+cah:met_object_240223 a cah:Artwork ;
+    rdfs:label "Amphora"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_124d442c8deb5074 ;
+    cah:hasGenre cah:genre_13b78ad8a5ad48f2 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_433d669dcf6e6be8 ;
+    dcterms:subject "Greek and Roman Art"@en .
+
+cah:met_object_240224 a cah:Artwork ;
+    rdfs:label "Terracotta amphora (jar)"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_124d442c8deb5074 ;
+    cah:hasGenre cah:genre_13b78ad8a5ad48f2 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_433d669dcf6e6be8 ;
+    dcterms:subject "Greek and Roman Art"@en .
+
+cah:met_object_260046 a cah:Artwork ;
+    rdfs:label "Joe's Auto Graveyard, Near Bethlehem, Pennsylvania"@en ;
+    cah:createdBy cah:artist_walker_evans_ec554a32a12e34e2 ;
+    cah:hasCreationDate "1936-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6313ce0c3805b285 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_2565daa5f313d755 ;
+    dcterms:subject "Photographs"@en .
+
+cah:met_object_260047 a cah:Artwork ;
+    rdfs:label "Birmingham Steel Mill and Workers' Houses"@en ;
+    cah:createdBy cah:artist_walker_evans_ec554a32a12e34e2 ;
+    cah:hasCreationDate "1936-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6313ce0c3805b285 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_2565daa5f313d755 ;
+    dcterms:subject "Photographs"@en .
+
+cah:met_object_260048 a cah:Artwork ;
+    rdfs:label "Commodore"@en ;
+    cah:createdBy cah:artist_scott_hyde_57e5f02c7210d37c ;
+    cah:hasCreationDate "1970-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6313ce0c3805b285 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    dcterms:subject "Photographs"@en .
+
+cah:met_object_260049 a cah:Artwork ;
+    rdfs:label "The Astor Place Luncheonette with the Judgement of Paris by Rubens"@en ;
+    cah:createdBy cah:artist_scott_hyde_57e5f02c7210d37c ;
+    cah:hasCreationDate "1970-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6313ce0c3805b285 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_1bfdfbbdfa0be0bf ;
+    dcterms:subject "Photographs"@en .
+
+cah:met_object_260050 a cah:Artwork ;
+    rdfs:label "Flower Still II"@en ;
+    cah:createdBy cah:artist_scott_hyde_57e5f02c7210d37c ;
+    cah:hasCreationDate "1970-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6313ce0c3805b285 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_1bfdfbbdfa0be0bf ;
+    dcterms:subject "Photographs"@en .
+
+cah:met_object_2646 a cah:Artwork ;
+    rdfs:label "Cream jug"@en ;
+    cah:createdBy cah:artist_chelsea_porcelain_manufactory_12086df4f2ba13cc ;
+    cah:hasCreationDate "1747-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_514d8d0718918ddd ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_bc1fa6a3dd3c39a4 ;
+    dcterms:subject "European Sculpture and Decorative Arts"@en .
+
+cah:met_object_3 a cah:Artwork ;
+    rdfs:label "Two-and-a-Half Dollar Coin"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1909-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_6249df4367d0a2e0 ;
+    dcterms:subject "American Decorative Arts"@en .
+
+cah:met_object_321768 a cah:Artwork ;
+    rdfs:label "Cuneiform tablet: quittance for rent, Esagilaya archive"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_9115a8a3fea153c1 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_05947b7bdbad0f30 ;
+    dcterms:subject "Ancient West Asian Art"@en .
+
+cah:met_object_321769 a cah:Artwork ;
+    rdfs:label "Cuneiform tablet: cession of promissory note (?), Esagilaya archive"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_54aff7dfb619485b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_05947b7bdbad0f30 ;
+    dcterms:subject "Ancient West Asian Art"@en .
+
+cah:met_object_321770 a cah:Artwork ;
+    rdfs:label "Cuneiform tablet: account of gold, Ebabbar archive"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_54aff7dfb619485b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_05947b7bdbad0f30 ;
+    dcterms:subject "Ancient West Asian Art"@en .
+
+cah:met_object_321771 a cah:Artwork ;
+    rdfs:label "Cuneiform tablet: account of delivery of animals for offering, Ebabbar archive"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_54aff7dfb619485b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_05947b7bdbad0f30 ;
+    dcterms:subject "Ancient West Asian Art"@en .
+
+cah:met_object_321772 a cah:Artwork ;
+    rdfs:label "Cuneiform tablet: account of silver disbursements, Ebabbar archive"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_54aff7dfb619485b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_05947b7bdbad0f30 ;
+    dcterms:subject "Ancient West Asian Art"@en .
+
+cah:met_object_329915 a cah:Artwork ;
+    rdfs:label "Upper Part of a Seated Figure in a Long Kilt"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_dd3e3b294f8d8784 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_894e14e9c65371b9 ;
+    dcterms:subject "Egyptian Art"@en .
+
+cah:met_object_329916 a cah:Artwork ;
+    rdfs:label "Fragmentary Head of Thutmose IV"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_f7cf49dd68b15025 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_c7c1da0822dd7487 ;
+    dcterms:subject "Egyptian Art"@en .
+
+cah:met_object_329917 a cah:Artwork ;
+    rdfs:label "Face of a Man with Part of a Short Echeloned Wig"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_4edcc447cff44779 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_297e619db5ee855a,
+        cah:medium_731140284eac4aca ;
+    dcterms:subject "Egyptian Art"@en .
+
+cah:met_object_329918 a cah:Artwork ;
+    rdfs:label "Pediusir kneeling, holding a jar"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_fa80fd456b383329 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_234bff2ba79e323d ;
+    dcterms:subject "Egyptian Art"@en .
+
+cah:met_object_329919 a cah:Artwork ;
+    rdfs:label "Kneeling Priest, Pouring Libation"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:createdInPeriod cah:period_fa80fd456b383329 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_234bff2ba79e323d ;
+    dcterms:subject "Egyptian Art"@en .
+
+cah:met_object_330120 a cah:Artwork ;
+    rdfs:label "Cover Design for \"Les Vieilles Histoires\""@en ;
+    cah:createdBy cah:artist_henri_de_toulouse_lautrec_4bc5de5542300c66 ;
+    cah:hasCreationDate "1893-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_ab1fa2dc4ed8a56e ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_24514c6abba966ee ;
+    dcterms:subject "Drawings and Prints"@en .
+
+cah:met_object_36482 a cah:Artwork ;
+    rdfs:label "Three Actors in Beautiful Costumes Performing a Religious Dance"@en ;
+    cah:createdBy cah:artist_katsukawa_shunsen_d4ddf4423ebfde01 ;
+    cah:createdInPeriod cah:period_2a9e9751c742c890 ;
+    cah:hasCreationDate "1775-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_ab1fa2dc4ed8a56e ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_0a94b8287e5fb4a2 ;
+    dcterms:subject "Asian Art"@en .
+
+cah:met_object_36483 a cah:Artwork ;
+    rdfs:label "New Year's Day at the Ōgiya Brothel, Yoshiwara"@en ;
+    cah:createdBy cah:artist_katsushika_hokusai_7ec8567e64fbbc2a ;
+    cah:createdInPeriod cah:period_2a9e9751c742c890 ;
+    cah:hasCreationDate "1794-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_ab1fa2dc4ed8a56e ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_0c061840b4a34a0a ;
+    dcterms:subject "Asian Art"@en .
+
+cah:met_object_36484 a cah:Artwork ;
+    rdfs:label "Rōben Waterfall at Ōyama in Sagami Province (Sōshū Ōyama Rōben no taki), from the series A Tour of Waterfalls in Various Provinces (Shokoku taki meguri)"@en ;
+    cah:createdBy cah:artist_katsushika_hokusai_7ec8567e64fbbc2a ;
+    cah:createdInPeriod cah:period_2a9e9751c742c890 ;
+    cah:hasCreationDate "1817-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_ab1fa2dc4ed8a56e ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_d1a21289c2204d7b ;
+    dcterms:subject "Asian Art"@en .
+
+cah:met_object_36485 a cah:Artwork ;
+    rdfs:label "Poem by Jitō Tenno (Empress Jitō), from the series One Hundred Poems Explained by the Nurse (Hyakunin isshu uba ga etoki)"@en ;
+    cah:createdBy cah:artist_katsushika_hokusai_7ec8567e64fbbc2a ;
+    cah:createdInPeriod cah:period_2a9e9751c742c890 ;
+    cah:hasCreationDate "1839-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_ab1fa2dc4ed8a56e ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_d1a21289c2204d7b ;
+    dcterms:subject "Asian Art"@en .
+
+cah:met_object_36486 a cah:Artwork ;
+    rdfs:label "Poem by Kakinomoto Hitomaro, from the series One Hundred Poems Explained by the Nurse (Hyakunin isshu uba ga etoki)"@en ;
+    cah:createdBy cah:artist_katsushika_hokusai_7ec8567e64fbbc2a ;
+    cah:createdInPeriod cah:period_2a9e9751c742c890 ;
+    cah:hasCreationDate "1839-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_ab1fa2dc4ed8a56e ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_d1a21289c2204d7b ;
+    dcterms:subject "Asian Art"@en .
+
+cah:met_object_437344 a cah:Artwork ;
+    rdfs:label "The Shepherd's Song"@en ;
+    cah:createdBy cah:artist_pierre_puvis_de_chavannes_50babd2d88056c91 ;
+    cah:hasCreationDate "1891-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_d406a7531a92e00b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_41e10b988675a252 ;
+    dcterms:subject "European Paintings"@en .
+
+cah:met_object_437345 a cah:Artwork ;
+    rdfs:label "Cider"@en ;
+    cah:createdBy cah:artist_pierre_puvis_de_chavannes_50babd2d88056c91 ;
+    cah:hasCreationDate "1859-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_e4469f56afc9ff87 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_a1135679e25e43a4,
+        cah:medium_b70671bde71329b4 ;
+    dcterms:subject "European Paintings"@en .
+
+cah:met_object_437346 a cah:Artwork ;
+    rdfs:label "Inter artes et naturam (Between Art and Nature)"@en ;
+    cah:createdBy cah:artist_pierre_puvis_de_chavannes_50babd2d88056c91 ;
+    cah:hasCreationDate "1885-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_d406a7531a92e00b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_41e10b988675a252 ;
+    dcterms:subject "European Paintings"@en .
+
+cah:met_object_437347 a cah:Artwork ;
+    rdfs:label "Ludus pro patria (Patriotic Games)"@en ;
+    cah:createdBy cah:artist_pierre_puvis_de_chavannes_50babd2d88056c91 ;
+    cah:hasCreationDate "1878-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_d406a7531a92e00b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_41e10b988675a252 ;
+    dcterms:subject "European Paintings"@en .
+
+cah:met_object_437348 a cah:Artwork ;
+    rdfs:label "The River"@en ;
+    cah:createdBy cah:artist_pierre_puvis_de_chavannes_50babd2d88056c91 ;
+    cah:hasCreationDate "1859-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_e4469f56afc9ff87 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_a1135679e25e43a4,
+        cah:medium_b70671bde71329b4 ;
+    dcterms:subject "European Paintings"@en .
+
+cah:met_object_458953 a cah:Artwork ;
+    rdfs:label "Saint Ansanus"@en ;
+    cah:createdBy cah:artist_simone_martini_dd071904f7460ab6 ;
+    cah:hasCreationDate "1323-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_d406a7531a92e00b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_25b5088dc7cf8355,
+        cah:medium_69936126d96da6b6 ;
+    dcterms:subject "The Robert Lehman Collection"@en .
+
+cah:met_object_458954 a cah:Artwork ;
+    rdfs:label "Saint Mary Magdalen"@en ;
+    cah:createdBy cah:artist_lippo_memmi_filippo_di_memmo_1c4059516911ea7c ;
+    cah:hasCreationDate "1336-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_d406a7531a92e00b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_25b5088dc7cf8355,
+        cah:medium_69936126d96da6b6 ;
+    dcterms:subject "The Robert Lehman Collection"@en .
+
+cah:met_object_458955 a cah:Artwork ;
+    rdfs:label "Saint Peter"@en ;
+    cah:createdBy cah:artist_lippo_memmi_filippo_di_memmo_1c4059516911ea7c ;
+    cah:hasCreationDate "1336-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_d406a7531a92e00b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_25b5088dc7cf8355,
+        cah:medium_69936126d96da6b6 ;
+    dcterms:subject "The Robert Lehman Collection"@en .
+
+cah:met_object_458956 a cah:Artwork ;
+    rdfs:label "The Adoration of the Magi"@en ;
+    cah:createdBy cah:artist_bartolo_di_fredi_79ad1fa1f121f222 ;
+    cah:hasCreationDate "1387-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_d406a7531a92e00b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_f19c9cfd896a6828 ;
+    dcterms:subject "The Robert Lehman Collection"@en .
+
+cah:met_object_458957 a cah:Artwork ;
+    rdfs:label "Head of an Angel in Full Face"@en ;
+    cah:createdBy cah:artist_taddeo_di_bartolo_9ccddf5ec3231a28 ;
+    cah:hasCreationDate "1410-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_d406a7531a92e00b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_0adf71002cb96b60 ;
+    dcterms:subject "The Robert Lehman Collection"@en .
+
+cah:met_object_464584 a cah:Artwork ;
+    rdfs:label "Dove"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1875-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_3a959f598877df9c ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_24d7f03d8dc3c366,
+        cah:medium_dfafdb89c63af44c ;
+    dcterms:subject "Medieval Art"@en .
+
+cah:met_object_464585 a cah:Artwork ;
+    rdfs:label "Plaque of St. John"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1100-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_3a959f598877df9c ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_a80ee2f7eecd1ab5,
+        cah:medium_dfafdb89c63af44c ;
+    dcterms:subject "Medieval Art"@en .
+
+cah:met_object_464586 a cah:Artwork ;
+    rdfs:label "Plaque of The Virgin"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1100-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_3a959f598877df9c ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_a80ee2f7eecd1ab5,
+        cah:medium_dfafdb89c63af44c ;
+    dcterms:subject "Medieval Art"@en .
+
+cah:met_object_464587 a cah:Artwork ;
+    rdfs:label "Enthroned Virgin"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1175-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_d17f8f921089c6da ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_01b8993d7aab2d26 ;
+    dcterms:subject "Medieval Art"@en .
+
+cah:met_object_464588 a cah:Artwork ;
+    rdfs:label "Virgin and Child"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1300-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_a9cfeeba3c804b14 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_e07fe7512be0e490 ;
+    dcterms:subject "Medieval Art"@en .
+
+cah:met_object_465956 a cah:Artwork ;
+    rdfs:label "Fragment with Personifications of Victory and the Nile"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "0500-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_e0e89f00880c39ad ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_6bb8c309e6d9d7bb ;
+    dcterms:subject "The Cloisters"@en .
+
+cah:met_object_465961 a cah:Artwork ;
+    rdfs:label "Door Knocker"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1400-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_af35465eb4f40c03 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_8d6b4323d5d8a905 ;
+    dcterms:subject "The Cloisters"@en .
+
+cah:met_object_465981 a cah:Artwork ;
+    rdfs:label "Pendant Medallion with Michael Slaying the Dragon"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1470-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6b04a14389c7c12b ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_b4de7ab62355274d,
+        cah:medium_db68ac696db18faf,
+        cah:medium_f335dac10885e1e6 ;
+    dcterms:subject "The Cloisters"@en .
+
+cah:met_object_466092 a cah:Artwork ;
+    rdfs:label "Section of a Border with Foliate Pattern"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1225-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_0237a91787e402ac ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_ee78d4c4b77f642e ;
+    dcterms:subject "The Cloisters"@en .
+
+cah:met_object_466093 a cah:Artwork ;
+    rdfs:label "Comb"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1400-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_8e4547650ccb9779 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_c32f1611942f44a6,
+        cah:medium_db9abd51d0178fe1 ;
+    dcterms:subject "The Cloisters"@en .
+
+cah:met_object_479972 a cah:Artwork ;
+    rdfs:label "Textile sample"@en ;
+    cah:createdBy cah:artist_unknown_designer_9ef8f8112d3679bb ;
+    cah:hasCreationDate "1900-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_aed5f6a7e4d87196 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_6600bcecc950dac9 ;
+    dcterms:subject "Modern Art"@en .
+
+cah:met_object_500790 a cah:Artwork ;
+    rdfs:label "Algoja"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1880-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_abb9731afd1d425a ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_731140284eac4aca ;
+    dcterms:subject "Musical Instruments"@en .
+
+cah:met_object_500791 a cah:Artwork ;
+    rdfs:label "Double Clarinet"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1801-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_10d203a15df48a0d ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_473287f8298dba71,
+        cah:medium_57abfafa3540c266,
+        cah:medium_f58e4a64909caaa5 ;
+    dcterms:subject "Musical Instruments"@en .
+
+cah:met_object_500792 a cah:Artwork ;
+    rdfs:label "Palwei"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1850-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_a5d8dfdb12475466 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_4d31f753bb3e3561 ;
+    dcterms:subject "Musical Instruments"@en .
+
+cah:met_object_500793 a cah:Artwork ;
+    rdfs:label "Flute"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1850-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_a5d8dfdb12475466 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_731140284eac4aca ;
+    dcterms:subject "Musical Instruments"@en .
+
+cah:met_object_500796 a cah:Artwork ;
+    rdfs:label "Klui"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1850-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_a5d8dfdb12475466 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_4d31f753bb3e3561 ;
+    dcterms:subject "Musical Instruments"@en .
+
+cah:met_object_5209 a cah:Artwork ;
+    rdfs:label "Curtain knob"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1700-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_f7ed5dbb409af49e ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_54fb636380fa6abc ;
+    dcterms:subject "European Sculpture and Decorative Arts"@en .
+
+cah:met_object_591824 a cah:Artwork ;
+    rdfs:label "\"Alberti Dvreri pictoris et architecti praestantissimi De vrbibvs...\""@en ;
+    cah:createdBy cah:artist_albrecht_d_rer_10bae1035536b361 ;
+    cah:hasCreationDate "1535-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_c979bd43f53f0d97 ;
+    dcterms:subject "The Libraries"@en .
+
+cah:met_object_591825 a cah:Artwork ;
+    rdfs:label "Vita di Michelagnolo Buonarroti raccolta per Ascanio Condivi da la Ripa Transone"@en ;
+    cah:createdBy cah:artist_ascanio_condivi_fa9efd17fbf12075 ;
+    cah:hasCreationDate "1553-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_c979bd43f53f0d97 ;
+    dcterms:subject "The Libraries"@en .
+
+cah:met_object_591826 a cah:Artwork ;
+    rdfs:label "Vita del Tintoretto"@en ;
+    cah:createdBy cah:artist_carlo_ridolfi_7de55c1b61e8f8dd ;
+    cah:hasCreationDate "1642-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_c979bd43f53f0d97 ;
+    dcterms:subject "The Libraries"@en .
+
+cah:met_object_591827 a cah:Artwork ;
+    rdfs:label "Bononiensis de architectura libri quinque quibus cuncta fere architectonicae facultatis mysteria docte, perspicue . . ."@en ;
+    cah:createdBy cah:artist_sebastiano_serlio_c52792d95bc03747 ;
+    cah:hasCreationDate "1568-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_c979bd43f53f0d97 ;
+    dcterms:subject "The Libraries"@en .
+
+cah:met_object_591828 a cah:Artwork ;
+    rdfs:label "I quattro libri dell'architettura di Andrea Palladio . . ."@en ;
+    cah:createdBy cah:artist_andrea_palladio_10ec4c25c1df6a39 ;
+    cah:hasCreationDate "1570-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_c979bd43f53f0d97 ;
+    dcterms:subject "The Libraries"@en .
+
+cah:met_object_7829 a cah:Artwork ;
+    rdfs:label "Spoon"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1700-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6fd7b6dd5647e887 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_effe95d5bac895c4 ;
+    dcterms:subject "European Sculpture and Decorative Arts"@en .
+
+cah:met_object_80747 a cah:Artwork ;
+    rdfs:label "Evening dress"@en ;
+    cah:createdBy cah:artist_yves_saint_laurent_d904f850e3d6d94a ;
+    cah:hasCreationDate "1989-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_f2c819b6790de306 ;
+    dcterms:subject "The Costume Institute"@en .
+
+cah:met_object_80748 a cah:Artwork ;
+    rdfs:label "Evening ensemble"@en ;
+    cah:createdBy cah:artist_house_of_chanel_90cbc8f5b879560d ;
+    cah:hasCreationDate "1989-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_03ecab669ba200ba,
+        cah:medium_f2c819b6790de306 ;
+    dcterms:subject "The Costume Institute"@en .
+
+cah:met_object_80749 a cah:Artwork ;
+    rdfs:label "Corset"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1880-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_03ecab669ba200ba,
+        cah:medium_69e399851c841999 ;
+    dcterms:subject "The Costume Institute"@en .
+
+cah:met_object_80750 a cah:Artwork ;
+    rdfs:label "Jacket"@en ;
+    cah:createdBy cah:artist_romeo_gigli_fa2150cb858a860c ;
+    cah:hasCreationDate "1985-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_154c9a0b0375cc4d ;
+    dcterms:subject "The Costume Institute"@en .
+
+cah:met_object_80751 a cah:Artwork ;
+    rdfs:label "Shoes"@en ;
+    cah:createdBy cah:artist_romeo_gigli_fa2150cb858a860c ;
+    cah:hasCreationDate "1985-01-01"^^xsd:date ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_03ecab669ba200ba,
+        cah:medium_5022472b2831c66a ;
+    dcterms:subject "The Costume Institute"@en .
+
+cah:met_object_83514 a cah:Artwork ;
+    rdfs:label "Hammam Shoes"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1920-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_6cfaec7ec187005c ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_166f4489c20e0295,
+        cah:medium_188d87a683a74967,
+        cah:medium_731140284eac4aca,
+        cah:medium_ce61d15b5fcf1ad0 ;
+    dcterms:subject "Islamic Art"@en .
+
+cah:met_object_83600 a cah:Artwork ;
+    rdfs:label "Robe"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1900-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_e4e572167c66e3df ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_6600bcecc950dac9 ;
+    dcterms:subject "Islamic Art"@en .
+
+cah:met_object_92385 a cah:Artwork ;
+    rdfs:label "Sarong"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1850-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_0f5172e589ad5ff1 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_38ba2144543153b7 ;
+    dcterms:subject "Arts of Africa, Oceania, and the Americas"@en .
+
+cah:met_object_92387 a cah:Artwork ;
+    rdfs:label "Textile"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1900-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_0f5172e589ad5ff1 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_38ba2144543153b7,
+        cah:medium_77a276a4bc940149 ;
+    dcterms:subject "Arts of Africa, Oceania, and the Americas"@en .
+
+cah:met_object_98472 a cah:Artwork ;
+    rdfs:label "Ensemble"@en ;
+    cah:createdBy cah:artist_unknown ;
+    cah:hasCreationDate "1975-01-01"^^xsd:date ;
+    cah:hasGenre cah:genre_0f5172e589ad5ff1 ;
+    cah:heldBy cah:institution_4b5ded9d82886e48 ;
+    cah:usesMedium cah:medium_39958967b23f91ee,
+        cah:medium_b3cc0475bb78a502 ;
+    dcterms:subject "Arts of Africa, Oceania, and the Americas"@en .
+
+cah:participatedInExhibition a owl:ObjectProperty ;
+    rdfs:label "participatedInExhibition" ;
+    rdfs:comment "Relates an artwork to an exhibition." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Exhibition ;
+    owl:inverseOf cah:inverse_participatedInExhibition .
+
+cah:underwentRestoration a owl:ObjectProperty ;
+    rdfs:label "underwentRestoration" ;
+    rdfs:comment "Relates an artwork to restoration events." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:RestorationEvent ;
+    owl:inverseOf cah:inverse_underwentRestoration .
+
+cah:wonPrize a owl:ObjectProperty ;
+    rdfs:label "wonPrize" ;
+    rdfs:comment "Relates an artist to a prize received." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Prize .
+
+cah:Country a owl:Class ;
+    rdfs:label "Country" ;
+    rdfs:comment "A geopolitical entity." ;
+    rdfs:subClassOf crm:E53_Place .
+
+cah:DonationEvent a owl:Class ;
+    rdfs:label "DonationEvent" ;
+    rdfs:comment "A transfer of ownership as a donation." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty cah:donatedTo ;
+            owl:someValuesFrom cah:Museum ],
+        [ a owl:Restriction ;
+            owl:onProperty cah:donatedBy ;
+            owl:someValuesFrom cah:Collector ],
+        cah:ProvenanceEvent .
+
+cah:artist_albrecht_d_rer_10bae1035536b361 a cah:Artist ;
+    rdfs:label "Albrecht Dürer"@en .
+
+cah:artist_andrea_palladio_10ec4c25c1df6a39 a cah:Artist ;
+    rdfs:label "Andrea Palladio"@en .
+
+cah:artist_ascanio_condivi_fa9efd17fbf12075 a cah:Artist ;
+    rdfs:label "Ascanio Condivi"@en .
+
+cah:artist_bartolo_di_fredi_79ad1fa1f121f222 a cah:Artist ;
+    rdfs:label "Bartolo di Fredi"@en .
+
+cah:artist_bela_lyon_pratt_17e6e61b45a09dc6 a cah:Artist ;
+    rdfs:label "Bela Lyon Pratt"@en .
+
+cah:artist_carlo_ridolfi_7de55c1b61e8f8dd a cah:Artist ;
+    rdfs:label "Carlo Ridolfi"@en .
+
+cah:artist_chelsea_porcelain_manufactory_12086df4f2ba13cc a cah:Artist ;
+    rdfs:label "Chelsea Porcelain Manufactory"@en .
+
+cah:artist_henri_de_toulouse_lautrec_4bc5de5542300c66 a cah:Artist ;
+    rdfs:label "Henri de Toulouse-Lautrec"@en .
+
+cah:artist_house_of_chanel_90cbc8f5b879560d a cah:Artist ;
+    rdfs:label "House of Chanel"@en .
+
+cah:artist_james_barton_longacre_b466d81595e3fb06 a cah:Artist ;
+    rdfs:label "James Barton Longacre"@en .
+
+cah:artist_katsukawa_shunsen_d4ddf4423ebfde01 a cah:Artist ;
+    rdfs:label "Katsukawa Shunsen"@en .
+
+cah:artist_peruvian_artist_s_d5ad07da78e4fb12 a cah:Artist ;
+    rdfs:label "Peruvian artist(s)"@en .
+
+cah:artist_sebastiano_serlio_c52792d95bc03747 a cah:Artist ;
+    rdfs:label "Sebastiano Serlio"@en .
+
+cah:artist_simone_martini_dd071904f7460ab6 a cah:Artist ;
+    rdfs:label "Simone Martini"@en .
+
+cah:artist_taddeo_di_bartolo_9ccddf5ec3231a28 a cah:Artist ;
+    rdfs:label "Taddeo di Bartolo"@en .
+
+cah:artist_unknown_designer_9ef8f8112d3679bb a cah:Artist ;
+    rdfs:label "Unknown Designer"@en .
+
+cah:artist_william_henry_romaine_walker_9144f7451b37f26f a cah:Artist ;
+    rdfs:label "William Henry Romaine Walker"@en .
+
+cah:artist_yves_saint_laurent_d904f850e3d6d94a a cah:Artist ;
+    rdfs:label "Yves Saint Laurent"@en .
+
+cah:belongsToMovement a owl:ObjectProperty ;
+    rdfs:label "belongsToMovement" ;
+    rdfs:comment "Relates an artwork to an art movement." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:ArtMovement .
+
+cah:donatedBy a owl:ObjectProperty ;
+    rdfs:label "donatedBy" ;
+    rdfs:comment "Relates an artwork to the donor." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Collector .
+
+cah:donatedTo a owl:ObjectProperty ;
+    rdfs:label "donatedTo" ;
+    rdfs:comment "Relates a donation event to a museum." ;
+    rdfs:domain cah:DonationEvent ;
+    rdfs:range cah:Museum .
+
+cah:endDate a owl:DatatypeProperty ;
+    rdfs:label "endDate" ;
+    rdfs:comment "The end date of a time span." ;
+    rdfs:domain cah:TimeSpan ;
+    rdfs:range xsd:date .
+
+cah:genre_0237a91787e402ac a cah:Genre ;
+    rdfs:label "Glass-Stained"@en .
+
+cah:genre_10d203a15df48a0d a cah:Genre ;
+    rdfs:label "Aerophone-Reed Vibrated-single reed cylindrical"@en .
+
+cah:genre_2cb06de1f01e16ab a cah:Genre ;
+    rdfs:label "Main dress-Womenswear"@en .
+
+cah:genre_514d8d0718918ddd a cah:Genre ;
+    rdfs:label "Ceramics-Pottery"@en .
+
+cah:genre_6407f674067e045f a cah:Genre ;
+    rdfs:label "Armor Parts-Arms & Shoulders"@en .
+
+cah:genre_6ab2a818175e61d7 a cah:Genre ;
+    rdfs:label "Accessory-Jewelry"@en .
+
+cah:genre_6b04a14389c7c12b a cah:Genre ;
+    rdfs:label "Sculpture-Miniature"@en .
+
+cah:genre_6cfaec7ec187005c a cah:Genre ;
+    rdfs:label "Accessory-Foot and Leg wear-Womenswear"@en .
+
+cah:genre_6fd7b6dd5647e887 a cah:Genre ;
+    rdfs:label "Metalwork-Pewter"@en .
+
+cah:genre_72d13cd454532ac4 a cah:Genre ;
+    rdfs:label "Daggers"@en .
+
+cah:genre_756abaccfaa5646d a cah:Genre ;
+    rdfs:label "Textiles-Costumes-Accessories"@en .
+
+cah:genre_7640954f8a060885 a cah:Genre ;
+    rdfs:label "Shafted Weapons"@en .
+
+cah:genre_8e4547650ccb9779 a cah:Genre ;
+    rdfs:label "Woodwork"@en .
+
+cah:genre_a9cfeeba3c804b14 a cah:Genre ;
+    rdfs:label "Sculpture-Stone"@en .
+
+cah:genre_abb9731afd1d425a a cah:Genre ;
+    rdfs:label "Aerophone-Whistle Flute-flageolet"@en .
+
+cah:genre_aed5f6a7e4d87196 a cah:Genre ;
+    rdfs:label "Textiles-Woven"@en .
+
+cah:genre_af35465eb4f40c03 a cah:Genre ;
+    rdfs:label "Metalwork-Iron"@en .
+
+cah:genre_d17f8f921089c6da a cah:Genre ;
+    rdfs:label "Sculpture-Wood"@en .
+
+cah:genre_e0e89f00880c39ad a cah:Genre ;
+    rdfs:label "Ivories-Elephant"@en .
+
+cah:genre_e4e572167c66e3df a cah:Genre ;
+    rdfs:label "Main dress-Menswear"@en .
+
+cah:genre_f27c73c20d15177e a cah:Genre ;
+    rdfs:label "Metal-Ornaments"@en .
+
+cah:genre_f7ed5dbb409af49e a cah:Genre ;
+    rdfs:label "Metalwork-Brass"@en .
+
+cah:genre_fd377fb77ee911ac a cah:Genre ;
+    rdfs:label "Outerwear"@en .
+
+cah:hasOwner a owl:ObjectProperty ;
+    rdfs:label "hasOwner" ;
+    rdfs:comment "Relates an artwork to its owner." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Institution .
+
+cah:hasParticipant a owl:ObjectProperty ;
+    rdfs:label "hasParticipant" ;
+    rdfs:comment "Relates an exhibition to participating artworks or artists." ;
+    rdfs:domain cah:Exhibition ;
+    rdfs:range crm:E39_Actor .
+
+cah:hasTimeSpan a owl:ObjectProperty ;
+    rdfs:label "hasTimeSpan" ;
+    rdfs:comment "Relates an event to its time span." ;
+    rdfs:domain crm:E2_Temporal_Entity ;
+    rdfs:range cah:TimeSpan ;
+    rdfs:subPropertyOf crm:P4_has_time-span .
+
+cah:heldBy a owl:ObjectProperty ;
+    rdfs:label "heldBy" ;
+    rdfs:comment "Relates an artwork to the institution that holds it." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Institution ;
+    rdfs:subPropertyOf crm:P50_has_current_keeper ;
+    owl:inverseOf cah:inverse_heldBy .
+
+cah:inverse_influencedBy a owl:ObjectProperty ;
+    rdfs:label "inverse_influencedBy" ;
+    rdfs:comment "Inverse of influencedBy (influenced)." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artist .
+
+cah:inverse_participatedInExhibition a owl:ObjectProperty ;
+    rdfs:label "inverse_participatedInExhibition" ;
+    rdfs:comment "Inverse of participatedInExhibition." ;
+    rdfs:domain cah:Exhibition ;
+    rdfs:range cah:Artwork .
+
+cah:inverse_underwentRestoration a owl:ObjectProperty ;
+    rdfs:label "inverse_underwentRestoration" ;
+    rdfs:comment "Inverse of underwentRestoration." ;
+    rdfs:domain cah:RestorationEvent ;
+    rdfs:range cah:Artwork .
+
+cah:locatedIn a owl:ObjectProperty,
+        owl:TransitiveProperty ;
+    rdfs:label "locatedIn" ;
+    rdfs:comment "Relates an institution to a place." ;
+    rdfs:domain cah:Institution ;
+    rdfs:range crm:E53_Place ;
+    rdfs:subPropertyOf crm:P53_has_former_or_current_location ;
+    owl:propertyChainAxiom ( cah:heldBy cah:locatedIn ) .
+
+cah:medium_01b8993d7aab2d26 a cah:Medium ;
+    rdfs:label "Poplar with paint"@en .
+
+cah:medium_04e9c0db87e7eebb a cah:Medium ;
+    rdfs:label "iron"@en .
+
+cah:medium_0a94b8287e5fb4a2 a cah:Medium ;
+    rdfs:label "Triptych of woodblock prints; ink and color on paper"@en .
+
+cah:medium_0adf71002cb96b60 a cah:Medium ;
+    rdfs:label "Tempera on wood (paint around head scraped away and vacant area gessoed)"@en .
+
+cah:medium_0c061840b4a34a0a a cah:Medium ;
+    rdfs:label "Pentaptych of woodblock prints; ink and color on paper"@en .
+
+cah:medium_132a1a391cce181c a cah:Medium ;
+    rdfs:label "glass"@en .
+
+cah:medium_154c9a0b0375cc4d a cah:Medium ;
+    rdfs:label "hemp"@en .
+
+cah:medium_166f4489c20e0295 a cah:Medium ;
+    rdfs:label "metal wrapped thread"@en .
+
+cah:medium_188d87a683a74967 a cah:Medium ;
+    rdfs:label "mother-of-pearl"@en .
+
+cah:medium_1aa06c3f11cfc12d a cah:Medium ;
+    rdfs:label "abalone shell"@en .
+
+cah:medium_24514c6abba966ee a cah:Medium ;
+    rdfs:label "Hand-colored lithograph"@en .
+
+cah:medium_297e619db5ee855a a cah:Medium ;
+    rdfs:label "paint"@en .
+
+cah:medium_2c983208e3454c02 a cah:Medium ;
+    rdfs:label "Ink and watercolor"@en .
+
+cah:medium_382635c9325bf327 a cah:Medium ;
+    rdfs:label "paper"@en .
+
+cah:medium_39958967b23f91ee a cah:Medium ;
+    rdfs:label "plant fiber"@en .
+
+cah:medium_448c637af8403128 a cah:Medium ;
+    rdfs:label "Graphite and chalk"@en .
+
+cah:medium_473287f8298dba71 a cah:Medium ;
+    rdfs:label "string"@en .
+
+cah:medium_5022472b2831c66a a cah:Medium ;
+    rdfs:label "leather"@en .
+
+cah:medium_54fb636380fa6abc a cah:Medium ;
+    rdfs:label "Brass"@en .
+
+cah:medium_559a8e4bacdbd8f2 a cah:Medium ;
+    rdfs:label "and graphite"@en .
+
+cah:medium_577aeff8518fcd2a a cah:Medium ;
+    rdfs:label "abaca"@en .
+
+cah:medium_57abfafa3540c266 a cah:Medium ;
+    rdfs:label "wax"@en .
+
+cah:medium_5c2309d2de8b4a92 a cah:Medium ;
+    rdfs:label "beads"@en .
+
+cah:medium_5f7db416d5c3d027 a cah:Medium ;
+    rdfs:label "silk; embroidered"@en .
+
+cah:medium_5f91efa41797d91d a cah:Medium ;
+    rdfs:label "Wool"@en .
+
+cah:medium_6bb8c309e6d9d7bb a cah:Medium ;
+    rdfs:label "Elephant ivory"@en .
+
+cah:medium_77a276a4bc940149 a cah:Medium ;
+    rdfs:label "gold leaf"@en .
+
+cah:medium_894e14e9c65371b9 a cah:Medium ;
+    rdfs:label "Serpentinite (?)"@en .
+
+cah:medium_8d6b4323d5d8a905 a cah:Medium ;
+    rdfs:label "Wrought iron"@en .
+
+cah:medium_96663ba66fcd6366 a cah:Medium ;
+    rdfs:label "textile"@en .
+
+cah:medium_9a167ce6dc0eb079 a cah:Medium ;
+    rdfs:label "orange stones"@en .
+
+cah:medium_a04bd35be1678964 a cah:Medium ;
+    rdfs:label "Pen"@en .
+
+cah:medium_a0b43df06f52085e a cah:Medium ;
+    rdfs:label "Silver"@en .
+
+cah:medium_a29d0030ca0fd83d a cah:Medium ;
+    rdfs:label "Graphite with white touches"@en .
+
+cah:medium_b3cc0475bb78a502 a cah:Medium ;
+    rdfs:label "synthetic"@en .
+
+cah:medium_b4de7ab62355274d a cah:Medium ;
+    rdfs:label "tempera"@en .
+
+cah:medium_b728b7e775f708fa a cah:Medium ;
+    rdfs:label "ink"@en .
+
+cah:medium_bc1fa6a3dd3c39a4 a cah:Medium ;
+    rdfs:label "Soft-paste porcelain"@en .
+
+cah:medium_bd7697360f4d68ea a cah:Medium ;
+    rdfs:label "Embroidered wool on linen"@en .
+
+cah:medium_c32f1611942f44a6 a cah:Medium ;
+    rdfs:label "Boxwood inlaid with bone"@en .
+
+cah:medium_c7c1da0822dd7487 a cah:Medium ;
+    rdfs:label "Granodiorite"@en .
+
+cah:medium_ce61d15b5fcf1ad0 a cah:Medium ;
+    rdfs:label "velvet; embroidered"@en .
+
+cah:medium_da926dc4ef99a3b0 a cah:Medium ;
+    rdfs:label "laquer"@en .
+
+cah:medium_db68ac696db18faf a cah:Medium ;
+    rdfs:label "Mother of pearl"@en .
+
+cah:medium_db9abd51d0178fe1 a cah:Medium ;
+    rdfs:label "and decorated with red and green silk"@en .
+
+cah:medium_dc5af4ca165c9e0f a cah:Medium ;
+    rdfs:label "Canvas embroidered with wool and silk thread"@en .
+
+cah:medium_e07fe7512be0e490 a cah:Medium ;
+    rdfs:label "Marble with traces of polychromy"@en .
+
+cah:medium_ecf783a585cbdf92 a cah:Medium ;
+    rdfs:label "Metal"@en .
+
+cah:medium_ee78d4c4b77f642e a cah:Medium ;
+    rdfs:label "Pot-metal glass and vitreous paint"@en .
+
+cah:medium_effe95d5bac895c4 a cah:Medium ;
+    rdfs:label "Pewter"@en .
+
+cah:medium_f19c9cfd896a6828 a cah:Medium ;
+    rdfs:label "Tempera and gold on wood"@en .
+
+cah:medium_f335dac10885e1e6 a cah:Medium ;
+    rdfs:label "and silver"@en .
+
+cah:medium_f58e4a64909caaa5 a cah:Medium ;
+    rdfs:label "Reed"@en .
+
+cah:medium_fbf577de136cbd3c a cah:Medium ;
+    rdfs:label "copper-silver allowy (shibuichi)"@en .
+
+cah:medium_fcc0f95278f0ab99 a cah:Medium ;
+    rdfs:label "ray skin (samé)"@en .
+
+cah:organizedBy a owl:ObjectProperty ;
+    rdfs:label "organizedBy" ;
+    rdfs:comment "Relates an exhibition to a curator." ;
+    rdfs:domain cah:Exhibition ;
+    rdfs:range cah:Curator .
+
+cah:period_4edcc447cff44779 a cah:ArtPeriod ;
+    rdfs:label "Old Kingdom"@en .
+
+cah:period_5a73c3ff19460785 a cah:ArtPeriod ;
+    rdfs:label "Cypro-Archaic II"@en .
+
+cah:period_8ecda37eff17daa0 a cah:ArtPeriod ;
+    rdfs:label "Cypro-Archaic–Cypro-Classical"@en .
+
+cah:period_9115a8a3fea153c1 a cah:ArtPeriod ;
+    rdfs:label "Achaemenid"@en .
+
+cah:period_dd3e3b294f8d8784 a cah:ArtPeriod ;
+    rdfs:label "Middle Kingdom"@en .
+
+cah:period_e83229f0da370885 a cah:ArtPeriod ;
+    rdfs:label "Cypro-Classical I or II"@en .
+
+cah:period_f7cf49dd68b15025 a cah:ArtPeriod ;
+    rdfs:label "New Kingdom"@en .
+
+cah:startDate a owl:DatatypeProperty ;
+    rdfs:label "startDate" ;
+    rdfs:comment "The start date of a time span." ;
+    rdfs:domain cah:TimeSpan ;
+    rdfs:range xsd:date .
+
+cah:transferredOwnershipFrom a owl:ObjectProperty ;
+    rdfs:label "transferredOwnershipFrom" ;
+    rdfs:comment "Relates a provenance event to the previous owner." ;
+    rdfs:domain cah:ProvenanceEvent ;
+    rdfs:range cah:Institution .
+
+cah:transferredOwnershipTo a owl:ObjectProperty ;
+    rdfs:label "transferredOwnershipTo" ;
+    rdfs:comment "Relates a provenance event to the new owner." ;
+    rdfs:domain cah:ProvenanceEvent ;
+    rdfs:range cah:Institution ;
+    owl:inverseOf cah:transferredOwnershipFrom .
+
+cah:usesMedium a owl:ObjectProperty ;
+    rdfs:label "usesMedium" ;
+    rdfs:comment "Relates an artwork to the medium used." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Medium .
+
+cah:ArtMovement a owl:Class ;
+    rdfs:label "ArtMovement" ;
+    rdfs:comment "A style or movement in art history." ;
+    rdfs:subClassOf crm:E55_Type ;
+    owl:disjointWith cah:Artist .
+
+cah:Collector a owl:Class ;
+    rdfs:label "Collector" ;
+    rdfs:comment "A person or entity collecting artworks." ;
+    rdfs:subClassOf crm:E39_Actor .
+
+cah:Curator a owl:Class ;
+    rdfs:label "Curator" ;
+    rdfs:comment "A person organizing exhibitions." ;
+    rdfs:subClassOf crm:E21_Person .
+
+cah:Museum a owl:Class ;
+    rdfs:label "Museum" ;
+    rdfs:comment "An institution that holds or exhibits artworks." ;
+    rdfs:subClassOf crm:E40_Legal_Body ;
+    owl:disjointWith cah:Artist .
+
+cah:Prize a owl:Class ;
+    rdfs:label "Prize" ;
+    rdfs:comment "An award given for artistic achievement." ;
+    rdfs:subClassOf crm:E89_Propositional_Object .
+
+cah:RestorationEvent a owl:Class ;
+    rdfs:label "RestorationEvent" ;
+    rdfs:comment "An event of conservation/restoration." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty cah:hasTimeSpan ;
+            owl:someValuesFrom cah:TimeSpan ],
+        crm:E11_Modification .
+
+cah:artist_christian_gobrecht_610ee8f990f3e0c1 a cah:Artist ;
+    rdfs:label "Christian Gobrecht"@en .
+
+cah:artist_lippo_memmi_filippo_di_memmo_1c4059516911ea7c a cah:Artist ;
+    rdfs:label "Lippo Memmi (Filippo di Memmo)"@en .
+
+cah:artist_romeo_gigli_fa2150cb858a860c a cah:Artist ;
+    rdfs:label "Romeo Gigli"@en .
+
+cah:artist_walker_evans_ec554a32a12e34e2 a cah:Artist ;
+    rdfs:label "Walker Evans"@en .
+
+cah:createdBy a owl:AsymmetricProperty,
+        owl:ObjectProperty ;
+    rdfs:label "createdBy" ;
+    rdfs:comment "Relates an artwork to the artist who created it." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Artist ;
+    rdfs:subPropertyOf crm:P14_carried_out_by ;
+    owl:inverseOf cah:inverse_createdBy .
+
+cah:genre_5919dcd44e227bc4 a cah:Genre ;
+    rdfs:label "Swords"@en .
+
+cah:genre_6a839eefd35ef4b6 a cah:Genre ;
+    rdfs:label "Textiles"@en .
+
+cah:hasContributor a owl:ObjectProperty ;
+    rdfs:label "hasContributor" ;
+    rdfs:comment "Relates an artwork to multiple contributing artists." ;
+    rdfs:domain cah:Artwork ;
+    rdfs:range cah:Artist .
+
+cah:inverse_heldBy a owl:ObjectProperty ;
+    rdfs:label "inverse_heldBy" ;
+    rdfs:comment "Inverse of heldBy (institution to artworks held)." ;
+    rdfs:domain cah:Institution ;
+    rdfs:range cah:Artwork .
+
+cah:medium_04dd908e8ab50135 a cah:Medium ;
+    rdfs:label "lacquer"@en .
+
+cah:medium_1bfdfbbdfa0be0bf a cah:Medium ;
+    rdfs:label "Photo silkscreen"@en .
+
+cah:medium_234bff2ba79e323d a cah:Medium ;
+    rdfs:label "Copper alloy"@en .
+
+cah:medium_24d7f03d8dc3c366 a cah:Medium ;
+    rdfs:label "gold"@en .
+
+cah:medium_2565daa5f313d755 a cah:Medium ;
+    rdfs:label "Gelatin silver print"@en .
+
+cah:medium_4d31f753bb3e3561 a cah:Medium ;
+    rdfs:label "Bamboo"@en .
+
+cah:medium_6600bcecc950dac9 a cah:Medium ;
+    rdfs:label "Silk"@en .
+
+cah:medium_a1135679e25e43a4 a cah:Medium ;
+    rdfs:label "Oil on paper"@en .
+
+cah:medium_a80ee2f7eecd1ab5 a cah:Medium ;
+    rdfs:label "silver gilt"@en .
+
+cah:medium_b70671bde71329b4 a cah:Medium ;
+    rdfs:label "laid down on canvas"@en .
+
+cah:medium_e65ff685ab814883 a cah:Medium ;
+    rdfs:label "copper-gold alloy (shakudō)"@en .
+
+cah:medium_f2c819b6790de306 a cah:Medium ;
+    rdfs:label "silk"@en .
+
+cah:period_124d442c8deb5074 a cah:ArtPeriod ;
+    rdfs:label "Cypro-Geometric I"@en .
+
+cah:period_fa80fd456b383329 a cah:ArtPeriod ;
+    rdfs:label "Late Period–Ptolemaic Period"@en .
+
+cah:ProvenanceEvent a owl:Class ;
+    rdfs:label "ProvenanceEvent" ;
+    rdfs:comment "An ownership transfer event." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Institution ;
+            owl:onProperty cah:transferredOwnershipTo ],
+        crm:E10_Transfer_of_Custody .
+
+cah:artist_frank_waller_a5b556c8bc48bdff a cah:Artist ;
+    rdfs:label "Frank Waller"@en .
+
+cah:artist_scott_hyde_57e5f02c7210d37c a cah:Artist ;
+    rdfs:label "Scott Hyde"@en .
+
+cah:genre_0f5172e589ad5ff1 a cah:Genre ;
+    rdfs:label "Textiles-Costumes"@en .
+
+cah:genre_3a959f598877df9c a cah:Genre ;
+    rdfs:label "Enamels-Cloisonné"@en .
+
+cah:genre_a5d8dfdb12475466 a cah:Genre ;
+    rdfs:label "Aerophone-Blow Hole-end-blown flute (vertical)"@en .
+
+cah:inverse_createdBy a owl:ObjectProperty ;
+    rdfs:label "inverse_createdBy" ;
+    rdfs:comment "Inverse of createdBy (artist to artworks created)." ;
+    rdfs:domain cah:Artist ;
+    rdfs:range cah:Artwork .
+
+cah:medium_03ecab669ba200ba a cah:Medium ;
+    rdfs:label "metal"@en .
+
+cah:medium_25b5088dc7cf8355 a cah:Medium ;
+    rdfs:label "gold ground"@en .
+
+cah:medium_38ba2144543153b7 a cah:Medium ;
+    rdfs:label "Cotton"@en .
+
+cah:medium_41e10b988675a252 a cah:Medium ;
+    rdfs:label "Oil on canvas"@en .
+
+cah:medium_69936126d96da6b6 a cah:Medium ;
+    rdfs:label "Tempera on wood"@en .
+
+cah:medium_69e399851c841999 a cah:Medium ;
+    rdfs:label "cotton"@en .
+
+cah:medium_78cde64c3e47f2cb a cah:Medium ;
+    rdfs:label "silver"@en .
+
+cah:medium_d1a21289c2204d7b a cah:Medium ;
+    rdfs:label "Woodblock print; ink and color on paper"@en .
+
+cah:medium_dfafdb89c63af44c a cah:Medium ;
+    rdfs:label "Cloisonné enamel"@en .
+
+cah:TimeSpan a owl:Class ;
+    rdfs:label "TimeSpan" ;
+    rdfs:comment "A temporal extent." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty cah:startDate ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:date ;
+            owl:onProperty cah:endDate ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        crm:E52_Time-Span .
+
+cah:artist_katsushika_hokusai_7ec8567e64fbbc2a a cah:Artist ;
+    rdfs:label "Katsushika Hokusai"@en .
+
+cah:medium_731140284eac4aca a cah:Medium ;
+    rdfs:label "Wood"@en .
+
+cah:medium_99f7855eb789dfec a cah:Medium ;
+    rdfs:label "wood"@en .
+
+cah:period_54aff7dfb619485b a cah:ArtPeriod ;
+    rdfs:label "Neo-Babylonian"@en .
+
+cah:Exhibition a owl:Class ;
+    rdfs:label "Exhibition" ;
+    rdfs:comment "An event where artworks are displayed." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artwork ;
+            owl:onProperty cah:hasParticipant ],
+        [ a owl:Restriction ;
+            owl:onProperty cah:organizedBy ;
+            owl:someValuesFrom cah:Curator ],
+        crm:E7_Activity .
+
+cah:artist_pierre_puvis_de_chavannes_50babd2d88056c91 a cah:Artist ;
+    rdfs:label "Pierre Puvis de Chavannes"@en .
+
+cah:genre_13b78ad8a5ad48f2 a cah:Genre ;
+    rdfs:label "Vases"@en .
+
+cah:genre_6313ce0c3805b285 a cah:Genre ;
+    rdfs:label "Photographs"@en .
+
+cah:medium_05947b7bdbad0f30 a cah:Medium ;
+    rdfs:label "Clay"@en .
+
+cah:medium_433d669dcf6e6be8 a cah:Medium ;
+    rdfs:label "Terracotta"@en .
+
+cah:medium_6249df4367d0a2e0 a cah:Medium ;
+    rdfs:label "Gold"@en .
+
+cah:medium_c979bd43f53f0d97 a cah:Medium ;
+    rdfs:label "Illustrated book"@en .
+
+cah:medium_ea9973d1460ee95c a cah:Medium ;
+    rdfs:label "Steel"@en .
+
+cah:period_2a9e9751c742c890 a cah:ArtPeriod ;
+    rdfs:label "Edo period (1615–1868)"@en .
+
+cah:genre_ab1fa2dc4ed8a56e a cah:Genre ;
+    rdfs:label "Prints"@en .
+
+cah:genre_e4469f56afc9ff87 a cah:Genre ;
+    rdfs:label "Drawings"@en .
+
+cah:genre_d406a7531a92e00b a cah:Genre ;
+    rdfs:label "Paintings"@en .
+
+cah:Institution a owl:Class ;
+    rdfs:label "Institution" ;
+    rdfs:comment "An organization such as a museum." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artwork ;
+            owl:onProperty cah:inverse_heldBy ],
+        crm:E40_Legal_Body .
+
+cah:ArtPeriod a owl:Class ;
+    rdfs:label "ArtPeriod" ;
+    rdfs:comment "A historical period classification." ;
+    rdfs:subClassOf crm:E4_Period ;
+    owl:disjointWith cah:Artwork .
+
+cah:Genre a owl:Class ;
+    rdfs:label "Genre" ;
+    rdfs:comment "A category of artistic composition." ;
+    rdfs:subClassOf crm:E55_Type .
+
+cah:Artist a owl:Class ;
+    rdfs:label "Artist" ;
+    rdfs:comment "A person who creates artworks." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artwork ;
+            owl:onProperty cah:inverse_createdBy ],
+        crm:E21_Person ;
+    owl:disjointWith cah:Artwork .
+
+cah:artist_unknown a cah:Artist ;
+    rdfs:label "Unknown artist"@en .
+
+cah:Medium a owl:Class ;
+    rdfs:label "Medium" ;
+    rdfs:comment "The material or technique used in an artwork." ;
+    rdfs:subClassOf crm:E57_Material .
+
+cah:institution_4b5ded9d82886e48 a cah:Institution ;
+    rdfs:label "Metropolitan Museum of Art, New York, NY"@en .
+
+cah:Artwork a owl:Class ;
+    rdfs:label "Artwork" ;
+    rdfs:comment "A cultural or artistic work." ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minQualifiedCardinality "0"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artist ;
+            owl:onProperty cah:hasContributor ],
+        [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artist ;
+            owl:onProperty cah:createdBy ],
+        [ a owl:Restriction ;
+            owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass cah:Artist ;
+            owl:onProperty cah:createdBy ],
+        crm:E22_Man-Made_Object,
+        edm:ProvidedCHO ;
+    owl:disjointWith cah:Exhibition .
+

@@ -1,30 +1,96 @@
 """
-Map Met Collection API JSON to instance RDF using the cah: vocabulary from
-ontology/cultural_heritage_extended_kg.ttl (ABox only; load alongside the ontology).
+Shared helpers for Met Collection API access and JSON → RDF mapping (cah: vocabulary).
 
-Selects up to 5 objects per department with unique normalized titles (API object
-order, scan capped per department).
+Used by create_json.py and convert_json.py.
 """
 
 from __future__ import annotations
 
 import hashlib
+import json
 import re
 import time
-from pathlib import Path
+import unicodedata
+from http.client import HTTPResponse
 from typing import Any
+from urllib.error import HTTPError, URLError
+from urllib.request import Request, urlopen
 
 from rdflib import Graph, Literal, Namespace, URIRef
 from rdflib.namespace import RDF, RDFS, XSD
 
-from clean_data import BASE_URL, get_json, normalize_string
+# ---------------------------------------------------------------------------
+# HTTP + string normalization (Met API)
+# ---------------------------------------------------------------------------
 
-TARGET_PER_DEPARTMENT = 5
-MAX_FETCHES_PER_DEPARTMENT = 500
-# Space requests to reduce Met API 403 / rate limits (see clean_data.get_json retries).
+BASE_URL = "https://collectionapi.metmuseum.org/public/collection/v1"
+
+# Browser-like UA: the Met API often rejects urllib’s default User-Agent with 403.
+_MET_HEADERS = {
+  "User-Agent": (
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+    "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+  ),
+  "Accept": "application/json",
+  "Accept-Language": "en-US,en;q=0.9",
+  "Referer": "https://www.metmuseum.org/",
+}
+
+
+def get_json(
+  url: str,
+  *,
+  max_retries: int = 8,
+  base_delay_sec: float = 2.5,
+  timeout_sec: float = 90.0,
+) -> dict[str, Any]:
+
+  # Exponential backoff on transient errors (403/429 and common gateway codes).
+  delay = base_delay_sec
+  last_error: BaseException | None = None
+  for attempt in range(max_retries):
+    req = Request(url, headers=_MET_HEADERS, method="GET")
+    try:
+      with urlopen(req, timeout=timeout_sec) as response:
+        typed_response: HTTPResponse = response
+        payload: bytes = typed_response.read()
+        return json.loads(payload.decode("utf-8"))
+    except HTTPError as e:
+      last_error = e
+      if e.code in (403, 429, 502, 503, 504) and attempt < max_retries - 1:
+        time.sleep(delay)
+        delay = min(delay * 1.75, 90.0)
+        continue
+      raise
+    except URLError as e:
+      last_error = e
+      if attempt < max_retries - 1:
+        time.sleep(delay)
+        delay = min(delay * 1.75, 90.0)
+        continue
+      raise
+  if last_error is not None:
+    raise last_error
+  raise RuntimeError("get_json: exhausted retries without error")
+
+
+def normalize_string(value: str) -> str:
+
+  # Used for title deduplication and readable RDF labels (whitespace + Unicode normalisation).
+  text = unicodedata.normalize("NFKC", value)
+  return re.sub(r"\s+", " ", text).strip()
+
+
+# ---------------------------------------------------------------------------
+# Met selection (per department)
+# ---------------------------------------------------------------------------
+
+TARGET_PER_DEPARTMENT = 3
+MAX_FETCHES_PER_DEPARTMENT = 100
 REQUEST_DELAY_SEC = 0.18
 PAUSE_BETWEEN_DEPARTMENTS_SEC = 4.0
 
+# Must match @prefix cah: in ontology/cultural_heritage_extended_kg.ttl.
 CAH = Namespace("http://example.org/culturalheritage#")
 
 
@@ -65,6 +131,9 @@ def collect_unique_title_objects(
   *,
   verbose: bool = False,
 ) -> list[dict[str, Any]]:
+
+  # Walk IDs in Met catalog order; keep the first object per normalised title until `target`
+  # or until stop early due to `max_fetches` (limits API cost on huge departments).
   ids = fetch_object_ids_for_department(department_id)
   seen_titles: set[str] = set()
   selected: list[dict[str, Any]] = []
@@ -112,9 +181,13 @@ def collect_unique_title_objects(
   return selected
 
 
+# ---------------------------------------------------------------------------
+# RDF: Met object JSON → cah: ABox (aligned with cultural_heritage_extended_kg.ttl)
+# ---------------------------------------------------------------------------
+# Stable fragment IDs from a hash of the label avoid illegal characters in URIs.
+
 def _token(s: str) -> str:
-  digest = hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
-  return digest
+  return hashlib.sha256(s.encode("utf-8")).hexdigest()[:16]
 
 
 def _slug_part(text: str, max_len: int = 48) -> str:
@@ -167,10 +240,13 @@ def creation_date_literal(begin: Any) -> Literal | None:
 
 
 def primary_artist_name(obj: dict[str, Any]) -> str | None:
+
+  # Prefer aggregate display field; otherwise first constituent that looks like maker/artist.
   name = obj.get("artistDisplayName")
   if isinstance(name, str) and normalize_string(name):
     return normalize_string(name)
   constituents = obj.get("constituents")
+  
   if not isinstance(constituents, list):
     return None
   for c in constituents:
@@ -195,6 +271,7 @@ def add_object_to_graph(g: Graph, obj: dict[str, Any]) -> None:
   artwork = CAH[f"met_object_{oid}"]
   g.add((artwork, RDF.type, CAH.Artwork))
 
+  # Core identity & creators
   title = obj.get("title")
   if isinstance(title, str) and normalize_string(title):
     g.add((artwork, RDFS.label, Literal(normalize_string(title), lang="en")))
@@ -209,6 +286,7 @@ def add_object_to_graph(g: Graph, obj: dict[str, Any]) -> None:
     ensure_unknown_artist(g)
     g.add((artwork, CAH.createdBy, UNKNOWN_ARTIST))
 
+  # Provenance: holding institution (defaults to The Met if field missing)
   repository = obj.get("repository")
   if isinstance(repository, str) and normalize_string(repository):
     inst_label = normalize_string(repository)
@@ -219,6 +297,7 @@ def add_object_to_graph(g: Graph, obj: dict[str, Any]) -> None:
   g.add((inst, RDFS.label, Literal(inst_label, lang="en")))
   g.add((artwork, CAH.heldBy, inst))
 
+  # Materials / classification / period / begin year (when present and valid)
   medium = obj.get("medium")
   if isinstance(medium, str) and normalize_string(medium):
     for part in re.split(r"\s*,\s*", medium):
@@ -249,67 +328,3 @@ def add_object_to_graph(g: Graph, obj: dict[str, Any]) -> None:
   date_lit = creation_date_literal(obj.get("objectBeginDate"))
   if date_lit is not None:
     g.add((artwork, CAH.hasCreationDate, date_lit))
-
-
-def build_graph_for_all_departments(*, verbose: bool = True) -> tuple[Graph, list[tuple[int, str, int]]]:
-  """
-  Returns the graph and a list of (departmentId, displayName, count_selected).
-  """
-  g = Graph()
-  g.bind("cah", CAH)
-  g.bind("rdfs", RDFS)
-  g.bind("rdf", RDF)
-  g.bind("xsd", XSD)
-
-  summary: list[tuple[int, str, int]] = []
-  if verbose:
-    print("Loading department list from Met API…")
-  departments = fetch_departments()
-  n_dep = len(departments)
-  if verbose:
-    print(f"Found {n_dep} departments. Starting object fetch and mapping.\n")
-
-  for i, dep in enumerate(departments, start=1):
-    dep_id = dep["departmentId"]
-    name = dep.get("displayName", "")
-    if not isinstance(name, str):
-      name = str(dep_id)
-    if verbose:
-      print(f"[{i}/{n_dep}] {name} (departmentId={dep_id})")
-    triples_before = len(g)
-    selected = collect_unique_title_objects(dep_id, verbose=verbose)
-    for obj in selected:
-      add_object_to_graph(g, obj)
-    summary.append((dep_id, name, len(selected)))
-    if verbose:
-      added = len(g) - triples_before
-      print(f"    → Added {added} triples for this department ({len(g)} triples in graph total).\n")
-    if PAUSE_BETWEEN_DEPARTMENTS_SEC > 0 and i < n_dep:
-      if verbose:
-        print(f"    Pausing {PAUSE_BETWEEN_DEPARTMENTS_SEC:.0f}s before next department (API cooldown)…\n")
-      time.sleep(PAUSE_BETWEEN_DEPARTMENTS_SEC)
-
-  return g, summary
-
-
-if __name__ == "__main__":
-  print("Met → cah: ontology mapping (this may take several minutes).\n")
-  graph, dept_summary = build_graph_for_all_departments(verbose=True)
-  rdf_dir = Path(__file__).resolve().parent / "rdf"
-  rdf_dir.mkdir(parents=True, exist_ok=True)
-  out_path = rdf_dir / "met_mapped_by_department.ttl"
-  print(f"Serializing graph to {out_path}…")
-  graph.serialize(destination=out_path, format="turtle")
-  print("Done serializing.\n")
-
-  total_objects = sum(c for _, _, c in dept_summary)
-  short = [(did, name, c) for did, name, c in dept_summary if c < TARGET_PER_DEPARTMENT]
-
-  print("— Summary —")
-  print(f"Wrote {len(graph)} triples to {out_path}")
-  print(f"Departments processed: {len(dept_summary)}")
-  print(f"Total objects mapped: {total_objects}")
-  if short:
-    print(f"Departments with fewer than {TARGET_PER_DEPARTMENT} objects (under scan cap):")
-    for did, name, c in short:
-      print(f"  {did} {name!r}: {c}")

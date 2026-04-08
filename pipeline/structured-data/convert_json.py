@@ -1,148 +1,149 @@
+"""
+Map department-grouped Met JSON (default: met_data.json) into the extended ontology
+(ontology/cultural_heritage_extended_kg.ttl) using the cah: ABox mapping in helpers.
+
+TBox (classes/properties) comes from the ontology file; instance triples are added in
+helpers.add_object_to_graph, optionally plus dcterms:subject for curatorial department.
+"""
+
+from __future__ import annotations
+
+import argparse
 import json
+import sys
 from pathlib import Path
+from typing import Any
 
-from rdflib import Graph, Namespace, URIRef, Literal
-from rdflib.namespace import RDF, RDFS, XSD
-from urllib.parse import quote
+from rdflib import Graph, Literal
+from rdflib.namespace import DCTERMS, RDF, RDFS, XSD
 
-# -----------------------------
-# Configuration (paths relative to this script / repo layout)
-# -----------------------------
+from helpers import CAH, add_object_to_graph
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _SCRIPT_DIR.parent.parent
+_DEFAULT_JSON = _SCRIPT_DIR / "met_data.json"
+_DEFAULT_ONTOLOGY = _REPO_ROOT / "ontology" / "cultural_heritage_extended_kg.ttl"
+_DEFAULT_OUT = _SCRIPT_DIR / "rdf" / "complete_cultural_heritage_kg.ttl"
 
-ONTOLOGY_FILE = _REPO_ROOT / "ontology" / "cultural_heritage_extended_kg.ttl"
-JSON_FILE = _SCRIPT_DIR / "met_selected_by_department.json"
-_RDF_DIR = _SCRIPT_DIR / "rdf"
-OUTPUT_FILE = _RDF_DIR / "populated_cultural_heritage_kg.ttl"
 
-BASE = "http://example.org/cultural#"
-CH = Namespace(BASE)
+def load_department_payload(path: Path) -> dict[str, Any]:
+  # Expected shape: { "departments": [ { "displayName", "objects": [ ... ] }, ... ] }
+  with path.open("r", encoding="utf-8") as f:
+    data = json.load(f)
+  if not isinstance(data, dict) or "departments" not in data:
+    raise ValueError(f"Expected JSON object with 'departments' key: {path}")
+  return data
 
-# -----------------------------
-# Helper Functions
-# -----------------------------
 
-def safe_uri(name):
-  return URIRef(BASE + quote(str(name).replace(" ", "_")))
+def iter_objects(data: dict[str, Any]):
+  # Flatten to (department label, object dict) pairs for mapping + optional subject link.
+  for dept in data.get("departments") or []:
+    if not isinstance(dept, dict):
+      continue
+    display_name = dept.get("displayName")
+    dept_label = display_name if isinstance(display_name, str) else None
+    for obj in dept.get("objects") or []:
+      if isinstance(obj, dict):
+        yield dept_label, obj
 
-def add_if_not_exists(g, subject, predicate, obj):
-  if (subject, predicate, obj) not in g:
-    g.add((subject, predicate, obj))
 
-# -----------------------------
-# Load Ontology
-# -----------------------------
+def attach_department_subject(g: Graph, obj: dict[str, Any], dept_display_name: str | None) -> None:
+  # Curatorial department is grouping metadata from create_json, not in the Met record alone.
+  if not dept_display_name or not str(dept_display_name).strip():
+    return
+  oid = obj.get("objectID")
+  if not isinstance(oid, int):
+    return
+  artwork = CAH[f"met_object_{oid}"]
+  lit = str(dept_display_name).strip()
+  g.add((artwork, DCTERMS.subject, Literal(lit, lang="en")))
 
-g = Graph()
-g.parse(str(ONTOLOGY_FILE), format="turtle")
-g.bind("ch", CH)
 
-# -----------------------------
-# Load JSON Data
-# -----------------------------
+def build_graph(
+  data: dict[str, Any],
+  *,
+  ontology_path: Path | None,
+  link_department: bool,
+) -> tuple[Graph, int]:
+  g = Graph()
+  g.bind("cah", CAH)
+  g.bind("rdfs", RDFS)
+  g.bind("rdf", RDF)
+  g.bind("xsd", XSD)
+  g.bind("dcterms", DCTERMS)
 
-with JSON_FILE.open("r", encoding="utf-8") as f:
-  data = json.load(f)
+  # When None (--instances-only), emit ABox only; otherwise TBox + ABox in one graph.
+  if ontology_path is not None:
+    g.parse(str(ontology_path), format="turtle")
 
-# -----------------------------
-# Mapping Logic
-# -----------------------------
+  count = 0
+  for dept_label, obj in iter_objects(data):
+    add_object_to_graph(g, obj)
+    if link_department:
+      attach_department_subject(g, obj, dept_label)
+    if isinstance(obj.get("objectID"), int):
+      count += 1
+  return g, count
 
-for dept in data["departments"]:
-  for obj in dept["objects"]:
 
-    # ---------------------
-    # Create Artwork
-    # ---------------------
-    artwork_uri = safe_uri(f"artwork_{obj['objectID']}")
-    add_if_not_exists(g, artwork_uri, RDF.type, CH.Artwork)
+def main(argv: list[str] | None = None) -> int:
+  parser = argparse.ArgumentParser(description="Map Met JSON (by department) to cah: RDF with ontology.")
+  parser.add_argument(
+    "--input",
+    type=Path,
+    default=_DEFAULT_JSON,
+    help="Path to Met JSON (default: met_data.json next to this script)",
+  )
+  parser.add_argument(
+    "--ontology",
+    type=Path,
+    default=_DEFAULT_ONTOLOGY,
+    help="Path to cultural_heritage_extended_kg.ttl (--instances-only skips loading it)",
+  )
+  parser.add_argument(
+    "--output",
+    type=Path,
+    default=None,
+    help="Output Turtle (default: rdf/complete_cultural_heritage_kg.ttl or rdf/met_instances_only.ttl)",
+  )
+  parser.add_argument(
+    "--instances-only",
+    action="store_true",
+    help="Do not load the ontology; emit only ABox triples",
+  )
+  parser.add_argument(
+    "--no-department-subject",
+    action="store_true",
+    help="Do not add dcterms:subject from JSON department displayName",
+  )
+  args = parser.parse_args(argv)
 
-    g.add((artwork_uri, RDFS.label, Literal(obj["title"])))
-    g.add((artwork_uri, CH.objectURL, Literal(obj["objectURL"], datatype=XSD.anyURI)))
+  if not args.input.is_file():
+    print(f"Input JSON not found: {args.input}", file=sys.stderr)
+    return 1
+  if not args.instances_only and not args.ontology.is_file():
+    print(f"Ontology file not found: {args.ontology}", file=sys.stderr)
+    return 1
 
-    # ---------------------
-    # Medium
-    # ---------------------
-    if obj["medium"]:
-      medium_uri = safe_uri(f"medium_{obj['medium']}")
-      add_if_not_exists(g, medium_uri, RDF.type, CH.Medium)
-      g.add((medium_uri, RDFS.label, Literal(obj["medium"])))
-      g.add((artwork_uri, CH.hasMedium, medium_uri))
+  data = load_department_payload(args.input)
+  onto = None if args.instances_only else args.ontology
+  
+  # Default output path depends on whether the ontology Turtle is merged in.
+  if args.output is None:
+    out = _SCRIPT_DIR / "rdf" / "met_instances_only.ttl" if onto is None else _DEFAULT_OUT
+  else:
+    out = args.output
 
-    # ---------------------
-    # Artist Mapping
-    # ---------------------
-    if obj["constituents"]:
-      for c in obj["constituents"]:
-        artist_uri = safe_uri(f"artist_{c['constituentID']}")
-        add_if_not_exists(g, artist_uri, RDF.type, CH.Artist)
-        g.add((artist_uri, RDFS.label, Literal(c["name"])))
+  g, n_objects = build_graph(
+    data,
+    ontology_path=onto,
+    link_department=not args.no_department_subject,
+  )
+  out.parent.mkdir(parents=True, exist_ok=True)
+  g.serialize(destination=str(out), format="turtle")
+  print(f"Wrote {len(g)} triples ({n_objects} objects) → {out}")
+  return 0
 
-        g.add((artwork_uri, CH.createdBy, artist_uri))
 
-    # ---------------------
-    # TimeSpan + CreationEvent
-    # ---------------------
-    if obj["objectBeginDate"]:
-
-      creation_event_uri = safe_uri(f"creation_{obj['objectID']}")
-      timespan_uri = safe_uri(f"timespan_{obj['objectID']}")
-
-      add_if_not_exists(g, creation_event_uri, RDF.type, CH.CreationEvent)
-      add_if_not_exists(g, timespan_uri, RDF.type, CH.TimeSpan)
-
-      g.add((creation_event_uri, CH.hasTimeSpan, timespan_uri))
-      g.add((timespan_uri, CH.startDate,
-              Literal(obj["objectBeginDate"], datatype=XSD.gYear)))
-
-      if obj["objectEndDate"]:
-        g.add((timespan_uri, CH.endDate,
-                Literal(obj["objectEndDate"], datatype=XSD.gYear)))
-
-      g.add((artwork_uri, CH.wasCreatedIn, creation_event_uri))
-
-    # ---------------------
-    # Period (if present)
-    # ---------------------
-    if obj["period"]:
-      period_uri = safe_uri(f"period_{obj['period']}")
-      add_if_not_exists(g, period_uri, RDF.type, CH.ArtPeriod)
-      g.add((period_uri, RDFS.label, Literal(obj["period"])))
-      g.add((artwork_uri, CH.createdInPeriod, period_uri))
-
-    # ---------------------
-    # Museum / Repository
-    # ---------------------
-    if obj["repository"]:
-      museum_uri = safe_uri("met_museum")
-      add_if_not_exists(g, museum_uri, RDF.type, CH.Museum)
-      g.add((museum_uri, RDFS.label, Literal(obj["repository"])))
-      g.add((artwork_uri, CH.heldBy, museum_uri))
-
-    # ---------------------
-    # Country / City
-    # ---------------------
-    if obj["country"]:
-      country_uri = safe_uri(f"country_{obj['country']}")
-      add_if_not_exists(g, country_uri, RDF.type, CH.Country)
-      g.add((country_uri, RDFS.label, Literal(obj["country"])))
-
-      if obj["city"]:
-        city_uri = safe_uri(f"city_{obj['city']}")
-        add_if_not_exists(g, city_uri, RDF.type, CH.City)
-        g.add((city_uri, RDFS.label, Literal(obj["city"])))
-        g.add((city_uri, CH.hasCountry, country_uri))
-        g.add((artwork_uri, CH.locatedIn, city_uri))
-      else:
-        g.add((artwork_uri, CH.locatedIn, country_uri))
-
-# -----------------------------
-# Save Graph
-# -----------------------------
-
-_RDF_DIR.mkdir(parents=True, exist_ok=True)
-g.serialize(destination=str(OUTPUT_FILE), format="turtle")
-
-print(f"Knowledge graph populated successfully → {OUTPUT_FILE}")
+if __name__ == "__main__":
+  raise SystemExit(main())
