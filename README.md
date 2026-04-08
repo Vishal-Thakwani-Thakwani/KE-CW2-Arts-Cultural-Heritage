@@ -50,7 +50,7 @@ The KG will combine:
 │   └── meeting-03.md                # Week 12 meeting (TBC)
 ├── pipeline/
 │   └── (data ingestion code built by pipeline team)
-├── sparql/
+├── queries/
 │   └── (SPARQL queries built by modelling experts)
 ├── prompts/
 │   └── (LLM prompts documented by all team members)
