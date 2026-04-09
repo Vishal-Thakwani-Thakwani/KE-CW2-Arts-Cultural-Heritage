@@ -21,9 +21,9 @@ from helpers import CAH, add_object_to_graph
 
 _SCRIPT_DIR = Path(__file__).resolve().parent
 _REPO_ROOT = _SCRIPT_DIR.parent.parent
-_DEFAULT_JSON = _SCRIPT_DIR / "met_data.json"
+_DEFAULT_JSON = _SCRIPT_DIR / "met_art_objects.json"
 _DEFAULT_ONTOLOGY = _REPO_ROOT / "ontology" / "cultural_heritage_extended_kg.ttl"
-_DEFAULT_OUT = _SCRIPT_DIR / "rdf" / "complete_cultural_heritage_kg.ttl"
+_DEFAULT_OUT = _SCRIPT_DIR / "rdf" / "structured_kg.ttl"
 
 
 def load_department_payload(path: Path) -> dict[str, Any]:
