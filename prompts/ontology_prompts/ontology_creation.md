@@ -1,4 +1,4 @@
-# Ontology Design from Competency Questions
+# Ontology and Knowledge Graph Creation
 
 ### User Prompt (ChatGPT)
 
