@@ -3,51 +3,40 @@
 ### User Prompt (ChatGPT)
 
 ```
-You are an ontology engineer designing an OWL ontology for the Cultural and Arts Heritage domain, extending both the Europeana Data Model Ontology (edm) and CIDOC-CRM Ontology (crm). Analyse the following 20 competency questions, and identify any classes, properties, relationships, and inverse properties between concepts mentioned that will be needed to answer these questions.
+Build an ontology with classes, object properties, data properties, and axioms in RDF format for a Cultural and Arts Heritage domain using the text below. Reference the existing CIDOC-CRM (crm:) and Europeana Data Model (edm:) ontologies. Incorporate data properties, inverse Properties, and ensure the hierarchy is well-structured.
+
+Here is an example of the text format: 
+(Name of Class/Property) , (Type) , (rdfs:comment)
 
 Make sure to:
-1: Have each suggestion be in the format: class/property name, type, rdfs:comment
-2: Return a structured list separated by commas.
-3: Use subclasses from edm: or crm: where possible.
-
-Below is an example competency question and answer, please follow the same format to answer all 20 competency questions:
-
-CQ1: Which artists have won the Turner Prize?
+1: Include any other prefixes and ontologies required for these two ontologies (crm: and edm:) to function.
+2: Use this IRI and prefix for the base ontology: @prefix cah: <http://example.org/culturalheritage#> .
+3: Reuse the EDM and CRM ontology classes and properties for creating the hierarchy of the ontology referenced in the text.
+4: Ensure the file is in a turtle format (.ttl)
+5: Add rdfs:label and rdfs:comment to each of the classes and properties. The label can be the name of the class, and use the rdfs:comment (everything outside the brackets) in the text for the comments.
 
 
-Artist, owl:Class,  Some who creates art, such as painting or sculptures.
-hasPrize, owl:ObjectProperty, Relates an artist to a prize that they have won. 
-Prize, owl:Class, An award for an artists piece of work.
+Here is a brief example, please follow the same format:
 
-Competency Questions:
-CQ1: Which artworks in the collection were created by artists born in Italy during the Renaissance period (1400–1600)?
-CQ2: Which museums hold paintings by artists who were active in the Impressionist movement?
-CQ3: Which artworks have been through more than one conservation/restoration event?
-CQ4: Which artists have won the Turner Prize, and in which year?
-CQ5: What is the most common medium used for artworks created before 1500?
-CQ6: Which living artists have artworks held in museums located in London?
-CQ7: In which country is the Musée du Louvre located?
-CQ8: Which artworks were created before 1700 and are currently held by a museum?
-CQ9: Which artists created works in more than one genre (e.g., both portraits and landscapes)?
-CQ10: Which artworks by Michelangelo are classified as sculptures, and which institution holds them?
-CQ11: Which artists have had artworks exhibited at more than one museum during the same calendar year, and which museums were involved?
-CQ12: Which artworks have undergone more than two restoration events, and what is the time span between the earliest and most recent restoration?
-CQ13: Which artworks have changed ownership across at least two different countries, and what was the sequence of provenance events with dates and acquiring institutions?
-CQ14: For each art movement represented in the knowledge graph, what is the date range of artworks associated with it (earliest and latest creation year), and how many distinct artists contributed?
-CQ15: Which curators have organised exhibitions featuring artworks from more than one art period, and which periods were combined in those exhibitions?
-CQ16: How has the distribution of artistic mediums (oil on canvas, sculpture, photography, etc.) in museum collections changed across centuries (pre-1500, 1500–1700, 1700–1900, post-1900)?
-CQ17: Which artworks in the knowledge graph have never been part of any exhibition, and which museums currently hold them?
-CQ18: Which artworks were created collaboratively by more than one artist, and do those artists belong to the same art movement or different ones?
-CQ19: Which collectors or donors have contributed artworks to more than one museum, and how many artworks did each donate in total across all institutions?
-CQ20: Which artists influenced other artists who created works in a different art movement from their own?
+@prefix cah: <http://example.org/culturalheritage#> .
+@prefix edm: <http://www.europeana.eu/schemas/edm/> .
+@prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> . 
+@prefix ore: <http://www.openarchives.org/ore/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-Provide the answers in the format:
-(Class/Property Name) , (Type) , (rdfs:comment)
-```
 
-### Model Response
+cah:Artist a owl:Class ;
+    rdfs:label "Artist" ;
+    rdfs:comment "A person who creates artworks" ;
+    rdfs:subClassOf crm:E21_Person .
 
-```
+Text:
 Artist, owl:Class, A person who creates artworks (subclass of crm:E21_Person).
 Artwork, owl:Class, A cultural or artistic work (subclass of edm:ProvidedCHO or crm:E22_Man-Made_Object).
 Museum, owl:Class, An institution that holds or exhibits artworks (subclass of crm:E40_Legal_Body).
@@ -109,5 +98,21 @@ inverse_underwentRestoration, owl:ObjectProperty, Inverse of underwentRestoratio
 inverse_influencedBy, owl:ObjectProperty, Inverse of influencedBy (influenced).
 ```
 
+### Model Response
+Outputs the .ttl file for the knowledge ontology.
+
+### User Prompt for complex relations (ChatGPT)
+```
+You are a senior knowledge engineer who has just been assigned the task to add complex relationships to the properties in the knowledge graph supplied to you.
+You need to derived and add relational structures that demonstrate semantic patterns in the domain, include varied mapping cardinalities, and improved the underlying intelligence of the knowledge graph.
+Some examples you can reference are: 
+Cardinality: Artist created Artwork has a many-to-many relationship, multiple artists can work on one artwork, and a singular artist can created multiple pieces of artworks.
+Binary Relation patterns: Artwork createdIn Art Period is an anti-symmetrical property, an art period cannot be createdIn an artwork.
+Please add all the necessary and sufficient complex relations to all the properties and give me the new ontology .ttl file.
+Please ensure you DO NOT change anything already included in the ontology, only add to it.
+```
+### Model Response
+Outputs the knowledge graph with the addition of the complex relations.
+
 ## Justification 
-To be continued...
+The first prompt allowed for a pipeline to be created, basing the creation of the knowledge graph from the ontology design developed that was based off the competency questions. After the inital knowledge graph was created, the second prompt allowed for any complex relationships missed to be created and linked to each other automatically.
