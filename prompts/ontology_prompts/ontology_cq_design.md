@@ -15,7 +15,7 @@ Below is an example competency question and answer, please follow the same forma
 CQ1: Which artists have won the Turner Prize?
 
 
-Artist, owl:Class,  Some who creates art, such as painting or sculptures.
+Artist, owl:Class,  Someone who creates art, such as painting or sculptures.
 hasPrize, owl:ObjectProperty, Relates an artist to a prize that they have won. 
 Prize, owl:Class, An award for an artists piece of work.
 
