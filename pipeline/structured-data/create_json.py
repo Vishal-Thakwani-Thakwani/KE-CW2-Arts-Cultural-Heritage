@@ -1,6 +1,7 @@
 """
 Fetch Met Collection objects: up to TARGET_PER_DEPARTMENT (see helpers) per department
-with unique normalised titles. Writes full API object payloads to JSON (default met_data.json).
+with unique (artist, normalised title) pairs (titles compared case-insensitively).
+Writes full API object payloads to JSON (default met_art_objects.json).
 """
 
 from __future__ import annotations
@@ -18,7 +19,7 @@ from helpers import (
 )
 
 # Output from this stage feeds convert_json.py (same folder by default).
-DEFAULT_OUT = Path(__file__).resolve().parent / "met_data.json"
+DEFAULT_OUT = Path(__file__).resolve().parent / "met_art_objects.json"
 
 
 def build_payload(*, verbose: bool = True) -> dict[str, Any]:
@@ -28,12 +29,15 @@ def build_payload(*, verbose: bool = True) -> dict[str, Any]:
   departments = fetch_departments()
   n_dep = len(departments)
   if verbose:
-    print(f"Found {n_dep} departments. Fetching objects (up to {TARGET_PER_DEPARTMENT} unique titles each).\n")
+    print(
+      f"Found {n_dep} departments. Fetching objects (up to {TARGET_PER_DEPARTMENT} "
+      f"unique artist+title pairs each).\n"
+    )
 
   out_departments: list[dict[str, Any]] = []
 
-  # Stage 2: per department, walk object IDs until we have enough distinct normalised titles
-  # (or hit the scan cap — see helpers.collect_unique_title_objects).
+  # Stage 2: per department, walk object IDs until we have enough distinct (artist, title) pairs
+  # (title case-insensitive; or hit the scan cap — see helpers.collect_unique_title_objects).
   for i, dep in enumerate(departments, start=1):
     dep_id = dep["departmentId"]
     name = dep.get("displayName", "")
@@ -79,7 +83,7 @@ def build_payload(*, verbose: bool = True) -> dict[str, Any]:
   }
 
 
-if __name__ == "__main__":
+def create_json():
   out_path = DEFAULT_OUT
   print("Met API → JSON (this may take several minutes).\n")
   payload = build_payload(verbose=True)
@@ -92,4 +96,8 @@ if __name__ == "__main__":
   print(f"Departments: {payload['totalDepartments']}, objects: {payload['totalObjects']}")
   below = payload["departmentsBelowTarget"]
   if below:
-    print(f"Departments with fewer than {TARGET_PER_DEPARTMENT} objects (under scan cap): {len(below)}")
+    print(f"Departments with fewer than {TARGET_PER_DEPARTMENT} objects (under scan cap): {len(below)}")  
+
+
+if __name__ == "__main__":
+  raise SystemExit(create_json())

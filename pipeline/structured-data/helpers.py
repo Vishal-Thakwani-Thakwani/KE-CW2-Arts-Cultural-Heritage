@@ -85,8 +85,10 @@ def normalize_string(value: str) -> str:
 # Met selection (per department)
 # ---------------------------------------------------------------------------
 
-TARGET_PER_DEPARTMENT = 3
-MAX_FETCHES_PER_DEPARTMENT = 100
+TARGET_PER_DEPARTMENT = 5
+# Must be high enough that departments where many consecutive API-listed IDs are filtered
+# out (e.g. "Unknown Designer" blocks) can still reach objects with usable attribution.
+MAX_FETCHES_PER_DEPARTMENT = 350
 REQUEST_DELAY_SEC = 0.18
 PAUSE_BETWEEN_DEPARTMENTS_SEC = 4.0
 
@@ -95,6 +97,7 @@ CAH = Namespace("http://example.org/culturalheritage#")
 
 
 def title_uniqueness_key(title: str) -> str:
+  # Case-insensitive key for deduplication with the same artist (see collect_unique_title_objects).
   normalized = normalize_string(title)
   return normalized.casefold()
 
@@ -132,23 +135,31 @@ def collect_unique_title_objects(
   verbose: bool = False,
 ) -> list[dict[str, Any]]:
 
-  # Walk IDs in Met catalog order; keep the first object per normalised title until `target`
-  # or until stop early due to `max_fetches` (limits API cost on huge departments).
+  # Keep the first object per (artist, normalised title) until `target` or `max_fetches`.
+  # Title matching is case-insensitive; artist is compared case-insensitively too.
   ids = fetch_object_ids_for_department(department_id)
-  seen_titles: set[str] = set()
+  # The Met API does not promise that `objectIDs` is ordered favourably for our filters. A long
+  # prefix of e.g. "Unknown Designer" + duplicate titles can exhaust the fetch cap before any
+  # well-attributed object is seen. Ascending numeric order tends to reach older accessions
+  # (often with real artist names) before huge homogeneous blocks at high IDs.
+  ids = sorted(ids)
+  seen_keys: set[tuple[str, str]] = set()
   selected: list[dict[str, Any]] = []
   fetches = 0
   fetch_failures = 0
 
   if verbose:
-    print(f"    Catalog: {len(ids)} object IDs (scan cap {max_fetches} fetches, want {target} unique titles).")
+    print(
+      f"    Catalog: {len(ids)} object IDs (scan cap {max_fetches} fetches, "
+      f"want {target} unique artist+title pairs)."
+    )
 
   for oid in ids:
     if len(selected) >= target or fetches >= max_fetches:
       break
     fetches += 1
     if verbose and fetches > 1 and fetches % 25 == 0:
-      print(f"    … {fetches} fetches — kept {len(selected)}/{target} unique titles so far.")
+      print(f"    … {fetches} fetches — kept {len(selected)}/{target} unique artist+title pairs so far.")
     try:
       obj = fetch_object(oid)
     except OSError as err:
@@ -163,10 +174,13 @@ def collect_unique_title_objects(
       continue
     if not normalize_string(title):
       continue
-    key = title_uniqueness_key(title)
-    if key in seen_titles:
+    artist_name = usable_primary_artist_name(obj)
+    if artist_name is None:
       continue
-    seen_titles.add(key)
+    key = (artist_name.casefold(), title_uniqueness_key(title))
+    if key in seen_keys:
+      continue
+    seen_keys.add(key)
     selected.append(obj)
     if verbose:
       print(f"    + [{len(selected)}/{target}] object {oid}: {_preview_text(title)!r}")
@@ -261,6 +275,23 @@ def primary_artist_name(obj: dict[str, Any]) -> str | None:
       if any(k in rl for k in ("artist", "maker", "attributed")):
         return normalize_string(nm)
   return None
+
+
+def usable_primary_artist_name(obj: dict[str, Any]) -> str | None:
+
+  # Skip only Met placeholders where the resolved name contains "unknown".
+  # Missing or blank artist is included; use "" for (artist, title) deduplication keys.
+  name = primary_artist_name(obj)
+  if not name:
+    return ""
+  if "unknown" in name.casefold():
+    return None
+  return name
+
+
+def object_has_usable_artist(obj: dict[str, Any]) -> bool:
+  # True for blank artist; False only when the name is an "unknown" placeholder.
+  return usable_primary_artist_name(obj) is not None
 
 
 def add_object_to_graph(g: Graph, obj: dict[str, Any]) -> None:
