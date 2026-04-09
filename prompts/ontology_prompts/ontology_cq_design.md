@@ -42,7 +42,7 @@ CQ19: Which collectors or donors have contributed artworks to more than one muse
 CQ20: Which artists influenced other artists who created works in a different art movement from their own?
 
 Provide the answers in the format:
-(Class/Property Name) , (Type) , (rdfs:comment)
+(Name of Class/Property) , (Type) , (rdfs:comment)
 ```
 
 ### Model Response
