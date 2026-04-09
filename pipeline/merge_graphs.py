@@ -1,30 +1,32 @@
-"""
-Merge unstructured and structured pipeline Turtle outputs into one graph.
-Run after run_unstructured_pipeline.py and structured_data_workflow.py.
-"""
-
-from pathlib import Path
-
 from rdflib import Graph
+import os
 
-_REPO_ROOT = Path(__file__).resolve().parent.parent
-UNSTRUCTURED_TTL = _REPO_ROOT / "pipeline" / "unstructured" / "data" / "unstructured_triples.ttl"
-STRUCTURED_TTL = _REPO_ROOT / "pipeline" / "structured-data" / "rdf" / "structured_kg.ttl"
-MERGED_OUT = _REPO_ROOT / "pipeline" / "merged_graphs.ttl"
+STRUCTURED_FILE = "pipeline/structured-data/rdf/structured_kg.ttl"
+UNSTRUCTURED_FILE = "pipeline/unstructured/data/unstructured_triples.ttl"
+OUTPUT_FILE = "pipeline/merged_graphs.ttl"
 
-
-def main() -> None:
+def merge_graphs():
+    print("=== Merging knowledge graphs ===")
     g = Graph()
-    for path in (UNSTRUCTURED_TTL, STRUCTURED_TTL):
-        if not path.is_file():
-            raise FileNotFoundError(
-                f"Missing input graph: {path}. Run the unstructured and structured pipelines first."
-            )
-        g.parse(path, format="turtle")
-    MERGED_OUT.parent.mkdir(parents=True, exist_ok=True)
-    g.serialize(destination=MERGED_OUT, format="turtle")
-    print(f"Wrote merged graph to {MERGED_OUT}")
 
+    input_files = [STRUCTURED_FILE, UNSTRUCTURED_FILE]
+
+    for filepath in input_files:
+        if os.path.exists(filepath):
+            try:
+                g.parse(filepath, format="turtle")
+                print(f"Loaded: {filepath}")
+            except Exception as e:
+                print(f"ERROR parsing {filepath}: {e}")
+        else:
+            print(f"WARNING - file not found: {filepath}")
+
+    os.makedirs(os.path.dirname(OUTPUT_FILE), exist_ok=True)
+    g.serialize(destination=OUTPUT_FILE, format="turtle")
+
+    print(f"Total triples: {len(g)}")
+    print(f"Saved to: {OUTPUT_FILE}")
+    print("=== Done ===")
 
 if __name__ == "__main__":
-    main()
+    merge_graphs()
