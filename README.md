@@ -22,7 +22,6 @@ Run the following **from the repository root**, in order. Together they build a 
    python pipeline/merge_graphs.py
    ```
 
-Configure API keys and models as needed (see `pipeline/.env.example`; copy to `pipeline/.env`).
 
 ## Current Status
 
