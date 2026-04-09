@@ -28,4 +28,5 @@ All 20 SPARQL queries were executed against the populated KG. Of these, 16 out o
 ```
 ### The KG answers are better quality compared to simple prompts against an LLM (Likert Scale)
 ```
+The structured nature of the KG ensures answers are verifiable and consistently reproducible, unlike single-prompt LLM responses. Enough thought the LLM was able to fully answer all 20 compentency questions, it gave basic, one result answer that were sometimes incomprehensible and incorrect. For example CQ17, specifically uses the knowledge graph as a reference, and CQ19 asks for multiple collectors/donors and artworks relating to a ProvanceEvent. The LLM was only able to respond with a singular donor example, no mention of how many art pieces he has donated or to which institution.
 ```
