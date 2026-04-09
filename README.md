@@ -5,6 +5,25 @@
 **Institution:** King's College London  
 **Academic Year:** 2025/26
 
+## Run pipeline
+
+Run the following **from the repository root**, in order. Together they build a single knowledge graph that aligns **unstructured** and **structured** data with the **base ontology** (class and property mappings in the converters).
+
+1. **Unstructured source** — fetch, clean, chunk, extract, and emit RDF Turtle:
+   ```bash
+   python pipeline/unstructured/run_unstructured_pipeline.py
+   ```
+2. **Structured source** — fetch API data and map it to RDF using the ontology-backed mapping:
+   ```bash
+   python pipeline/structured-data/structured_data_workflow.py
+   ```
+3. **Merge graphs** — combine the unstructured and structured Turtle into one graph (e.g. for querying or downstream completion):
+   ```bash
+   python pipeline/merge_graphs.py
+   ```
+
+Configure API keys and models as needed (see `pipeline/.env.example`; copy to `pipeline/.env`).
+
 ## Current Status
 
 > **Last updated:** 7th April 2026  

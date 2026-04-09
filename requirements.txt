@@ -20,7 +20,7 @@ markdown-it-py==4.0.0
 MarkupSafe==3.0.3
 mdurl==0.1.2
 murmurhash==1.0.15
-numpy==1.26.4
+numpy>=2.1.0,<3
 packaging==26.0
 preshed==3.0.13
 pydantic==2.12.5
