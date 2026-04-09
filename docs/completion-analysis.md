@@ -92,7 +92,7 @@ A Retrieval-Augmented Generation (RAG) pipeline is used to resolve the identifie
 
 2. **Retrieve context.** Use the existing KG triples as grounding context, supplemented by targeted retrieval from Wikipedia or other authoritative sources. The retrieval step fetches relevant text passages that contain the missing information.
 
-3. **Generate triples.** Prompt an LLM (GPT-5.3) with the retrieved context and the ontology schema, instructing it to output valid Turtle triples using the `cah:` namespace. The prompt includes the class/property definitions so the LLM produces correctly typed triples.
+3. **Generate triples.** Prompt an LLM (using the same OpenAI model configured in `kg_pipeline.py`) with the retrieved context and the ontology schema, instructing it to output valid Turtle triples using the `cah:` namespace. The prompt includes the class/property definitions so the LLM produces correctly typed triples.
 
 4. **Validate and merge.** Parse the generated Turtle with rdflib to check syntactic validity. Manually validate triples against the ontology's domain/range constraints. Merge validated triples into the final KG.
 

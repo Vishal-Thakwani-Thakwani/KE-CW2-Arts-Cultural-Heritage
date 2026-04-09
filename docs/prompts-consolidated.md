@@ -76,6 +76,8 @@ A three-stage iterative prompting strategy was used:
 
 ### Prompt 3d — Seed Triples Generation
 
+Used to generate manually verified seed triples to supplement automated NER extraction. The entity set is intentionally broader than the 5 Wikipedia artist articles (which cover da Vinci, Monet, Kahlo, van Gogh, and Kusama) — the additional artists (Rembrandt, Picasso, Emin) appear frequently in Wikipedia text about artworks and museums, so their seed triples ensure correct linking.
+
 > "Generate a set of verified RDF triples in Turtle format for the following entities using the cah: namespace (http://example.org/culturalheritage#): artists Leonardo da Vinci, Claude Monet, Frida Kahlo, Vincent van Gogh, Yayoi Kusama, Rembrandt, Pablo Picasso, Tracey Emin; artworks Mona Lisa, Water Lilies, The Night Watch, Guernica, My Bed; museums Louvre, Tate Modern, British Museum, Rijksmuseum, Museo Reina Sofia. Include hasBirthDate, locatedIn, createdBy, heldBy, and hasCreationDate triples mapped to the ontology."
 
 ### Prompt 3e — Ontology Mapping Verification
