@@ -9,14 +9,17 @@ How long does it take for the system to answer all the SPARQL queries?
 ```
 How much storage space does the ontology use up?
 ```
-#### Scalability (Likert Scale)
+### Scalability (Likert Scale)
 ```
 How scalable is this system? 
 Vertical or horizontal scaling? - Mostly horizontal, some vertical
 ```
 # Quality Evaluation
+
 ### The KG answers the CQs well (Likert Scale) 
 ```
 Are the answers the KG provides for the CQs factually correct and descriptive?
 ```
 ### The KG answers are better quality compared to simple prompts against an LLM (Likert Scale)
+```
+```
