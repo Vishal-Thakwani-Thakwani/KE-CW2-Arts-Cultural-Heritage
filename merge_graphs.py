@@ -3,7 +3,7 @@ import os
 
 STRUCTURED_FILE = "pipeline/structured-data/rdf/structured_kg.ttl"
 UNSTRUCTURED_FILE = "pipeline/unstructured/data/unstructured_triples.ttl"
-OUTPUT_FILE = "data/final_knowledge_graph.ttl"
+OUTPUT_FILE = "pipeline/merged_graphs.ttl"
 
 def merge_graphs():
     print("=== Merging knowledge graphs ===")
