@@ -1,0 +1,192 @@
+[
+  {
+    "subject": "http://example.org/culturalheritage#museum_instance_1",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  },
+  {
+    "subject": "http://example.org/culturalheritage#timespan_instance_1",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  },
+  {
+    "subject": "http://example.org/culturalheritage#city_instance_1",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  },
+  {
+    "subject": "http://example.org/culturalheritage#country_instance_1",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  },
+  {
+    "subject": "http://example.org/culturalheritage#artmovement_instance_1",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  },
+  {
+    "subject": "http://example.org/culturalheritage#exhibition_instance_1",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  },
+  {
+    "subject": "http://example.org/culturalheritage#Painting",
+    "predicate": "http://www.w3.org/2002/07/owl#disjointWith",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  },
+  {
+    "subject": "http://example.org/culturalheritage#hasOwner",
+    "predicate": "http://www.w3.org/2002/07/owl#inverseOf",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  },
+  {
+    "subject": "http://example.org/culturalheritage#CulturalPeriod",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  },
+  {
+    "subject": "http://example.org/culturalheritage#Artifact",
+    "predicate": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+    "kind": "object_property",
+    "accepted": false,
+    "candidate": {
+      "raw_value": "ERROR",
+      "parsed_type": "unknown",
+      "confidence": 0.0,
+      "justification": "Exception while processing gap: 429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions",
+      "should_accept": false,
+      "validation_errors": [
+        "429 Client Error: Too Many Requests for url: https://api.openai.com/v1/chat/completions"
+      ],
+      "final_value_repr": null
+    },
+    "retrieved_context_size": 0,
+    "saved_triple": null
+  }
+]
