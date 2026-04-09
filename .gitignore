@@ -1,3 +1,30 @@
+# Virtual environment
+venv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Mac system files
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# Environment variables
+.env
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Intermediate pipeline data - reproducible by running scripts
+pipeline/unstructured/data/raw/
+pipeline/unstructured/data/cleaned/
+pipeline/unstructured/data/chunked/
+
+# Helper scripts
+make_seed.py
 # Python
 __pycache__/
 *.py[cod]

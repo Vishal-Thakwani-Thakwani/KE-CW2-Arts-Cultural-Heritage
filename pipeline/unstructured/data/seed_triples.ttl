@@ -1,0 +1,110 @@
+@prefix cah: <http://example.org/culturalheritage#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+cah:Leonardo_da_Vinci a cah:Artist ;
+    cah:hasBirthDate "1452"^^xsd:gYear ;
+    cah:locatedIn cah:Vinci ;
+    cah:nationality "Italian" .
+
+cah:Claude_Monet a cah:Artist ;
+    cah:hasBirthDate "1840"^^xsd:gYear ;
+    cah:locatedIn cah:Paris ;
+    cah:nationality "French" .
+
+cah:Frida_Kahlo a cah:Artist ;
+    cah:hasBirthDate "1907"^^xsd:gYear ;
+    cah:locatedIn cah:Mexico_City ;
+    cah:nationality "Mexican" .
+
+cah:Vincent_van_Gogh a cah:Artist ;
+    cah:hasBirthDate "1853"^^xsd:gYear ;
+    cah:locatedIn cah:Zundert ;
+    cah:nationality "Dutch" .
+
+cah:Yayoi_Kusama a cah:Artist ;
+    cah:hasBirthDate "1929"^^xsd:gYear ;
+    cah:locatedIn cah:Matsumoto ;
+    cah:nationality "Japanese" .
+
+cah:Rembrandt a cah:Artist ;
+    cah:hasBirthDate "1606"^^xsd:gYear ;
+    cah:locatedIn cah:Amsterdam ;
+    cah:nationality "Dutch" .
+
+cah:Pablo_Picasso a cah:Artist ;
+    cah:hasBirthDate "1881"^^xsd:gYear ;
+    cah:locatedIn cah:Malaga ;
+    cah:nationality "Spanish" .
+
+cah:Tracey_Emin a cah:Artist ;
+    cah:hasBirthDate "1963"^^xsd:gYear ;
+    cah:locatedIn cah:London ;
+    cah:nationality "British" .
+
+cah:Mona_Lisa a cah:Artwork ;
+    cah:createdBy cah:Leonardo_da_Vinci ;
+    cah:heldBy cah:Louvre ;
+    cah:hasCreationDate "1503"^^xsd:gYear .
+
+cah:Water_Lilies a cah:Artwork ;
+    cah:createdBy cah:Claude_Monet ;
+    cah:heldBy cah:Musee_de_lOrangerie ;
+    cah:hasCreationDate "1906"^^xsd:gYear .
+
+cah:The_Night_Watch a cah:Artwork ;
+    cah:createdBy cah:Rembrandt ;
+    cah:heldBy cah:Rijksmuseum ;
+    cah:hasCreationDate "1642"^^xsd:gYear .
+
+cah:Guernica a cah:Artwork ;
+    cah:createdBy cah:Pablo_Picasso ;
+    cah:heldBy cah:Museo_Reina_Sofia ;
+    cah:hasCreationDate "1937"^^xsd:gYear .
+
+cah:My_Bed a cah:Artwork ;
+    cah:createdBy cah:Tracey_Emin ;
+    cah:heldBy cah:Tate_Modern ;
+    cah:hasCreationDate "1998"^^xsd:gYear .
+
+cah:Louvre a cah:Museum ;
+    cah:locatedIn cah:Paris .
+
+cah:Tate_Modern a cah:Museum ;
+    cah:locatedIn cah:London .
+
+cah:British_Museum a cah:Museum ;
+    cah:locatedIn cah:London .
+
+cah:Rijksmuseum a cah:Museum ;
+    cah:locatedIn cah:Amsterdam .
+
+cah:Museo_Reina_Sofia a cah:Museum ;
+    cah:locatedIn cah:Madrid .
+
+cah:Musee_de_lOrangerie a cah:Museum ;
+    cah:locatedIn cah:Paris .
+
+cah:Paris a cah:City ;
+    cah:hasCountry cah:France .
+
+cah:London a cah:City ;
+    cah:hasCountry cah:United_Kingdom .
+
+cah:Amsterdam a cah:City ;
+    cah:hasCountry cah:Netherlands .
+
+cah:Madrid a cah:City ;
+    cah:hasCountry cah:Spain .
+
+cah:Vinci a cah:City ;
+    cah:hasCountry cah:Italy .
+
+cah:Florence a cah:City ;
+    cah:hasCountry cah:Italy .
+
+cah:Renaissance a cah:ArtMovement .
+cah:Impressionism a cah:ArtMovement .
+cah:Surrealism a cah:ArtMovement .
+cah:Post_Impressionism a cah:ArtMovement .
+cah:Contemporary_Art a cah:ArtMovement .
+cah:Cubism a cah:ArtMovement .
