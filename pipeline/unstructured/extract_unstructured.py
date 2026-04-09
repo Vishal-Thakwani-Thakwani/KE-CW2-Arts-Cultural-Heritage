@@ -179,5 +179,4 @@ def main():
     print(f"    Triples extracted: {total_triples}")
     print(f"    Output           : {OUTPUT_FILE}")
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__m

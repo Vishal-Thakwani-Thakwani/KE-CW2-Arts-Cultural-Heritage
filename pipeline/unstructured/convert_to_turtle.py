@@ -210,7 +210,4 @@ def main():
     print(f"=== Done ===")
     print(f"    Triples written : {total}")
     print(f"    Triples skipped : {skipped}")
-    print(f"    Output          : {OUTPUT_FILE}")
-
-if __name__ == "__main__":
-    main()
+    print(f"

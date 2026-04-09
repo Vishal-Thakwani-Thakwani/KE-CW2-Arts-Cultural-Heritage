@@ -89,5 +89,4 @@ def main():
 
     print(f"=== Done — {total_chunks} chunks written → {OUTPUT_FILE} ===")
 
-if __name__ == "__main__":
-    main()
+if __name__ == "__m
