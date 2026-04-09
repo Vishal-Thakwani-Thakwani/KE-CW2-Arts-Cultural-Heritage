@@ -86,7 +86,7 @@ def build_graph(
   return g, count
 
 
-def main(argv: list[str] | None = None) -> int:
+def convert_json(argv: list[str] | None = None) -> int:
   parser = argparse.ArgumentParser(description="Map Met JSON (by department) to cah: RDF with ontology.")
   parser.add_argument(
     "--input",
@@ -146,4 +146,4 @@ def main(argv: list[str] | None = None) -> int:
 
 
 if __name__ == "__main__":
-  raise SystemExit(main())
+  raise SystemExit(convert_json())

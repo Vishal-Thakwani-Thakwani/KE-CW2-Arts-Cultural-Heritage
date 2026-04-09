@@ -83,7 +83,7 @@ def build_payload(*, verbose: bool = True) -> dict[str, Any]:
   }
 
 
-if __name__ == "__main__":
+def create_json():
   out_path = DEFAULT_OUT
   print("Met API → JSON (this may take several minutes).\n")
   payload = build_payload(verbose=True)
@@ -96,4 +96,8 @@ if __name__ == "__main__":
   print(f"Departments: {payload['totalDepartments']}, objects: {payload['totalObjects']}")
   below = payload["departmentsBelowTarget"]
   if below:
-    print(f"Departments with fewer than {TARGET_PER_DEPARTMENT} objects (under scan cap): {len(below)}")
+    print(f"Departments with fewer than {TARGET_PER_DEPARTMENT} objects (under scan cap): {len(below)}")  
+
+
+if __name__ == "__main__":
+  raise SystemExit(create_json())
