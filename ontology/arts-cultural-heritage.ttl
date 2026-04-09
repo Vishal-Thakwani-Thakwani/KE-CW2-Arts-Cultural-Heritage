@@ -1,7 +1,207 @@
-# This file will contain the final OWL2 ontology built by the modelling experts.
-# It should extend at least 2 existing ontologies (e.g., CIDOC-CRM, Europeana Data Model)
-# with 2+ subclasses and 2+ subproperties each.
-#
-# See ontology/domain-concept-sketch.md for the domain expert's concept recommendations.
-#
-# TODO: Modelling experts to build this file in Protege.
+@prefix : <http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/> .
+
+<http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28> rdf:type owl:Ontology ;
+                                                                           owl:imports <http://www.cidoc-crm.org/cidoc-crm/owl/7.1.3/> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K4i_AP_had_active_artist
+:K4i_AP_had_active_artist rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :K4_was_active_during_art_period ;
+                          rdfs:domain :J10_Art_Period ;
+                          rdfs:range :J1_Artist ;
+                          rdfs:label "K4i AP had active artist"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28#K5i_AM_had_active_artist
+:K5i_AM_had_active_artist rdf:type owl:ObjectProperty ;
+                          owl:inverseOf :K5_was_active_during_art_movement ;
+                          rdfs:domain :J11_Art_Movement ;
+                          rdfs:range :J1_Artist ;
+                          rdfs:label "K5i AM had active artist" .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K1_created
+:K1_created rdf:type owl:ObjectProperty ;
+            owl:inverseOf :K1i_was_created_by ;
+            rdfs:domain :J1_Artist ;
+            rdfs:range :J6_Art_Piece ;
+            rdfs:comment """Quantification: many to many
+
+Scope note:
+This property identifies an instance of J1 Artist as having created an instance of J6 Art Piece.
+
+Examples:"""@en ;
+            rdfs:label "K1 created"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K1i_was_created_by
+:K1i_was_created_by rdf:type owl:ObjectProperty ;
+                    rdfs:domain :J6_Art_Piece ;
+                    rdfs:range :J1_Artist ;
+                    rdfs:comment """Quantification of the inverse property: many to many
+
+Scope note of the inverse property:
+This property identifies an instance of J1 Artist as having created an instance of J6 Art Piece.
+
+Examples of the inverse property:"""@en ;
+                    rdfs:label "K1i was created by"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K2_was_artistically_influenced_by
+:K2_was_artistically_influenced_by rdf:type owl:ObjectProperty ;
+                                   rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P15_was_influenced_by> ;
+                                   owl:inverseOf :K2i_artistically_influenced ;
+                                   rdfs:domain :J1_Artist ;
+                                   rdfs:range :J1_Artist ;
+                                   rdfs:label "K2 was artistically influenced by"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K2i_artistically_influenced
+:K2i_artistically_influenced rdf:type owl:ObjectProperty ;
+                             rdfs:subPropertyOf <http://www.cidoc-crm.org/cidoc-crm/P15i_influenced> ;
+                             rdfs:domain :J1_Artist ;
+                             rdfs:range :J1_Artist ;
+                             rdfs:label "K2i artistically influenced"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K3_specialises_in_art_genre
+:K3_specialises_in_art_genre rdf:type owl:ObjectProperty ;
+                             owl:inverseOf :K3i_is_speciality_art_genre_of ;
+                             rdfs:domain :J1_Artist ;
+                             rdfs:range :J9_Art_Genre ;
+                             rdfs:label "K3 specialises in art genre"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K3i_is_speciality_art_genre_of
+:K3i_is_speciality_art_genre_of rdf:type owl:ObjectProperty ;
+                                rdfs:domain :J9_Art_Genre ;
+                                rdfs:range :J1_Artist ;
+                                rdfs:label "K3i is speciality art genre of"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K4_was_active_during_art_period
+:K4_was_active_during_art_period rdf:type owl:ObjectProperty ;
+                                 rdfs:domain :J1_Artist ;
+                                 rdfs:range :J10_Art_Period ;
+                                 rdfs:label "K4 was active during art period"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/K5_was_active_during_art_movement
+:K5_was_active_during_art_movement rdf:type owl:ObjectProperty ;
+                                   rdfs:domain :J1_Artist ;
+                                   rdfs:range :J11_Art_Movement ;
+                                   rdfs:label "K5 was active during art movement"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J10_Art_Period
+:J10_Art_Period rdf:type owl:Class ;
+                rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E4_Period> ;
+                rdfs:label "J10 Art Period"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J11_Art_Movement
+:J11_Art_Movement rdf:type owl:Class ;
+                  rdfs:subClassOf :J10_Art_Period ;
+                  rdfs:label "J11 Art Movement"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J12_Restoration
+:J12_Restoration rdf:type owl:Class ;
+                 rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E11_Modification> ;
+                 rdfs:label "J12 Restoration"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J13_Conservation
+:J13_Conservation rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E11_Modification> ;
+                  rdfs:label "J13 Conservation"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J1_Artist
+:J1_Artist rdf:type owl:Class ;
+           rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E21_Person> ;
+           rdfs:comment """Scope Note:
+This class comprises
+
+Examples:
+-"""@en ;
+           rdfs:label "J1 Artist"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J2_Donor
+:J2_Donor rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E21_Person> ;
+          rdfs:comment """Scope Note:
+This class comprises
+
+Examples:
+-"""@en ;
+          rdfs:label "J2 Donor"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J3_Sponsor
+:J3_Sponsor rdf:type owl:Class ;
+            rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E21_Person> ;
+            rdfs:comment """Scope Note:
+This class comprises
+
+Examples:
+-"""@en ;
+            rdfs:label "J3 Sponsor"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J4_Collector
+:J4_Collector rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E21_Person> ;
+              rdfs:comment """Scope Note:
+This class comprises
+
+Examples:
+-"""@en ;
+              rdfs:label "J4 Collector"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J5_Creation_of_Art_Piece
+:J5_Creation_of_Art_Piece rdf:type owl:Class ;
+                          rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E65_Creation> ;
+                          rdfs:label "J5 Creation of Art Piece"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J6_Art_Piece
+:J6_Art_Piece rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object> ;
+              rdfs:label "J6 Art Piece"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J7_Art_Medium
+:J7_Art_Medium rdf:type owl:Class ;
+               rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E57_Material> ;
+               rdfs:label "J7 Art Medium"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J8_Museum
+:J8_Museum rdf:type owl:Class ;
+           rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E74_Group> ;
+           rdfs:label "J8 Museum"@en .
+
+
+###  http://www.semanticweb.org/jiaer/ontologies/2026/3/untitled-ontology-28/J9_Art_Genre
+:J9_Art_Genre rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.cidoc-crm.org/cidoc-crm/E99_Product_Type> ;
+              rdfs:label "J9 Art Genre"@en .
+
+
+###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
