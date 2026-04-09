@@ -24,6 +24,7 @@ In terms of scalability, the system runs fairly well without extensive hardware,
 ### The KG answers the CQs well (Likert Scale) 
 ```
 Are the answers the KG provides for the CQs factually correct and descriptive?
+All 20 SPARQL queries were executed against the populated KG. Of these, 16 out of 20 returned non-empty, well-formed results. The 4 queries that returned empty results (CQ3, CQ12, CQ13, CQ15) do so because of instance coverage gaps — no RestorationEvent, ProvenanceEvent, or Curator instances exist in the current KG — rather than query logic errors. The competency questions themselves are not replaced; the unanswered ones are discussed as KG coverage limitations in the Completion Analysis. 
 ```
 ### The KG answers are better quality compared to simple prompts against an LLM (Likert Scale)
 ```
