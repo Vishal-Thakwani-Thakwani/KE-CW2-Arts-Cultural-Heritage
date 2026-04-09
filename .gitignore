@@ -18,8 +18,10 @@ __pycache__/
 # Jupyter checkpoints
 .ipynb_checkpoints/
 
-# Generated data files - can be reproduced by running the pipeline
+# Intermediate pipeline data - reproducible by running scripts
 data/unstructured/raw/
 data/unstructured/cleaned/
 data/unstructured/chunked/
-data/unstructured/extracted/
+
+# Helper scripts
+make_seed.py
