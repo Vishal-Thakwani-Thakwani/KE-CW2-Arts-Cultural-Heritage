@@ -3,8 +3,8 @@ import os
 import re
 import spacy
 
-INPUT_FILE = "data/unstructured/chunked/chunks.jsonl"
-OUTPUT_FILE = "data/unstructured/extracted/extracted_facts.jsonl"
+INPUT_FILE = "pipeline/unstructured/data/chunked/chunks.jsonl"
+OUTPUT_FILE = "pipeline/unstructured/data/extracted/extracted_facts.jsonl"
 
 nlp = spacy.load("en_core_web_sm")
 

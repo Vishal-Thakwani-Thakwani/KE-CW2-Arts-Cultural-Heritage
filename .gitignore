@@ -19,9 +19,9 @@ __pycache__/
 .ipynb_checkpoints/
 
 # Intermediate pipeline data - reproducible by running scripts
-data/unstructured/raw/
-data/unstructured/cleaned/
-data/unstructured/chunked/
+pipeline/unstructured/data/raw/
+pipeline/unstructured/data/cleaned/
+pipeline/unstructured/data/chunked/
 
 # Helper scripts
 make_seed.py

@@ -614,14 +614,9 @@ cah:British_Museum a cah:Museum ;
         cah:World_War_II,
         cah:post-war_years .
 
-cah:Contemporary_Art a cah:ArtMovement .
-
-cah:Cubism a cah:ArtMovement .
-
 cah:Frida_Kahlo a cah:Artist ;
     cah:hasBirthDate "1932-01-01"^^xsd:date,
-        "1953-01-01"^^xsd:date,
-        "1907"^^xsd:gYear ;
+        "1953-01-01"^^xsd:date ;
     cah:heldBy cah:Academy_Award,
         cah:Best_Makeup_and_Best_Original_Score,
         cah:Broken_Column,
@@ -858,7 +853,6 @@ cah:Frida_Kahlo a cah:Artist ;
         cah:Xólotl,
         cah:Zelazko,
         cah:syphilis ;
-    cah:nationality "Mexican" ;
     cah:participatedInExhibition cah:International_Surrealist_Exhibition,
         cah:Second_World_War .
 
@@ -924,8 +918,7 @@ cah:Guernica a cah:Artwork ;
         cah:Wehmeier,
         cah:Wolfram_von_Richthofen,
         cah:gore ;
-    cah:hasCreationDate "1937-01-01"^^xsd:date,
-        "1937"^^xsd:gYear ;
+    cah:hasCreationDate "1937-01-01"^^xsd:date ;
     cah:heldBy cah:ASTERISM,
         cah:Becht-Jördens,
         cah:Condor_Legion,
@@ -944,7 +937,6 @@ cah:Guernica a cah:Artwork ;
         cah:Matisse,
         cah:Mercury,
         cah:MoMA,
-        cah:Museo_Reina_Sofia,
         cah:Museum_of_Modern_Art_MoMA,
         cah:National_Maritime_Museum,
         cah:Nicola_Ashmore,
@@ -1007,19 +999,15 @@ cah:My_Bed a cah:Artwork ;
         cah:Tracey,
         cah:Tracey_Emin,
         cah:Yuan_Cai ;
-    cah:hasCreationDate "1998-01-01"^^xsd:date,
-        "1998"^^xsd:gYear ;
+    cah:hasCreationDate "1998-01-01"^^xsd:date ;
     cah:heldBy cah:Christies,
         cah:Emin,
         cah:Saatchi,
-        cah:Tate_Modern,
         cah:Two_Naked_Men_Jump ;
     cah:locatedIn cah:Japan,
         cah:London,
         cah:New_York,
         cah:Rebecca .
-
-cah:Post_Impressionism a cah:ArtMovement .
 
 cah:The_Night_Watch a cah:Artwork ;
     cah:createdBy cah:Adriaen_van_de_Venne,
@@ -1040,8 +1028,7 @@ cah:The_Night_Watch a cah:Artwork ;
         cah:Wilhelmus_de_Rijk,
         cah:Willem_van_Ruytenburch,
         cah:kelvin ;
-    cah:hasCreationDate "1642-01-01"^^xsd:date,
-        "1642"^^xsd:gYear ;
+    cah:hasCreationDate "1642-01-01"^^xsd:date ;
     cah:heldBy cah:Dam,
         cah:De_Nachtwacht,
         cah:Kloveniers,
@@ -1068,12 +1055,10 @@ cah:Water_Lilies a cah:Artwork ;
         cah:Monet,
         cah:Musée,
         cah:Tate ;
-    cah:hasCreationDate "1906"^^xsd:gYear ;
     cah:heldBy cah:Creuse,
         cah:Matisse,
         cah:Monet,
         cah:Monets_Water_Lilies,
-        cah:Musee_de_lOrangerie,
         cah:Nelson-Atkins_Museum_of_Art,
         cah:Nymphéas,
         cah:Princeton_University_Art_Museum ;
@@ -1091,8 +1076,7 @@ cah:Water_Lilies a cah:Artwork ;
 
 cah:Yayoi_Kusama a cah:Artist ;
     cah:hasBirthDate "1929-01-01"^^xsd:date,
-        "1972-01-01"^^xsd:date,
-        "1929"^^xsd:gYear ;
+        "1972-01-01"^^xsd:date ;
     cah:heldBy cah:American_B-29s,
         cah:Angels,
         cah:Arigasaki_High_School,
@@ -1264,11 +1248,8 @@ cah:Yayoi_Kusama a cah:Artist ;
         cah:Washington_DC,
         cah:Yokohama,
         cah:magician ;
-    cah:nationality "Japanese" ;
     cah:participatedInExhibition cah:World_Cup_Park,
         cah:World_War_II .
-
-cah:Impressionism a cah:ArtMovement .
 
 cah:Mona_Lisa a cah:Artwork ;
     cah:createdBy cah:Andrea,
@@ -1355,8 +1336,7 @@ cah:Mona_Lisa a cah:Artwork ;
         cah:Zöllner,
         cah:la_Gioconda,
         cah:ma_donna ;
-    cah:hasCreationDate "1503-01-01"^^xsd:date,
-        "1503"^^xsd:gYear ;
+    cah:hasCreationDate "1503-01-01"^^xsd:date ;
     cah:heldBy cah:ABC,
         cah:Agostino_Vespucci,
         cah:Alessandro_Vezzosi,
@@ -1382,7 +1362,6 @@ cah:Mona_Lisa a cah:Artwork ;
         cah:Ladies_Home_Journal,
         cah:Leonardo,
         cah:Louis_dAragon,
-        cah:Louvre,
         cah:Mujer_de_mano_de_Leonardo_Abince,
         cah:Napoleon,
         cah:New_Yorker,
@@ -1427,21 +1406,67 @@ cah:Mona_Lisa a cah:Artwork ;
         cah:post-1513 ;
     cah:participatedInExhibition cah:World_War_II .
 
-cah:Musee_de_lOrangerie a cah:Museum ;
-    cah:locatedIn cah:Paris .
-
-cah:Museo_Reina_Sofia a cah:Museum ;
-    cah:locatedIn cah:Madrid .
-
-cah:Tracey_Emin a cah:Artist ;
-    cah:hasBirthDate "1963"^^xsd:gYear ;
-    cah:locatedIn cah:London ;
-    cah:nationality "British" .
+cah:Tate_Modern a cah:Museum ;
+    cah:createdBy cah:Abraham_Cruzvillegas,
+        cah:Blackfriars,
+        cah:Elias_Marrow,
+        cah:Elisabeth_Murdoch,
+        cah:Eyal_Ofer,
+        cah:George,
+        cah:Gilbert,
+        cah:Giles_Gilbert_Scott,
+        cah:Henri_Matisse,
+        cah:Jacques_Herzog,
+        cah:Joan_Jonas,
+        cah:John_Studzinski,
+        cah:Kraftwerk,
+        cah:Leonard_Blavatnik,
+        cah:Load_Baring_Irony,
+        cah:Louise_Bourgeoiss,
+        cah:Maman,
+        cah:Messiaen,
+        cah:Nicholas_Serota,
+        cah:Pierre_de_Meuron,
+        cah:Tate,
+        cah:Tate_Liverpool,
+        cah:Tate_St_Ives ;
+    cah:hasCreationDate "1900-01-01"^^xsd:date ;
+    cah:heldBy cah:Artist_Rooms,
+        cah:Bankside_Power_Station,
+        cah:Battersea_Power_Station,
+        cah:Boiler_House,
+        cah:Brutalist,
+        cah:Carillion,
+        cah:EDF_Energy,
+        cah:Express_Newspapers,
+        cah:Herzog__de_Meuron,
+        cah:Herzog_and_de_Meuron_Alchemy_of_Building__Tate_Modern,
+        cah:Hyundai,
+        cah:Ludgate_House,
+        cah:Millbank,
+        cah:Ramboll,
+        cah:Sampson_House,
+        cah:Southwark,
+        cah:State,
+        cah:Stockhausens_Gruppen,
+        cah:Switch_House,
+        cah:Tanks,
+        cah:Unilever,
+        cah:Zodiac_Maritime_Agencies,
+        cah:first_museum_galleries ;
+    cah:locatedIn cah:Arctic,
+        cah:Australia,
+        cah:Docklands,
+        cah:France,
+        cah:Greenwich,
+        cah:London,
+        cah:Oman,
+        cah:Southwark,
+        cah:Tate_Britain .
 
 cah:Vincent_van_Gogh a cah:Artist ;
     cah:hasBirthDate "1853-01-01"^^xsd:date,
-        "1890-01-01"^^xsd:date,
-        "1853"^^xsd:gYear ;
+        "1890-01-01"^^xsd:date ;
     cah:heldBy cah:Anthon_van_Rappard,
         cah:Asnières,
         cah:Aurier,
@@ -1707,19 +1732,13 @@ cah:Vincent_van_Gogh a cah:Artist ;
         cah:Wheatfield,
         cah:Wil,
         cah:Zevenbergen,
-        cah:Zundert,
         cah:syphilis ;
-    cah:nationality "Dutch" ;
     cah:participatedInExhibition cah:Franco-Prussian_War,
         cah:World_War_I .
 
-cah:Vinci a cah:City ;
-    cah:hasCountry cah:Italy .
-
 cah:Claude_Monet a cah:Artist ;
     cah:hasBirthDate "1840-01-01"^^xsd:date,
-        "1857-01-01"^^xsd:date,
-        "1840"^^xsd:gYear ;
+        "1857-01-01"^^xsd:date ;
     cah:heldBy cah:Alice,
         cah:Bazille,
         cah:Blanche,
@@ -1943,76 +1962,13 @@ cah:Claude_Monet a cah:Artist ;
         cah:Vétheuil,
         cah:Waterlilies,
         cah:Étretat ;
-    cah:nationality "French" ;
     cah:participatedInExhibition cah:Cup,
         cah:Garden_Bench,
         cah:World_War_I .
 
-cah:Rijksmuseum a cah:Museum ;
-    cah:locatedIn cah:Amsterdam .
-
-cah:Surrealism a cah:ArtMovement .
-
-cah:Tate_Modern a cah:Museum ;
-    cah:createdBy cah:Abraham_Cruzvillegas,
-        cah:Blackfriars,
-        cah:Elisabeth_Murdoch,
-        cah:Eyal_Ofer,
-        cah:George,
-        cah:Gilbert,
-        cah:Giles_Gilbert_Scott,
-        cah:Henri_Matisse,
-        cah:Jacques_Herzog,
-        cah:Joan_Jonas,
-        cah:John_Studzinski,
-        cah:Kraftwerk,
-        cah:Leonard_Blavatnik,
-        cah:Louise_Bourgeoiss,
-        cah:Maman,
-        cah:Messiaen,
-        cah:Nicholas_Serota,
-        cah:Pierre_de_Meuron,
-        cah:Tate,
-        cah:Tate_Liverpool,
-        cah:Tate_St_Ives ;
-    cah:hasCreationDate "1900-01-01"^^xsd:date ;
-    cah:heldBy cah:Artist_Rooms,
-        cah:Bankside_Power_Station,
-        cah:Battersea_Power_Station,
-        cah:Boiler_House,
-        cah:Brutalist,
-        cah:Carillion,
-        cah:EDF_Energy,
-        cah:Express_Newspapers,
-        cah:Herzog__de_Meuron,
-        cah:Herzog_and_de_Meuron_Alchemy_of_Building__Tate_Modern,
-        cah:Hyundai,
-        cah:Ludgate_House,
-        cah:Millbank,
-        cah:Ramboll,
-        cah:Sampson_House,
-        cah:Southwark,
-        cah:State,
-        cah:Stockhausens_Gruppen,
-        cah:Switch_House,
-        cah:Tanks,
-        cah:Unilever,
-        cah:Zodiac_Maritime_Agencies,
-        cah:first_museum_galleries ;
-    cah:locatedIn cah:Arctic,
-        cah:Australia,
-        cah:Docklands,
-        cah:France,
-        cah:Greenwich,
-        cah:London,
-        cah:Oman,
-        cah:Southwark,
-        cah:Tate_Britain .
-
 cah:Leonardo_da_Vinci a cah:Artist ;
     cah:hasBirthDate "1452-01-01"^^xsd:date,
-        "1519-01-01"^^xsd:date,
-        "1452"^^xsd:gYear ;
+        "1519-01-01"^^xsd:date ;
     cah:heldBy cah:A_Treatise_on_Painting,
         cah:Alessandro_Vezzosi,
         cah:Ancient_Greece,
@@ -2263,22 +2219,7 @@ cah:Leonardo_da_Vinci a cah:Artist ;
         cah:Venice,
         cah:Victoria,
         cah:Vinci,
-        cah:pp ;
-    cah:nationality "Italian" .
-
-cah:Madrid a cah:City ;
-    cah:hasCountry cah:Spain .
-
-cah:Pablo_Picasso a cah:Artist ;
-    cah:hasBirthDate "1881"^^xsd:gYear ;
-    cah:locatedIn cah:Malaga ;
-    cah:nationality "Spanish" .
-
-cah:Amsterdam a cah:City ;
-    cah:hasCountry cah:Netherlands .
-
-cah:Florence a cah:City ;
-    cah:hasCountry cah:Italy .
+        cah:pp .
 
 cah:Louvre a cah:Museum ;
     cah:createdBy cah:Académie,
@@ -2671,17 +2612,4 @@ cah:Louvre a cah:Museum ;
         cah:World_War_I,
         cah:World_War_II,
         cah:post-World_War_II .
-
-cah:Rembrandt a cah:Artist ;
-    cah:hasBirthDate "1606"^^xsd:gYear ;
-    cah:locatedIn cah:Amsterdam ;
-    cah:nationality "Dutch" .
-
-cah:Renaissance a cah:ArtMovement .
-
-cah:Paris a cah:City ;
-    cah:hasCountry cah:France .
-
-cah:London a cah:City ;
-    cah:hasCountry cah:United_Kingdom .
 

@@ -1,8 +1,8 @@
 import json
 import os
 
-INPUT_FILE = "data/unstructured/cleaned/cleaned_pages.jsonl"
-OUTPUT_FILE = "data/unstructured/chunked/chunks.jsonl"
+INPUT_FILE = "pipeline/unstructured/data/cleaned/cleaned_pages.jsonl"
+OUTPUT_FILE = "pipeline/unstructured/data/chunked/chunks.jsonl"
 
 # Map section names to meaningful labels for the knowledge graph
 SECTION_LABEL_MAP = {

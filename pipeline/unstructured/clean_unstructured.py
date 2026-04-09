@@ -2,8 +2,8 @@ import json
 import os
 import re
 
-RAW_DIR = "data/unstructured/raw"
-OUTPUT_FILE = "data/unstructured/cleaned/cleaned_pages.jsonl"
+RAW_DIR = "pipeline/unstructured/data/raw"
+OUTPUT_FILE = "pipeline/unstructured/data/cleaned/cleaned_pages.jsonl"
 
 def clean_text(text):
     """Remove Wikipedia noise and normalise text."""

@@ -6,7 +6,7 @@ import time
 from datetime import datetime
 from bs4 import BeautifulSoup
 
-BASE_DIR = "data/unstructured/raw"
+BASE_DIR = "pipeline/unstructured/data/raw"
 SOURCES_CSV = "pipeline/unstructured/unstructured_sources.csv"
 
 def fetch_wikipedia_text(url):

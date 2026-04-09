@@ -4,8 +4,9 @@ import re
 import unicodedata
 from rdflib import Graph, Namespace, URIRef, Literal, RDF, RDFS, OWL, XSD
 
-INPUT_FILE = "data/unstructured/extracted/extracted_facts.jsonl"
-OUTPUT_FILE = "data/unstructured/unstructured_triples.ttl"
+INPUT_FILE = "pipeline/unstructured/data/extracted/extracted_facts.jsonl"
+OUTPUT_FILE = "pipeline/unstructured/data/unstructured_triples.ttl"
+SEED_FILE = "pipeline/unstructured/data/seed_triples.ttl"
 
 CAH = Namespace("http://example.org/culturalheritage#")
 CRM = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
