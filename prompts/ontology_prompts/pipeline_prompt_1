@@ -1,10 +1,14 @@
-Build an ontology with classes, object properties, data properties, and axioms in RDF format for a Cultural and Arts Heritage domain. Reference the existing CIDOC-CRM (crm:) and Europeana Data Model (edm:) ontologies. Incorporate data properties, Inverse Properties, and ensure the hierarchy is well-structured. Make sure 
+Build an ontology with classes, object properties, data properties, and axioms in RDF format for a Cultural and Arts Heritage domain using the text below. Reference the existing CIDOC-CRM (crm:) and Europeana Data Model (edm:) ontologies. Incorporate data properties, inverse Properties, and ensure the hierarchy is well-structured.
+
+Here is an example of the text format: 
+(Name of Class/Property) , (Type) , (rdfs:comment)
 
 Make sure to:
 1: Include any other prefixes and ontologies required for these two ontologies (crm: and edm:) to function.
 2: Use this IRI and prefix for the base ontology: @prefix cah: <http://example.org/culturalheritage#> .
 3: Reuse the EDM and CRM ontology classes and properties for creating the hierarchy of the ontology referenced in the text.
-4: The file is in a turtle format (.ttl)
+4: Ensure the file is in a turtle format (.ttl)
+5: Add rdfs:label and rdfs:comment to each of the classes and properties. The label can be the name of the class, and use the rdfs:comment (everything outside the brackets) in the text for the comments.
 
 
 Here is a brief example, please follow the same format:
