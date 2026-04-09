@@ -101,12 +101,12 @@ inverse_influencedBy, owl:ObjectProperty, Inverse of influencedBy (influenced).
 ### Model Response
 Outputs the .ttl file for the knowledge ontology.
 
-### User Prompt for complex relations (ChatGPT)
+### User Prompt for Complex Relations (ChatGPT)
 ```
 You are a senior knowledge engineer who has just been assigned the task to add complex relationships to the properties in the knowledge graph supplied to you.
-You need to derived and add relational structures that demonstrate semantic patterns in the domain, include varied mapping cardinalities, and improved the underlying intelligence of the knowledge graph.
+You need to derive and add relational structures that demonstrate semantic patterns in the domain, include varied mapping cardinalities, and improve the underlying intelligence of the knowledge graph.
 Some examples you can reference are: 
-Cardinality: Artist created Artwork has a many-to-many relationship, multiple artists can work on one artwork, and a singular artist can created multiple pieces of artworks.
+Cardinality: Artist created Artwork has a many-to-many relationship, multiple artists can work on one artwork, and a singular artist can create multiple pieces of artworks.
 Binary Relation patterns: Artwork createdIn Art Period is an anti-symmetrical property, an art period cannot be createdIn an artwork.
 Please add all the necessary and sufficient complex relations to all the properties and give me the new ontology .ttl file.
 Please ensure you DO NOT change anything already included in the ontology, only add to it.
