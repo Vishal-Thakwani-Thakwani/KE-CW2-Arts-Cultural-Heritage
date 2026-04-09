@@ -21,7 +21,6 @@ PREDICATE_MAP = {
     "exhibitedIn":  CAH.participatedInExhibition,
     "activeIn":     CAH.activeInMovement,
     "wonAward":     CAH.wonPrize,
-    "nationality":  CAH.activeInMovement,
     "usedMedium":   CAH.usesMedium,
 }
 
@@ -167,7 +166,7 @@ def main():
                     if triple_key not in seen_triples:
                         seen_triples.add(triple_key)
                         g.add((subject_uri, predicate_uri,
-                               Literal(str(year), datatype=XSD.gYear)))
+                                Literal(f"{year}-01-01", datatype=XSD.date)))
                         total += 1
                 else:
                     skipped += 1

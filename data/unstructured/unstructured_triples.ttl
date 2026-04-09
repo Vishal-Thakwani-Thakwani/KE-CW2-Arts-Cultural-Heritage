@@ -2,76 +2,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 cah:British_Museum a cah:Museum ;
-    cah:activeInMovement cah:Aboriginal_Canadian,
-        cah:African,
-        cah:Afro-Portuguese,
-        cah:American,
-        cah:Anglo,
-        cah:Asian,
-        cah:Assyrian,
-        cah:Austrian,
-        cah:Aztec,
-        cah:Babylonian,
-        cah:British,
-        cah:Bulgarian,
-        cah:Cameo,
-        cah:Carthage,
-        cah:Chinese,
-        cah:Christian,
-        cah:Christianity,
-        cah:Cypriot,
-        cah:Eastern,
-        cah:Egyptian,
-        cah:Etruscan,
-        cah:European,
-        cah:Europeans,
-        cah:Farnese,
-        cah:French,
-        cah:German,
-        cah:Greek,
-        cah:Hawaiian,
-        cah:Hungarian,
-        cah:Indian,
-        cah:Inuit,
-        cah:Iranian,
-        cah:Islamic,
-        cah:Italian,
-        cah:Italic,
-        cah:Iznik,
-        cah:Jamaican,
-        cah:Japanese,
-        cah:Jewish,
-        cah:Korean,
-        cah:Lachish,
-        cah:Latvian,
-        cah:Linnaean,
-        cah:Mayan,
-        cah:Merovingian,
-        cah:Mesopotamian,
-        cah:Native_American,
-        cah:Native_Americans,
-        cah:Nazis,
-        cah:North_American,
-        cah:Norwegian,
-        cah:Oriental,
-        cah:Palestinian,
-        cah:Parthian,
-        cah:Persian,
-        cah:Phoenician,
-        cah:Phœnician,
-        cah:Roman,
-        cah:Roman-British,
-        cah:Saidiyeh,
-        cah:Scottish,
-        cah:Sudanese,
-        cah:Sumerian,
-        cah:Teotihuacan,
-        cah:Urartian,
-        cah:Victorian,
-        cah:Victorians,
-        cah:Western,
-        cah:Yemeni,
-        cah:non-Greek ;
     cah:createdBy cah:AH_Layard,
         cah:Achaemenid,
         cah:Agatha_Christie,
@@ -331,7 +261,7 @@ cah:British_Museum a cah:Museum ;
         cah:Ziwiye,
         cah:dart,
         cah:von_Spix ;
-    cah:hasCreationDate "1753"^^xsd:gYear ;
+    cah:hasCreationDate "1753-01-01"^^xsd:date ;
     cah:heldBy cah:AC_Haddon,
         cah:Aberystwyth,
         cah:Aboriginal,
@@ -686,43 +616,12 @@ cah:British_Museum a cah:Museum ;
 
 cah:Contemporary_Art a cah:ArtMovement .
 
+cah:Cubism a cah:ArtMovement .
+
 cah:Frida_Kahlo a cah:Artist ;
-    cah:activeInMovement cah:American,
-        cah:Americans,
-        cah:Aztec,
-        cah:Catholic,
-        cah:Christian,
-        cah:Communist,
-        cah:Cuban,
-        cah:Cubism,
-        cah:European,
-        cah:French,
-        cah:German,
-        cah:Hispanic,
-        cah:Hungarian-American,
-        cah:Indian,
-        cah:Indigenous_Mexican,
-        cah:Italian,
-        cah:Jewish,
-        cah:Jews,
-        cah:Latin_American,
-        cah:Mexican,
-        cah:Mexicans,
-        cah:Parisian,
-        cah:Republicans,
-        cah:Russian,
-        cah:Scottish,
-        cah:Soviet,
-        cah:Spanish,
-        cah:Surrealist,
-        cah:Surrealists,
-        cah:Western,
-        cah:anti-Catholic,
-        cah:contrarians,
-        cah:pre-Columbian ;
-    cah:hasBirthDate "1907"^^xsd:gYear,
-        "1932"^^xsd:gYear,
-        "1953"^^xsd:gYear ;
+    cah:hasBirthDate "1932-01-01"^^xsd:date,
+        "1953-01-01"^^xsd:date,
+        "1907"^^xsd:gYear ;
     cah:heldBy cah:Academy_Award,
         cah:Best_Makeup_and_Best_Original_Score,
         cah:Broken_Column,
@@ -964,27 +863,6 @@ cah:Frida_Kahlo a cah:Artist ;
         cah:Second_World_War .
 
 cah:Guernica a cah:Artwork ;
-    cah:activeInMovement cah:American,
-        cah:Basque,
-        cah:Braque,
-        cah:British,
-        cah:Communists,
-        cah:Cubist,
-        cah:European,
-        cah:German,
-        cah:Japanese,
-        cah:Marxist,
-        cah:Nationalists,
-        cah:Nazis,
-        cah:Republican,
-        cah:Republicans,
-        cah:Richthofen,
-        cah:Scandinavian,
-        cah:Spaniards,
-        cah:Spanish,
-        cah:Vietnamese,
-        cah:communists,
-        cah:socialists ;
     cah:createdBy cah:Adolf_Hitler,
         cah:Alejandro_Escalona,
         cah:Alexander_Calder,
@@ -1046,7 +924,8 @@ cah:Guernica a cah:Artwork ;
         cah:Wehmeier,
         cah:Wolfram_von_Richthofen,
         cah:gore ;
-    cah:hasCreationDate "1937"^^xsd:gYear ;
+    cah:hasCreationDate "1937-01-01"^^xsd:date,
+        "1937"^^xsd:gYear ;
     cah:heldBy cah:ASTERISM,
         cah:Becht-Jördens,
         cah:Condor_Legion,
@@ -1118,7 +997,6 @@ cah:Guernica a cah:Artwork ;
         cah:World_War_II .
 
 cah:My_Bed a cah:Artwork ;
-    cah:activeInMovement cah:Stuckist ;
     cah:createdBy cah:Alina_Cohen,
         cah:Billy_Childish,
         cah:Charles_Saatchi,
@@ -1129,7 +1007,8 @@ cah:My_Bed a cah:Artwork ;
         cah:Tracey,
         cah:Tracey_Emin,
         cah:Yuan_Cai ;
-    cah:hasCreationDate "1998"^^xsd:gYear ;
+    cah:hasCreationDate "1998-01-01"^^xsd:date,
+        "1998"^^xsd:gYear ;
     cah:heldBy cah:Christies,
         cah:Emin,
         cah:Saatchi,
@@ -1143,10 +1022,6 @@ cah:My_Bed a cah:Artwork ;
 cah:Post_Impressionism a cah:ArtMovement .
 
 cah:The_Night_Watch a cah:Artwork ;
-    cah:activeInMovement cah:Dutch,
-        cah:French,
-        cah:Rembrandt,
-        cah:Rijksmuseum ;
     cah:createdBy cah:Adriaen_van_de_Venne,
         cah:Anne_Lenders,
         cah:Banninck_Cocq,
@@ -1165,7 +1040,8 @@ cah:The_Night_Watch a cah:Artwork ;
         cah:Wilhelmus_de_Rijk,
         cah:Willem_van_Ruytenburch,
         cah:kelvin ;
-    cah:hasCreationDate "1642"^^xsd:gYear ;
+    cah:hasCreationDate "1642-01-01"^^xsd:date,
+        "1642"^^xsd:gYear ;
     cah:heldBy cah:Dam,
         cah:De_Nachtwacht,
         cah:Kloveniers,
@@ -1184,7 +1060,6 @@ cah:The_Night_Watch a cah:Artwork ;
         cah:World_War_II .
 
 cah:Water_Lilies a cah:Artwork ;
-    cah:activeInMovement cah:French ;
     cah:createdBy cah:Claude_Monet,
         cah:Daniel_Wildenstein,
         cah:Giovanna_Bertazzoni,
@@ -1215,17 +1090,9 @@ cah:Water_Lilies a cah:Artwork ;
         cah:Valley .
 
 cah:Yayoi_Kusama a cah:Artist ;
-    cah:activeInMovement cah:American,
-        cah:Asian,
-        cah:Australian,
-        cah:British,
-        cah:European,
-        cah:Italian,
-        cah:Japanese,
-        cah:Latin_American,
-        cah:Surrealism ;
-    cah:hasBirthDate "1929"^^xsd:gYear,
-        "1972"^^xsd:gYear ;
+    cah:hasBirthDate "1929-01-01"^^xsd:date,
+        "1972-01-01"^^xsd:date,
+        "1929"^^xsd:gYear ;
     cah:heldBy cah:American_B-29s,
         cah:Angels,
         cah:Arigasaki_High_School,
@@ -1401,25 +1268,9 @@ cah:Yayoi_Kusama a cah:Artist ;
     cah:participatedInExhibition cah:World_Cup_Park,
         cah:World_War_II .
 
-cah:Cubism a cah:ArtMovement .
+cah:Impressionism a cah:ArtMovement .
 
 cah:Mona_Lisa a cah:Artwork ;
-    cah:activeInMovement cah:American,
-        cah:Chinese,
-        cah:Dadaists,
-        cah:Etruscan-Roman,
-        cah:Flemish,
-        cah:Florentine,
-        cah:French,
-        cah:Freudian,
-        cah:Greek,
-        cah:Italian,
-        cah:Japanese,
-        cah:Monna,
-        cah:Nazi,
-        cah:Roman,
-        cah:Russian,
-        cah:Zollner ;
     cah:createdBy cah:Andrea,
         cah:Andrea_Natali,
         cah:André_Félibien,
@@ -1504,7 +1355,8 @@ cah:Mona_Lisa a cah:Artwork ;
         cah:Zöllner,
         cah:la_Gioconda,
         cah:ma_donna ;
-    cah:hasCreationDate "1503"^^xsd:gYear ;
+    cah:hasCreationDate "1503-01-01"^^xsd:date,
+        "1503"^^xsd:gYear ;
     cah:heldBy cah:ABC,
         cah:Agostino_Vespucci,
         cah:Alessandro_Vezzosi,
@@ -1587,30 +1439,9 @@ cah:Tracey_Emin a cah:Artist ;
     cah:nationality "British" .
 
 cah:Vincent_van_Gogh a cah:Artist ;
-    cah:activeInMovement cah:American,
-        cah:Australian,
-        cah:Belgian,
-        cah:Catholic,
-        cah:Christian,
-        cah:Christianity,
-        cah:Danish,
-        cah:Dutch,
-        cah:Egyptian,
-        cah:Fauvist,
-        cah:Flemish,
-        cah:French,
-        cah:German,
-        cah:Impressionism,
-        cah:Impressionist,
-        cah:Japanese,
-        cah:Jewish,
-        cah:Nazi,
-        cah:Pointillism,
-        cah:Protestant,
-        cah:Rembrandt,
-        cah:Seurat ;
-    cah:hasBirthDate "1853"^^xsd:gYear,
-        "1890"^^xsd:gYear ;
+    cah:hasBirthDate "1853-01-01"^^xsd:date,
+        "1890-01-01"^^xsd:date,
+        "1853"^^xsd:gYear ;
     cah:heldBy cah:Anthon_van_Rappard,
         cah:Asnières,
         cah:Aurier,
@@ -1886,29 +1717,9 @@ cah:Vinci a cah:City ;
     cah:hasCountry cah:Italy .
 
 cah:Claude_Monet a cah:Artist ;
-    cah:activeInMovement cah:American,
-        cah:Catholic,
-        cah:Dutch,
-        cah:English,
-        cah:European,
-        cah:French,
-        cah:German,
-        cah:Imelda,
-        cah:Impressionism,
-        cah:Impressionist,
-        cah:Japanese,
-        cah:Jewish,
-        cah:Ligurian,
-        cah:Nazi,
-        cah:Nazis,
-        cah:Parisian,
-        cah:Parisians,
-        cah:Philippine,
-        cah:Pissarro,
-        cah:Swiss,
-        cah:dans ;
-    cah:hasBirthDate "1840"^^xsd:gYear,
-        "1857"^^xsd:gYear ;
+    cah:hasBirthDate "1840-01-01"^^xsd:date,
+        "1857-01-01"^^xsd:date,
+        "1840"^^xsd:gYear ;
     cah:heldBy cah:Alice,
         cah:Bazille,
         cah:Blanche,
@@ -2137,11 +1948,12 @@ cah:Claude_Monet a cah:Artist ;
         cah:Garden_Bench,
         cah:World_War_I .
 
+cah:Rijksmuseum a cah:Museum ;
+    cah:locatedIn cah:Amsterdam .
+
+cah:Surrealism a cah:ArtMovement .
+
 cah:Tate_Modern a cah:Museum ;
-    cah:activeInMovement cah:Anglo,
-        cah:French,
-        cah:Indigenous_Australian,
-        cah:Mexican ;
     cah:createdBy cah:Abraham_Cruzvillegas,
         cah:Blackfriars,
         cah:Elisabeth_Murdoch,
@@ -2163,7 +1975,7 @@ cah:Tate_Modern a cah:Museum ;
         cah:Tate,
         cah:Tate_Liverpool,
         cah:Tate_St_Ives ;
-    cah:hasCreationDate "1900"^^xsd:gYear ;
+    cah:hasCreationDate "1900-01-01"^^xsd:date ;
     cah:heldBy cah:Artist_Rooms,
         cah:Bankside_Power_Station,
         cah:Battersea_Power_Station,
@@ -2197,39 +2009,10 @@ cah:Tate_Modern a cah:Museum ;
         cah:Southwark,
         cah:Tate_Britain .
 
-cah:Impressionism a cah:ArtMovement .
-
 cah:Leonardo_da_Vinci a cah:Artist ;
-    cah:activeInMovement cah:American,
-        cah:Baptist,
-        cah:British,
-        cah:Caterina,
-        cah:Chinese,
-        cah:Christian,
-        cah:Confraternity,
-        cah:Correggio,
-        cah:European,
-        cah:Florentine,
-        cah:French,
-        cah:Grecian,
-        cah:Greek,
-        cah:Humanist,
-        cah:Italian,
-        cah:Magi,
-        cah:Milanese,
-        cah:Saudi,
-        cah:Servite,
-        cah:Sforza,
-        cah:Spanish,
-        cah:Swiss,
-        cah:Tuscan,
-        cah:Venetian,
-        cah:Veronese,
-        cah:Vitruvian,
-        cah:Western,
-        cah:equestrian ;
-    cah:hasBirthDate "1452"^^xsd:gYear,
-        "1519"^^xsd:gYear ;
+    cah:hasBirthDate "1452-01-01"^^xsd:date,
+        "1519-01-01"^^xsd:date,
+        "1452"^^xsd:gYear ;
     cah:heldBy cah:A_Treatise_on_Painting,
         cah:Alessandro_Vezzosi,
         cah:Ancient_Greece,
@@ -2491,11 +2274,6 @@ cah:Pablo_Picasso a cah:Artist ;
     cah:locatedIn cah:Malaga ;
     cah:nationality "Spanish" .
 
-cah:Rijksmuseum a cah:Museum ;
-    cah:locatedIn cah:Amsterdam .
-
-cah:Surrealism a cah:ArtMovement .
-
 cah:Amsterdam a cah:City ;
     cah:hasCountry cah:Netherlands .
 
@@ -2503,57 +2281,6 @@ cah:Florence a cah:City ;
     cah:hasCountry cah:Italy .
 
 cah:Louvre a cah:Museum ;
-    cah:activeInMovement cah:Albani,
-        cah:American,
-        cah:Arabian,
-        cah:Asian,
-        cah:Assyrian,
-        cah:Austrian,
-        cah:Baptist,
-        cah:Baroque,
-        cah:Braque,
-        cah:British,
-        cah:Byzantine,
-        cah:Caravaggio,
-        cah:Coptic_Egyptian,
-        cah:Durand,
-        cah:Dutch,
-        cah:Egyptian,
-        cah:Etruscan,
-        cah:European,
-        cah:French,
-        cah:German,
-        cah:Greek,
-        cah:Hellenistic,
-        cah:Iranian,
-        cah:Islamic,
-        cah:Italian,
-        cah:Italians,
-        cah:Japanese,
-        cah:Jewish,
-        cah:Latin,
-        cah:Nazi,
-        cah:Nazis,
-        cah:North_African,
-        cah:Northern_European,
-        cah:Northern_French,
-        cah:Northwestern,
-        cah:Oriental,
-        cah:Parisian,
-        cah:Persian,
-        cah:Rembrandt,
-        cah:Republican,
-        cah:Roman,
-        cah:Romanesque,
-        cah:Saudi,
-        cah:Spanish,
-        cah:Syrian,
-        cah:Titian,
-        cah:Venezuelan,
-        cah:Western,
-        cah:non-European,
-        cah:non-Western,
-        cah:pre-Columbian ;
     cah:createdBy cah:Académie,
         cah:Adrien_de_Longpérier,
         cah:Agrippa,
@@ -2740,7 +2467,7 @@ cah:Louvre a cah:Museum ;
         cah:dOrsay,
         cah:dart,
         cah:myze ;
-    cah:hasCreationDate "1793"^^xsd:gYear ;
+    cah:hasCreationDate "1793-01-01"^^xsd:date ;
     cah:heldBy cah:Abu_Dhabi,
         cah:Ancient_Egypt,
         cah:Antiques,
@@ -2945,12 +2672,12 @@ cah:Louvre a cah:Museum ;
         cah:World_War_II,
         cah:post-World_War_II .
 
-cah:Renaissance a cah:ArtMovement .
-
 cah:Rembrandt a cah:Artist ;
     cah:hasBirthDate "1606"^^xsd:gYear ;
     cah:locatedIn cah:Amsterdam ;
     cah:nationality "Dutch" .
+
+cah:Renaissance a cah:ArtMovement .
 
 cah:Paris a cah:City ;
     cah:hasCountry cah:France .
