@@ -115,4 +115,4 @@ Please ensure you DO NOT change anything already included in the ontology, only 
 Outputs the knowledge graph with the addition of the complex relations.
 
 ## Justification 
-To be continued...
+The first prompt allowed for a pipeline to be created, basing the creation of the knowledge graph from the ontology design developed that was based off the competency questions. After the inital knowledge graph was created, the second prompt allowed for any complex relationships missed to be created and linked to each other automatically.
